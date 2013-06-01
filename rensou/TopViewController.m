@@ -7,12 +7,22 @@
 //
 
 #import "TopViewController.h"
+#import "ResultViewController.h"
 #import "RensouNetworkEngine.h"
+#import "Rensou.h"
 
-@implementation TopViewController {
-    RensouNetworkEngine *_rensouNetworkEngine;
-}
+@interface TopViewController()
 
+@property (nonatomic, strong) ResultViewController *resultViewController;
+@property (nonatomic, strong) RensouNetworkEngine *rensouNetworkEngine;
+
+@property Rensou *themeRensou;
+@property NSMutableArray *rensouArray;
+
+@end
+
+
+@implementation TopViewController
 
 #pragma mark UIViewController LifeCycle
 
@@ -21,9 +31,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        _rensouNetworkEngine = [[RensouNetworkEngine alloc]
-                                 initWithHostName:@"localhost:4567"];
-
+        self.rensouNetworkEngine = [[RensouNetworkEngine alloc] initWithHostName:@"localhost:4567"];
     }
     return self;
 }
@@ -34,13 +42,16 @@
     // Do any additional setup after loading the view from its nib.
     
     // ナビゲーションバー
-    self.navigationController.navigationBarHidden = YES;
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    self.navigationItem.title = @"連想ゲーム";
+    //self.navigationController.navigationBarHidden = YES;
     
     // 送信ボタン
 #warning 見た目を変える
     //self.postingButton.enabled = NO;
+    
+    [self requestGetRensouList];
 }
-
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -163,14 +174,27 @@
 
 - (IBAction)tapPostingButton:(id)sender
 {
+    [self.inputTextField resignFirstResponder];
     [self requestPostRensou];
 }
 
-- (void)requestPostRensou
+
+#pragma mark - 通信
+
+- (void)requestGetRensouList
 {
     // レスポンスに対する処理
-    ResponseBlock responseBlock = ^(NSArray *resouArray) {
+    ResponseBlock responseBlock = ^(MKNetworkOperation *op) {
         
+        NSLog(@"response = %@", op.responseString);
+        
+        NSArray *array = op.responseJSON;
+        self.rensouArray = [NSMutableArray array];
+        for (NSDictionary *dict in array) {
+            [self.rensouArray addObject:[[Rensou alloc] initWithDictionary:dict]];
+        }
+        self.themeRensou = self.rensouArray[0];
+        self.themeLabel.text = self.themeRensou.keyword;
     };
     
     // エラー処理
@@ -184,9 +208,51 @@
         return;
     };
     
+    [self.rensouNetworkEngine getRensouList:20
+                          completionHandler:responseBlock
+                               errorHandler:errorBlock];
+}
+
+
+- (void)requestPostRensou
+{
+    // レスポンスに対する処理
+    ResponseBlock responseBlock = ^(MKNetworkOperation *op) {
+        if (!self.resultViewController) {
+            self.resultViewController = [[ResultViewController alloc] initWithNibName:@"ResultViewController" bundle:nil];
+            
+            NSLog(@"self.resultViewController == %d", self.resultViewController == nil);
+        }
+        
+        NSLog(@"self.rensouArray.count = %d", self.rensouArray.count);
+        
+        if (self.rensouArray.count > 0) {
+            [self.resultViewController setResultRensouArray:self.rensouArray];
+            [self.navigationController pushViewController:self.resultViewController animated:YES];
+        } else {
+        }
+    };
+    
+    // エラー処理
+    MKNKErrorBlock errorBlock =  ^(NSError *error) {
+        
+        DLog(@"%@\t%@\t%@\t%@", [error localizedDescription], [error localizedFailureReason],
+             [error localizedRecoveryOptions], [error localizedRecoverySuggestion]);
+        
+        // エラーメッセージ表示
+        //[AppDelegate showErrorMessage:[error localizedDescription]];
+        
+        UIAlertView *alert =
+        [[UIAlertView alloc] initWithTitle:@"エラー" message:@"投稿に失敗しました。"
+                                  delegate:self cancelButtonTitle:@"確認" otherButtonTitles:nil];
+        [alert show];
+        
+        return;
+    };
+    
     // 通信実行
     [_rensouNetworkEngine postRensou:self.inputTextField.text
-                            latestId:8
+                             themeId:self.themeRensou.rensouId
                    completionHandler:responseBlock
                         errorHandler:errorBlock];
 }

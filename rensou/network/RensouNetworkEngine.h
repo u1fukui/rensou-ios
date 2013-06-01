@@ -11,10 +11,14 @@
 
 @interface RensouNetworkEngine : MKNetworkEngine
 
-typedef void (^ResponseBlock)(NSArray *rensouArray);
+typedef void (^ResponseBlock)(MKNetworkOperation *op);
+
+-(MKNetworkOperation*) getRensouList:(int) count
+                   completionHandler:(ResponseBlock) completionBlock
+                        errorHandler:(MKNKErrorBlock) errorBlock;
 
 -(MKNetworkOperation*) postRensou:(NSString*) rensouWord
-                         latestId:(NSUInteger) latestId
+                          themeId:(int) themeId
                 completionHandler:(ResponseBlock) completionBlock
                      errorHandler:(MKNKErrorBlock) errorBlock;
 

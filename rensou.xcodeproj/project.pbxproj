@@ -27,6 +27,8 @@
 		7746576016E3534F00ACD435 /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7746575E16E3534F00ACD435 /* ResultViewController.xib */; };
 		7746576416E3539500ACD435 /* FavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7746576216E3539500ACD435 /* FavoriteViewController.m */; };
 		7746576516E3539500ACD435 /* FavoriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7746576316E3539500ACD435 /* FavoriteViewController.xib */; };
+		776AE0D21753ABA20073351A /* Rensou.m in Sources */ = {isa = PBXBuildFile; fileRef = 776AE0D11753ABA20073351A /* Rensou.m */; };
+		776AE0D617599E500073351A /* RensouNetworkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 776AE0D517599E500073351A /* RensouNetworkEngine.m */; };
 		77952AF716F979A10025F785 /* NSAlert+MKNetworkKitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 77952AE216F979A10025F785 /* NSAlert+MKNetworkKitAdditions.m */; };
 		77952AF816F979A10025F785 /* NSData+MKBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 77952AE416F979A10025F785 /* NSData+MKBase64.m */; };
 		77952AF916F979A10025F785 /* NSDate+RFC1123.m in Sources */ = {isa = PBXBuildFile; fileRef = 77952AE616F979A10025F785 /* NSDate+RFC1123.m */; };
@@ -40,7 +42,6 @@
 		77952B0216F979C30025F785 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77952B0116F979C30025F785 /* CFNetwork.framework */; };
 		77952B0416F979CD0025F785 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77952B0316F979CD0025F785 /* SystemConfiguration.framework */; };
 		77952B0616F979D80025F785 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77952B0516F979D80025F785 /* Security.framework */; };
-		77952B0916F9A2430025F785 /* RensouNetworkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 77952B0816F9A2430025F785 /* RensouNetworkEngine.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,10 @@
 		7746576116E3539500ACD435 /* FavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteViewController.h; sourceTree = "<group>"; };
 		7746576216E3539500ACD435 /* FavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteViewController.m; sourceTree = "<group>"; };
 		7746576316E3539500ACD435 /* FavoriteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteViewController.xib; sourceTree = "<group>"; };
+		776AE0D01753ABA20073351A /* Rensou.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Rensou.h; path = api/Rensou.h; sourceTree = "<group>"; };
+		776AE0D11753ABA20073351A /* Rensou.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Rensou.m; path = api/Rensou.m; sourceTree = "<group>"; };
+		776AE0D417599E500073351A /* RensouNetworkEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RensouNetworkEngine.h; path = network/RensouNetworkEngine.h; sourceTree = "<group>"; };
+		776AE0D517599E500073351A /* RensouNetworkEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RensouNetworkEngine.m; path = network/RensouNetworkEngine.m; sourceTree = "<group>"; };
 		77952AE216F979A10025F785 /* NSAlert+MKNetworkKitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAlert+MKNetworkKitAdditions.m"; sourceTree = "<group>"; };
 		77952AE316F979A10025F785 /* NSData+MKBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MKBase64.h"; sourceTree = "<group>"; };
 		77952AE416F979A10025F785 /* NSData+MKBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MKBase64.m"; sourceTree = "<group>"; };
@@ -105,8 +110,6 @@
 		77952B0116F979C30025F785 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		77952B0316F979CD0025F785 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		77952B0516F979D80025F785 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		77952B0716F9A2430025F785 /* RensouNetworkEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RensouNetworkEngine.h; sourceTree = "<group>"; };
-		77952B0816F9A2430025F785 /* RensouNetworkEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RensouNetworkEngine.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,8 +175,10 @@
 		7746571A16E34AF000ACD435 /* rensou */ = {
 			isa = PBXGroup;
 			children = (
+				776AE0CF1753AAC20073351A /* api */,
 				7746571B16E34AF000ACD435 /* Supporting Files */,
 				77952ADF16F979A10025F785 /* lib */,
+				776AE0CE175085060073351A /* network */,
 				7746572316E34AF000ACD435 /* AppDelegate.h */,
 				7746572416E34AF000ACD435 /* AppDelegate.m */,
 				7746575716E3533200ACD435 /* TopViewController.h */,
@@ -185,8 +190,6 @@
 				7746576116E3539500ACD435 /* FavoriteViewController.h */,
 				7746576216E3539500ACD435 /* FavoriteViewController.m */,
 				7746576316E3539500ACD435 /* FavoriteViewController.xib */,
-				77952B0716F9A2430025F785 /* RensouNetworkEngine.h */,
-				77952B0816F9A2430025F785 /* RensouNetworkEngine.m */,
 			);
 			path = rensou;
 			sourceTree = "<group>";
@@ -222,6 +225,24 @@
 				7746574116E34AF000ACD435 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		776AE0CE175085060073351A /* network */ = {
+			isa = PBXGroup;
+			children = (
+				776AE0D417599E500073351A /* RensouNetworkEngine.h */,
+				776AE0D517599E500073351A /* RensouNetworkEngine.m */,
+			);
+			name = network;
+			sourceTree = "<group>";
+		};
+		776AE0CF1753AAC20073351A /* api */ = {
+			isa = PBXGroup;
+			children = (
+				776AE0D01753ABA20073351A /* Rensou.h */,
+				776AE0D11753ABA20073351A /* Rensou.m */,
+			);
+			name = api;
 			sourceTree = "<group>";
 		};
 		77952ADF16F979A10025F785 /* lib */ = {
@@ -402,7 +423,8 @@
 				77952AFE16F979A10025F785 /* MKNetworkEngine.m in Sources */,
 				77952AFF16F979A10025F785 /* MKNetworkOperation.m in Sources */,
 				77952B0016F979A10025F785 /* Reachability.m in Sources */,
-				77952B0916F9A2430025F785 /* RensouNetworkEngine.m in Sources */,
+				776AE0D21753ABA20073351A /* Rensou.m in Sources */,
+				776AE0D617599E500073351A /* RensouNetworkEngine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

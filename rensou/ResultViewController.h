@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ResultViewController : UIViewController
+@interface ResultViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+
+- (void)setResultRensouArray:(NSArray *)rensouArray;
+
 
 @end
