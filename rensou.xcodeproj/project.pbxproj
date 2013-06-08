@@ -27,8 +27,6 @@
 		7746575B16E3533200ACD435 /* TopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7746575916E3533200ACD435 /* TopViewController.xib */; };
 		7746575F16E3534F00ACD435 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7746575D16E3534F00ACD435 /* ResultViewController.m */; };
 		7746576016E3534F00ACD435 /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7746575E16E3534F00ACD435 /* ResultViewController.xib */; };
-		7746576416E3539500ACD435 /* FavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7746576216E3539500ACD435 /* FavoriteViewController.m */; };
-		7746576516E3539500ACD435 /* FavoriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7746576316E3539500ACD435 /* FavoriteViewController.xib */; };
 		776AE0D21753ABA20073351A /* Rensou.m in Sources */ = {isa = PBXBuildFile; fileRef = 776AE0D11753ABA20073351A /* Rensou.m */; };
 		776AE0D617599E500073351A /* RensouNetworkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 776AE0D517599E500073351A /* RensouNetworkEngine.m */; };
 		777DF31B176313A000AAF1C3 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 777DF31A176313A000AAF1C3 /* icon.png */; };
@@ -89,9 +87,6 @@
 		7746575C16E3534F00ACD435 /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
 		7746575D16E3534F00ACD435 /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
 		7746575E16E3534F00ACD435 /* ResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultViewController.xib; sourceTree = "<group>"; };
-		7746576116E3539500ACD435 /* FavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteViewController.h; sourceTree = "<group>"; };
-		7746576216E3539500ACD435 /* FavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteViewController.m; sourceTree = "<group>"; };
-		7746576316E3539500ACD435 /* FavoriteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteViewController.xib; sourceTree = "<group>"; };
 		776AE0D01753ABA20073351A /* Rensou.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Rensou.h; path = api/Rensou.h; sourceTree = "<group>"; };
 		776AE0D11753ABA20073351A /* Rensou.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Rensou.m; path = api/Rensou.m; sourceTree = "<group>"; };
 		776AE0D417599E500073351A /* RensouNetworkEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RensouNetworkEngine.h; path = network/RensouNetworkEngine.h; sourceTree = "<group>"; };
@@ -224,9 +219,6 @@
 				7746575C16E3534F00ACD435 /* ResultViewController.h */,
 				7746575D16E3534F00ACD435 /* ResultViewController.m */,
 				7746575E16E3534F00ACD435 /* ResultViewController.xib */,
-				7746576116E3539500ACD435 /* FavoriteViewController.h */,
-				7746576216E3539500ACD435 /* FavoriteViewController.m */,
-				7746576316E3539500ACD435 /* FavoriteViewController.xib */,
 			);
 			path = rensou;
 			sourceTree = "<group>";
@@ -410,7 +402,6 @@
 				7746572B16E34AF000ACD435 /* Default-568h@2x.png in Resources */,
 				7746575B16E3533200ACD435 /* TopViewController.xib in Resources */,
 				7746576016E3534F00ACD435 /* ResultViewController.xib in Resources */,
-				7746576516E3539500ACD435 /* FavoriteViewController.xib in Resources */,
 				777DF31B176313A000AAF1C3 /* icon.png in Resources */,
 				777DF31D176313A300AAF1C3 /* icon@2x.png in Resources */,
 			);
@@ -451,7 +442,6 @@
 				7746572516E34AF000ACD435 /* AppDelegate.m in Sources */,
 				7746575A16E3533200ACD435 /* TopViewController.m in Sources */,
 				7746575F16E3534F00ACD435 /* ResultViewController.m in Sources */,
-				7746576416E3539500ACD435 /* FavoriteViewController.m in Sources */,
 				77952AF716F979A10025F785 /* NSAlert+MKNetworkKitAdditions.m in Sources */,
 				77952AF816F979A10025F785 /* NSData+MKBase64.m in Sources */,
 				77952AF916F979A10025F785 /* NSDate+RFC1123.m in Sources */,
