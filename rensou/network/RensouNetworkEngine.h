@@ -13,10 +13,15 @@
 
 typedef void (^ResponseBlock)(MKNetworkOperation *op);
 
--(MKNetworkOperation*) getRensouList:(int) count
-                   completionHandler:(ResponseBlock) completionBlock
-                        errorHandler:(MKNKErrorBlock) errorBlock;
+// シングルトンインスタンス取得
++ (RensouNetworkEngine *)sharedEngine;
 
+// 連想リストの取得
+-(MKNetworkOperation*) getThemeRensou:(int) count
+                    completionHandler:(ResponseBlock) completionBlock
+                         errorHandler:(MKNKErrorBlock) errorBlock;
+
+// 連想ワードの投稿
 -(MKNetworkOperation*) postRensou:(NSString*) rensouWord
                           themeId:(int) themeId
                 completionHandler:(ResponseBlock) completionBlock

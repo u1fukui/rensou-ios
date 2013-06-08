@@ -47,5 +47,7 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>ServerHostName</key>
+	<string>localhost:4567</string>
 </dict>
 </plist>

@@ -15,8 +15,6 @@
 @interface TopViewController()
 
 @property (nonatomic, strong) ResultViewController *resultViewController;
-@property (nonatomic, strong) RensouNetworkEngine *rensouNetworkEngine;
-
 @property Rensou *themeRensou;
 
 @end
@@ -30,8 +28,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
-        self.rensouNetworkEngine = [[RensouNetworkEngine alloc] initWithHostName:@"localhost:4567"];
     }
     return self;
 }
@@ -203,7 +199,7 @@
     // エラー処理
     MKNKErrorBlock errorBlock =  ^(NSError *error) {
         
-        DLog(@"%@\t%@\t%@\t%@", [error localizedDescription], [error localizedFailureReason],
+        NSLog(@"%@\t%@\t%@\t%@", [error localizedDescription], [error localizedFailureReason],
              [error localizedRecoveryOptions], [error localizedRecoverySuggestion]);
         
         // エラーメッセージ表示
@@ -211,9 +207,9 @@
         return;
     };
     
-    [self.rensouNetworkEngine getRensouList:20
-                          completionHandler:responseBlock
-                               errorHandler:errorBlock];
+    [[RensouNetworkEngine sharedEngine] getThemeRensou:20
+                                     completionHandler:responseBlock
+                                          errorHandler:errorBlock];
 }
 
 
@@ -263,10 +259,10 @@
     };
     
     // 通信実行
-    [_rensouNetworkEngine postRensou:self.inputTextField.text
-                             themeId:self.themeRensou.rensouId
-                   completionHandler:responseBlock
-                        errorHandler:errorBlock];
+    [[RensouNetworkEngine sharedEngine] postRensou:self.inputTextField.text
+                                           themeId:self.themeRensou.rensouId
+                                 completionHandler:responseBlock
+                                      errorHandler:errorBlock];
 }
 
 @end

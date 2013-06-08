@@ -7,15 +7,33 @@
 //
 
 #import "RensouNetworkEngine.h"
+#import "InfoPlistProperty.h"
 
 @implementation RensouNetworkEngine
 
-#define kHostName @"localhost:4567"
+
+#pragma mark - シングルトン
+
+static RensouNetworkEngine *_sharedInstance = nil;
+
++ (RensouNetworkEngine *)sharedEngine
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSString *host = [[[NSBundle mainBundle] infoDictionary] objectForKey:kServerHostName];
+        NSLog(@"%s create engine: %@", __func__, host);
+        _sharedInstance = [[RensouNetworkEngine alloc] initWithHostName:host];
+    });
+    return _sharedInstance;
+}
+
+
+#pragma mark - APIの実行
 
 // 連想リストの取得
--(MKNetworkOperation*) getRensouList:(int) count
-                   completionHandler:(ResponseBlock) completionBlock
-                        errorHandler:(MKNKErrorBlock) errorBlock
+-(MKNetworkOperation*) getThemeRensou:(int) count
+                    completionHandler:(ResponseBlock) completionBlock
+                         errorHandler:(MKNKErrorBlock) errorBlock
 {
     // リクエスト
     MKNetworkOperation *op = [self operationWithPath:@"rensous.json"
@@ -24,12 +42,9 @@
     
     [op addCompletionHandler:^(MKNetworkOperation *completedOperation)
      {
-         // the completionBlock will be called twice.
-         // if you are interested only in new values, move that code within the else block
-         
          completionBlock(completedOperation);
          
-     }errorHandler:^(MKNetworkOperation *errorOp, NSError* error) {
+     } errorHandler:^(MKNetworkOperation *errorOp, NSError* error) {
          
          errorBlock(error);
          
@@ -61,13 +76,9 @@
     
     [op addCompletionHandler:^(MKNetworkOperation *completedOperation)
      {
-         // the completionBlock will be called twice.
-         // if you are interested only in new values, move that code within the else block
-         
          completionBlock(completedOperation);
-         // completionBlock([self jsonToSpotArray:[completedOperation responseString]]);
      
-     }errorHandler:^(MKNetworkOperation *errorOp, NSError* error) {
+     } errorHandler:^(MKNetworkOperation *errorOp, NSError* error) {
      
          errorBlock(error);
      
