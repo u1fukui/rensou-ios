@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7721570F1759FFDD00953C2B /* RensouCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7721570E1759FFDD00953C2B /* RensouCell.m */; };
+		77215714175A2CAE00953C2B /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 77215713175A2CAE00953C2B /* UIColor+Hex.m */; };
 		7746571516E34AF000ACD435 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7746571416E34AF000ACD435 /* UIKit.framework */; };
 		7746571716E34AF000ACD435 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7746571616E34AF000ACD435 /* Foundation.framework */; };
 		7746571916E34AF000ACD435 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7746571816E34AF000ACD435 /* CoreGraphics.framework */; };
@@ -29,6 +31,8 @@
 		7746576516E3539500ACD435 /* FavoriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7746576316E3539500ACD435 /* FavoriteViewController.xib */; };
 		776AE0D21753ABA20073351A /* Rensou.m in Sources */ = {isa = PBXBuildFile; fileRef = 776AE0D11753ABA20073351A /* Rensou.m */; };
 		776AE0D617599E500073351A /* RensouNetworkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 776AE0D517599E500073351A /* RensouNetworkEngine.m */; };
+		777DF31B176313A000AAF1C3 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 777DF31A176313A000AAF1C3 /* icon.png */; };
+		777DF31D176313A300AAF1C3 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 777DF31C176313A300AAF1C3 /* icon@2x.png */; };
 		77952AF716F979A10025F785 /* NSAlert+MKNetworkKitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 77952AE216F979A10025F785 /* NSAlert+MKNetworkKitAdditions.m */; };
 		77952AF816F979A10025F785 /* NSData+MKBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 77952AE416F979A10025F785 /* NSData+MKBase64.m */; };
 		77952AF916F979A10025F785 /* NSDate+RFC1123.m in Sources */ = {isa = PBXBuildFile; fileRef = 77952AE616F979A10025F785 /* NSDate+RFC1123.m */; };
@@ -55,6 +59,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7721570D1759FFDD00953C2B /* RensouCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RensouCell.h; sourceTree = "<group>"; };
+		7721570E1759FFDD00953C2B /* RensouCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RensouCell.m; sourceTree = "<group>"; };
+		77215712175A2CAE00953C2B /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		77215713175A2CAE00953C2B /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		7746571016E34AF000ACD435 /* rensou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rensou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7746571416E34AF000ACD435 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7746571616E34AF000ACD435 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -87,6 +95,8 @@
 		776AE0D11753ABA20073351A /* Rensou.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Rensou.m; path = api/Rensou.m; sourceTree = "<group>"; };
 		776AE0D417599E500073351A /* RensouNetworkEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RensouNetworkEngine.h; path = network/RensouNetworkEngine.h; sourceTree = "<group>"; };
 		776AE0D517599E500073351A /* RensouNetworkEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RensouNetworkEngine.m; path = network/RensouNetworkEngine.m; sourceTree = "<group>"; };
+		777DF31A176313A000AAF1C3 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		777DF31C176313A300AAF1C3 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		77952AE216F979A10025F785 /* NSAlert+MKNetworkKitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAlert+MKNetworkKitAdditions.m"; sourceTree = "<group>"; };
 		77952AE316F979A10025F785 /* NSData+MKBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MKBase64.h"; sourceTree = "<group>"; };
 		77952AE416F979A10025F785 /* NSData+MKBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MKBase64.m"; sourceTree = "<group>"; };
@@ -139,9 +149,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7721570C1759FF9300953C2B /* view */ = {
+			isa = PBXGroup;
+			children = (
+				7721570D1759FFDD00953C2B /* RensouCell.h */,
+				7721570E1759FFDD00953C2B /* RensouCell.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		77215711175A2C7000953C2B /* util */ = {
+			isa = PBXGroup;
+			children = (
+				77215712175A2CAE00953C2B /* UIColor+Hex.h */,
+				77215713175A2CAE00953C2B /* UIColor+Hex.m */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
 		7746570516E34AF000ACD435 = {
 			isa = PBXGroup;
 			children = (
+				777DF31C176313A300AAF1C3 /* icon@2x.png */,
+				777DF31A176313A000AAF1C3 /* icon.png */,
 				7746571A16E34AF000ACD435 /* rensou */,
 				7746573E16E34AF000ACD435 /* rensouTests */,
 				7746571316E34AF000ACD435 /* Frameworks */,
@@ -175,17 +205,19 @@
 		7746571A16E34AF000ACD435 /* rensou */ = {
 			isa = PBXGroup;
 			children = (
-				776AE0CF1753AAC20073351A /* api */,
 				7746571B16E34AF000ACD435 /* Supporting Files */,
-				77952ADF16F979A10025F785 /* lib */,
+				776AE0CF1753AAC20073351A /* api */,
 				776AE0CE175085060073351A /* network */,
+				7721570C1759FF9300953C2B /* view */,
+				77215711175A2C7000953C2B /* util */,
+				77952ADF16F979A10025F785 /* lib */,
 				7746572316E34AF000ACD435 /* AppDelegate.h */,
 				7746572416E34AF000ACD435 /* AppDelegate.m */,
 				7746575716E3533200ACD435 /* TopViewController.h */,
 				7746575816E3533200ACD435 /* TopViewController.m */,
 				7746575916E3533200ACD435 /* TopViewController.xib */,
-				7746575D16E3534F00ACD435 /* ResultViewController.m */,
 				7746575C16E3534F00ACD435 /* ResultViewController.h */,
+				7746575D16E3534F00ACD435 /* ResultViewController.m */,
 				7746575E16E3534F00ACD435 /* ResultViewController.xib */,
 				7746576116E3539500ACD435 /* FavoriteViewController.h */,
 				7746576216E3539500ACD435 /* FavoriteViewController.m */,
@@ -374,6 +406,8 @@
 				7746575B16E3533200ACD435 /* TopViewController.xib in Resources */,
 				7746576016E3534F00ACD435 /* ResultViewController.xib in Resources */,
 				7746576516E3539500ACD435 /* FavoriteViewController.xib in Resources */,
+				777DF31B176313A000AAF1C3 /* icon.png in Resources */,
+				777DF31D176313A300AAF1C3 /* icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +459,8 @@
 				77952B0016F979A10025F785 /* Reachability.m in Sources */,
 				776AE0D21753ABA20073351A /* Rensou.m in Sources */,
 				776AE0D617599E500073351A /* RensouNetworkEngine.m in Sources */,
+				7721570F1759FFDD00953C2B /* RensouCell.m in Sources */,
+				77215714175A2CAE00953C2B /* UIColor+Hex.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,10 +560,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "rensou/rensou-Prefix.pch";
 				INFOPLIST_FILE = "rensou/rensou-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "E9B0FD8D-C131-4D97-BD11-A00ABA2B9DA0";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "10CA34E2-05CF-436F-8E24-A0AFB8584ED9";
+				PROVISIONING_PROFILE = "A36F88B6-CCE2-4852-A4CA-D0FB0FDDE971";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A36F88B6-CCE2-4852-A4CA-D0FB0FDDE971";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -540,10 +576,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "rensou/rensou-Prefix.pch";
 				INFOPLIST_FILE = "rensou/rensou-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "E9B0FD8D-C131-4D97-BD11-A00ABA2B9DA0";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "10CA34E2-05CF-436F-8E24-A0AFB8584ED9";
+				PROVISIONING_PROFILE = "A36F88B6-CCE2-4852-A4CA-D0FB0FDDE971";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A36F88B6-CCE2-4852-A4CA-D0FB0FDDE971";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

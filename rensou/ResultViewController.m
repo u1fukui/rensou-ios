@@ -8,6 +8,8 @@
 
 #import "ResultViewController.h"
 #import "Rensou.h"
+#import "RensouCell.h"
+#import "UIColor+Hex.h"
 
 @interface ResultViewController ()
 
@@ -39,8 +41,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    // Navigation
+    self.navigationItem.title = @"連想履歴";
+    
+    // 背景
+    self.view.backgroundColor = [UIColor colorWithHex:@"38CB7D"];
+    
+    // Table
     self.resultTableView.dataSource = self;
     self.resultTableView.delegate = self;
+    self.resultTableView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)didReceiveMemoryWarning
@@ -69,29 +79,17 @@
     NSLog(@"indexPath.row = %d", indexPath.row);
     
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView
-                             dequeueReusableCellWithIdentifier:CellIdentifier];
+    RensouCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc]
+        cell = [[RensouCell alloc]
                  initWithStyle:UITableViewCellStyleDefault
                  reuseIdentifier:CellIdentifier];
     }
     
     Rensou *rensou = [self.rensouArray objectAtIndex:indexPath.row];
-    Rensou *rensouOld = [self.rensouArray objectAtIndex:indexPath.row + 1];
+    Rensou *oldRensou = [self.rensouArray objectAtIndex:indexPath.row + 1];
+    [cell setRensou:rensou oldRensou:oldRensou];
     
-    NSLog(@"111");
-    
-    NSLog(@"rensouOld.keyword = %@", rensouOld.keyword);
-    NSLog(@"rensou.keyword = %@", rensou.keyword);
-    
-    NSString *text = [NSString
-                      stringWithFormat:@"%@ といえば %@",
-                      rensouOld.keyword, rensou.keyword];
-    
-    NSLog(@"222");
-    
-    cell.textLabel.text = text;
     return cell;
 }
 
@@ -105,7 +103,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 44;
+    return [RensouCell cellHeight];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -119,6 +117,7 @@
 - (void)setResultRensouArray:(NSArray *)rensouArray
 {
     self.rensouArray = rensouArray;
+    [self.resultTableView reloadData];
 }
 
 @end

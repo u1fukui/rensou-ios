@@ -46,11 +46,7 @@
                           themeId:(int) themeId
                 completionHandler:(ResponseBlock) completionBlock
                      errorHandler:(MKNKErrorBlock) errorBlock
-{
-    NSLog(@"int = %d", themeId);
-    NSLog(@"number = %@", [NSNumber numberWithInteger:themeId]);
-    NSLog(@"str = %@", [NSString stringWithFormat:@"%d", themeId]);
-    
+{    
     // Body
     NSDictionary *params = @{
                              @"keyword": rensouWord,

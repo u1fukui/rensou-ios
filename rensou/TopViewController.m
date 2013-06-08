@@ -10,6 +10,7 @@
 #import "ResultViewController.h"
 #import "RensouNetworkEngine.h"
 #import "Rensou.h"
+#import "UIColor+Hex.h"
 
 @interface TopViewController()
 
@@ -17,7 +18,6 @@
 @property (nonatomic, strong) RensouNetworkEngine *rensouNetworkEngine;
 
 @property Rensou *themeRensou;
-@property NSMutableArray *rensouArray;
 
 @end
 
@@ -43,14 +43,20 @@
     
     // ナビゲーションバー
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
-    self.navigationItem.title = @"連想ゲーム";
-    //self.navigationController.navigationBarHidden = YES;
+    self.navigationItem.title = @"連想げーむ";
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] init];
+    backButton.title = @"戻る";
+    self.navigationItem.backBarButtonItem = backButton;
+    
+    // 背景
+    self.view.backgroundColor = [UIColor colorWithHex:@"#38CB7D"];
+    
     
     // 送信ボタン
 #warning 見た目を変える
     //self.postingButton.enabled = NO;
     
-    [self requestGetRensouList];
+    [self requestGetThemeRensou];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -58,24 +64,26 @@
     [super viewWillAppear:animated];
     
     // キーボードイベント
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self];
+//    
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(onUIKeyboardWillShowNotification:)
+//                                                 name:UIKeyboardWillShowNotification
+//                                               object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(onUIKeyboardDidShowNotification:)
+//                                                 name:UIKeyboardDidShowNotification
+//                                               object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(onUIKeyboardWillHideNotification:)
+//                                                 name:UIKeyboardWillHideNotification
+//                                               object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(onUIKeyboardDidHideNotification:)
+//                                                 name:UIKeyboardDidHideNotification
+//                                               object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onUIKeyboardWillShowNotification:)
-                                                 name:UIKeyboardWillShowNotification
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onUIKeyboardDidShowNotification:)
-                                                 name:UIKeyboardDidShowNotification
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onUIKeyboardWillHideNotification:)
-                                                 name:UIKeyboardWillHideNotification
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onUIKeyboardDidHideNotification:)
-                                                 name:UIKeyboardDidHideNotification
-                                               object:nil];
+    [self requestGetThemeRensou];
 }
 
 - (void)didReceiveMemoryWarning
@@ -181,19 +189,14 @@
 
 #pragma mark - 通信
 
-- (void)requestGetRensouList
+- (void)requestGetThemeRensou
 {
     // レスポンスに対する処理
     ResponseBlock responseBlock = ^(MKNetworkOperation *op) {
         
         NSLog(@"response = %@", op.responseString);
         
-        NSArray *array = op.responseJSON;
-        self.rensouArray = [NSMutableArray array];
-        for (NSDictionary *dict in array) {
-            [self.rensouArray addObject:[[Rensou alloc] initWithDictionary:dict]];
-        }
-        self.themeRensou = self.rensouArray[0];
+        self.themeRensou = [[Rensou alloc] initWithDictionary:op.responseJSON];
         self.themeLabel.text = self.themeRensou.keyword;
     };
     
@@ -224,10 +227,19 @@
             NSLog(@"self.resultViewController == %d", self.resultViewController == nil);
         }
         
-        NSLog(@"self.rensouArray.count = %d", self.rensouArray.count);
+        NSLog(@"%@", op.responseJSON);
         
-        if (self.rensouArray.count > 0) {
-            [self.resultViewController setResultRensouArray:self.rensouArray];
+        // レスポンスの解析
+        NSMutableArray *rensouArray = [NSMutableArray array];
+        NSArray *responseArray = op.responseJSON;
+        for (NSDictionary *dict in responseArray) {
+            [rensouArray addObject:[[Rensou alloc] initWithDictionary:dict]];
+        }
+        
+        // 結果画面に遷移
+        if (rensouArray.count > 0) {
+            self.inputTextField.text = @"";
+            [self.resultViewController setResultRensouArray:rensouArray];
             [self.navigationController pushViewController:self.resultViewController animated:YES];
         } else {
         }
