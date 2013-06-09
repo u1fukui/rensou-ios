@@ -15,6 +15,8 @@
 
 @interface TopViewController()
 
+@property (weak, nonatomic) IBOutlet UIImageView *subTextImageView;
+
 @property ResultViewController *resultViewController;
 @property Rensou *themeRensou;
 @property NSDate *lastRequestDate;
@@ -47,10 +49,14 @@
     
     // テーマ
     self.themeLabel.textColor = [UIColor colorWithHex:@"#C7243A"];
+    self.subTextImageView.image = [UIImage imageNamed:@"sub_text"];
+    
+    self.inputTextField.backgroundColor = [UIColor whiteColor];
     
     // 送信ボタン
-#warning 見た目を変える
-    //self.postingButton.enabled = NO;
+    UIImage *buttonImage = [UIImage imageNamed:@"button_submit"];
+    [self.postingButton setImage:buttonImage forState:UIControlStateNormal];
+    [self.postingButton setImage:buttonImage forState:UIControlStateHighlighted];
 }
 
 -(void)viewWillAppear:(BOOL)animated
