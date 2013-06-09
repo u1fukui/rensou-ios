@@ -40,15 +40,13 @@
     // Do any additional setup after loading the view from its nib.
     
     // ナビゲーションバー
-    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
-    self.navigationItem.title = @"連想げーむ";
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] init];
-    backButton.title = @"戻る";
-    self.navigationItem.backBarButtonItem = backButton;
-    
+    [self showNavigationBar];
+
     // 背景
-    self.view.backgroundColor = [UIColor colorWithHex:@"#38CB7D"];
+    self.view.backgroundColor = [UIColor colorWithHex:@"#A6E39D"];
     
+    // テーマ
+    self.themeLabel.textColor = [UIColor colorWithHex:@"#C7243A"];
     
     // 送信ボタン
 #warning 見た目を変える
@@ -60,6 +58,7 @@
     NSLog(@"%s", __func__);
     
     [super viewWillAppear:animated];
+    [self showNavigationBar];
     [self requestGetThemeRensou];
     
     // キーボードイベント
@@ -113,6 +112,21 @@
     [self setPostingButton:nil];
     [super viewDidUnload];
 }
+
+
+#pragma mark - 
+
+- (void)showNavigationBar
+{
+    // ナビゲーションバー
+    UIImage *navImage = [UIImage imageNamed:@"navigation_bg_top"];
+    [self.navigationController.navigationBar setBackgroundImage:navImage
+                                                  forBarMetrics:UIBarMetricsDefault];
+    // 影を消す
+    UIImage *shadowImage = [[UIImage alloc] init];
+    [self.navigationController.navigationBar setShadowImage:shadowImage];
+}
+
 
 
 #pragma mark - Keyboard show event
@@ -192,7 +206,7 @@
 }
 
 
-#pragma mark -
+#pragma mark - イベント
 
 - (IBAction)tapPostingButton:(id)sender
 {

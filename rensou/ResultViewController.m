@@ -13,6 +13,7 @@
 
 @interface ResultViewController ()
 
+@property (weak, nonatomic) UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UITableView *resultTableView;
 
 @property NSArray *rensouArray;
@@ -39,18 +40,35 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
-    // Navigation
-    self.navigationItem.title = @"連想履歴";
+    // ナビゲーションバー
+    [self showNavigationBar];
+    
+    // 戻る
+    self.backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.backButton.frame = CGRectMake(0.0f, 0.0f, 33.0f, 33.0f);
+    [self.backButton setBackgroundImage:[UIImage imageNamed:@"navigation_back"]
+                      forState:UIControlStateNormal];
+    [self.backButton addTarget:self
+               action:@selector(onClickButton:)
+     forControlEvents:UIControlEventTouchUpInside];
+
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:self.backButton];
+    self.navigationItem.leftBarButtonItem = backButton;
     
     // 背景
-    self.view.backgroundColor = [UIColor colorWithHex:@"38CB7D"];
+    self.view.backgroundColor = [UIColor colorWithHex:@"#A6E39D"];
     
     // Table
     self.resultTableView.dataSource = self;
     self.resultTableView.delegate = self;
     self.resultTableView.backgroundColor = [UIColor clearColor];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self showNavigationBar];
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,6 +80,20 @@
 - (void)viewDidUnload {
     [self setResultTableView:nil];
     [super viewDidUnload];
+}
+
+
+#pragma mark -
+
+- (void)showNavigationBar
+{
+    // ナビゲーションバー
+    UIImage *navImage = [UIImage imageNamed:@"navigation_bg_result"];
+    [self.navigationController.navigationBar setBackgroundImage:navImage
+                                                  forBarMetrics:UIBarMetricsDefault];
+    // 影を消す
+    UIImage *shadowImage = [[UIImage alloc] init];
+    [self.navigationController.navigationBar setShadowImage:shadowImage];
 }
 
 
@@ -109,6 +141,16 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // 何もしない
+}
+
+
+#pragma mark - イベント
+
+- (void)onClickButton:(UIButton *)button
+{
+    if (button == self.backButton) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 
