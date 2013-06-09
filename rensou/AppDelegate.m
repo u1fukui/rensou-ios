@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "RSNotification.h"
 
 @implementation AppDelegate
 
@@ -45,7 +46,9 @@ void uncaughtExceptionHandler(NSException *exception)
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    // 通知
+    NSNotification *n = [NSNotification notificationWithName:RSWillEnterForegroundNotification object:self];
+    [[NSNotificationCenter defaultCenter] postNotification:n];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

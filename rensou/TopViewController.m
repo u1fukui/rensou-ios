@@ -11,11 +11,13 @@
 #import "RensouNetworkEngine.h"
 #import "Rensou.h"
 #import "UIColor+Hex.h"
+#import "RSNotification.h"
 
 @interface TopViewController()
 
-@property (nonatomic, strong) ResultViewController *resultViewController;
+@property ResultViewController *resultViewController;
 @property Rensou *themeRensou;
+@property NSDate *lastRequestDate;
 
 @end
 
@@ -51,13 +53,14 @@
     // 送信ボタン
 #warning 見た目を変える
     //self.postingButton.enabled = NO;
-    
-    [self requestGetThemeRensou];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    NSLog(@"%s", __func__);
+    
     [super viewWillAppear:animated];
+    [self requestGetThemeRensou];
     
     // キーボードイベント
 //    [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -78,9 +81,24 @@
 //                                             selector:@selector(onUIKeyboardDidHideNotification:)
 //                                                 name:UIKeyboardDidHideNotification
 //                                               object:nil];
-    
-    [self requestGetThemeRensou];
 }
+
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    // アプリ復帰時の通知
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleWillEnterForegroundNotification:)
+                                                 name:RSWillEnterForegroundNotification
+                                               object:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    // NotificationCenterの削除
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -187,11 +205,14 @@
 
 - (void)requestGetThemeRensou
 {
+    NSLog(@"%s", __func__);
+    
     // レスポンスに対する処理
     ResponseBlock responseBlock = ^(MKNetworkOperation *op) {
-        
+        NSLog(@"responseBlock");
         NSLog(@"response = %@", op.responseString);
         
+        self.lastRequestDate = [NSDate date];
         self.themeRensou = [[Rensou alloc] initWithDictionary:op.responseJSON];
         self.themeLabel.text = self.themeRensou.keyword;
     };
@@ -203,7 +224,11 @@
              [error localizedRecoveryOptions], [error localizedRecoverySuggestion]);
         
         // エラーメッセージ表示
-        //[AppDelegate showErrorMessage:[error localizedDescription]];
+        UIAlertView *alert =
+        [[UIAlertView alloc] initWithTitle:@"エラー" message:@"サーバが落ちている疑いがあります。ゆーいちまでご連絡ください。"
+                                  delegate:self cancelButtonTitle:@"確認" otherButtonTitles:nil];
+        [alert show];
+        
         return;
     };
     
@@ -263,6 +288,18 @@
                                            themeId:self.themeRensou.rensouId
                                  completionHandler:responseBlock
                                       errorHandler:errorBlock];
+}
+
+
+#pragma mark - 通知
+
+- (void)handleWillEnterForegroundNotification:(NSNotification *)notification
+{
+    // 前回取得時から一定時間経っていたら、最新テーマを取得し直す
+    if ([[NSDate date] timeIntervalSinceDate:self.lastRequestDate] > 60.0f) {
+        NSLog(@"interval > 60");
+        [self requestGetThemeRensou];
+    }
 }
 
 @end

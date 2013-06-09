@@ -32,6 +32,7 @@
 		777DF31B176313A000AAF1C3 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 777DF31A176313A000AAF1C3 /* icon.png */; };
 		777DF31D176313A300AAF1C3 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 777DF31C176313A300AAF1C3 /* icon@2x.png */; };
 		777DF322176380F900AAF1C3 /* InfoPlistProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 777DF321176380F900AAF1C3 /* InfoPlistProperty.m */; };
+		777DF3251763FC1D00AAF1C3 /* RSNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 777DF3241763FC1D00AAF1C3 /* RSNotification.m */; };
 		77952AF716F979A10025F785 /* NSAlert+MKNetworkKitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 77952AE216F979A10025F785 /* NSAlert+MKNetworkKitAdditions.m */; };
 		77952AF816F979A10025F785 /* NSData+MKBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 77952AE416F979A10025F785 /* NSData+MKBase64.m */; };
 		77952AF916F979A10025F785 /* NSDate+RFC1123.m in Sources */ = {isa = PBXBuildFile; fileRef = 77952AE616F979A10025F785 /* NSDate+RFC1123.m */; };
@@ -95,6 +96,8 @@
 		777DF31C176313A300AAF1C3 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		777DF320176380F900AAF1C3 /* InfoPlistProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoPlistProperty.h; sourceTree = "<group>"; };
 		777DF321176380F900AAF1C3 /* InfoPlistProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoPlistProperty.m; sourceTree = "<group>"; };
+		777DF3231763FC1D00AAF1C3 /* RSNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSNotification.h; sourceTree = "<group>"; };
+		777DF3241763FC1D00AAF1C3 /* RSNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSNotification.m; sourceTree = "<group>"; };
 		77952AE216F979A10025F785 /* NSAlert+MKNetworkKitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAlert+MKNetworkKitAdditions.m"; sourceTree = "<group>"; };
 		77952AE316F979A10025F785 /* NSData+MKBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MKBase64.h"; sourceTree = "<group>"; };
 		77952AE416F979A10025F785 /* NSData+MKBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MKBase64.m"; sourceTree = "<group>"; };
@@ -211,6 +214,8 @@
 				77952ADF16F979A10025F785 /* lib */,
 				777DF320176380F900AAF1C3 /* InfoPlistProperty.h */,
 				777DF321176380F900AAF1C3 /* InfoPlistProperty.m */,
+				777DF3231763FC1D00AAF1C3 /* RSNotification.h */,
+				777DF3241763FC1D00AAF1C3 /* RSNotification.m */,
 				7746572316E34AF000ACD435 /* AppDelegate.h */,
 				7746572416E34AF000ACD435 /* AppDelegate.m */,
 				7746575716E3533200ACD435 /* TopViewController.h */,
@@ -457,6 +462,7 @@
 				7721570F1759FFDD00953C2B /* RensouCell.m in Sources */,
 				77215714175A2CAE00953C2B /* UIColor+Hex.m in Sources */,
 				777DF322176380F900AAF1C3 /* InfoPlistProperty.m in Sources */,
+				777DF3251763FC1D00AAF1C3 /* RSNotification.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
