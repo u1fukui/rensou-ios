@@ -15,6 +15,7 @@
 
 @interface TopViewController()
 
+@property (weak, nonatomic) IBOutlet UIView *topBgView;
 @property (weak, nonatomic) IBOutlet UIImageView *subTextImageView;
 
 @property ResultViewController *resultViewController;
@@ -47,8 +48,14 @@
     // 背景
     self.view.backgroundColor = [UIColor colorWithHex:@"#A6E39D"];
     
+    // 背景画像
+    self.topBgView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"top_bg"]];
+    
     // テーマ
     self.themeLabel.textColor = [UIColor colorWithHex:@"#C7243A"];
+    self.themeLabel.numberOfLines = 3;
+    self.themeLabel.lineBreakMode = NSLineBreakByCharWrapping;
+    
     self.subTextImageView.image = [UIImage imageNamed:@"sub_text"];
     
     self.inputTextField.backgroundColor = [UIColor whiteColor];
@@ -68,24 +75,24 @@
     [self requestGetThemeRensou];
     
     // キーボードイベント
-//    [[NSNotificationCenter defaultCenter] removeObserver:self];
-//    
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(onUIKeyboardWillShowNotification:)
-//                                                 name:UIKeyboardWillShowNotification
-//                                               object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(onUIKeyboardDidShowNotification:)
-//                                                 name:UIKeyboardDidShowNotification
-//                                               object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(onUIKeyboardWillHideNotification:)
-//                                                 name:UIKeyboardWillHideNotification
-//                                               object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(onUIKeyboardDidHideNotification:)
-//                                                 name:UIKeyboardDidHideNotification
-//                                               object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onUIKeyboardWillShowNotification:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onUIKeyboardDidShowNotification:)
+                                                 name:UIKeyboardDidShowNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onUIKeyboardWillHideNotification:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onUIKeyboardDidHideNotification:)
+                                                 name:UIKeyboardDidHideNotification
+                                               object:nil];
 }
 
 
@@ -199,7 +206,7 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     // 最大文字数制限
-    int maxLength = 15;
+    int maxLength = 13;
 	NSMutableString *text = [textField.text mutableCopy];
 	[text replaceCharactersInRange:range withString:string];
 	return [text length] <= maxLength;

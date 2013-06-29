@@ -36,7 +36,7 @@ static RensouNetworkEngine *_sharedInstance = nil;
                          errorHandler:(MKNKErrorBlock) errorBlock
 {
     // リクエスト
-    MKNetworkOperation *op = [self operationWithPath:@"rensous.json"
+    MKNetworkOperation *op = [self operationWithPath:@"rensou.json"
                                               params:nil
                                           httpMethod:@"GET"];
     

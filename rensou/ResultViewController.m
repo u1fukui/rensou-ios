@@ -120,7 +120,7 @@
     
     Rensou *rensou = [self.rensouArray objectAtIndex:indexPath.row];
     Rensou *oldRensou = [self.rensouArray objectAtIndex:indexPath.row + 1];
-    [cell setRensou:rensou oldRensou:oldRensou];
+    [cell setRensou:rensou oldRensou:oldRensou index:indexPath.row];
     
     return cell;
 }

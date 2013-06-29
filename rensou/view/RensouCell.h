@@ -14,6 +14,6 @@
 
 + (CGFloat)cellHeight;
 
-- (void)setRensou:(Rensou *)rensou oldRensou:(Rensou *)oldRensou;
+- (void)setRensou:(Rensou *)rensou oldRensou:(Rensou *)oldRensou index:(int)index;
 
 @end
