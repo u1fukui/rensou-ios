@@ -11,5 +11,6 @@
 @implementation InfoPlistProperty
 
 NSString * const kServerHostName = @"ServerHostName";
+NSString * const kGadPublisherId = @"GadPublisherId";
 
 @end

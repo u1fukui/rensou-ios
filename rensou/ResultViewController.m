@@ -10,13 +10,19 @@
 #import "Rensou.h"
 #import "RensouCell.h"
 #import "UIColor+Hex.h"
+#import "GADBannerView.h"
+#import "InfoPlistProperty.h"
 
 @interface ResultViewController ()
 
 @property (weak, nonatomic) UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UITableView *resultTableView;
+@property (weak, nonatomic) IBOutlet UIView *adView;
 
 @property NSArray *rensouArray;
+
+// 広告
+@property (strong, nonatomic) GADBannerView *bannerView;
 
 @end
 
@@ -63,6 +69,13 @@
     self.resultTableView.dataSource = self;
     self.resultTableView.delegate = self;
     self.resultTableView.backgroundColor = [UIColor clearColor];
+    
+    // 広告
+    self.bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+    self.bannerView.adUnitID = [[[NSBundle mainBundle] infoDictionary] objectForKey:kGadPublisherId];
+    self.bannerView.rootViewController = self;
+    [self.adView addSubview:self.bannerView];
+    [self.bannerView loadRequest:[GADRequest request]];
 }
 
 - (void)viewWillAppear:(BOOL)animated

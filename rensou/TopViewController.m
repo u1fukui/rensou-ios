@@ -12,15 +12,21 @@
 #import "Rensou.h"
 #import "UIColor+Hex.h"
 #import "RSNotification.h"
+#import "GADBannerView.h"
+#import "InfoPlistProperty.h"
 
 @interface TopViewController()
 
 @property (weak, nonatomic) IBOutlet UIView *topBgView;
 @property (weak, nonatomic) IBOutlet UIImageView *subTextImageView;
+@property (weak, nonatomic) IBOutlet UIView *adView;
 
-@property ResultViewController *resultViewController;
-@property Rensou *themeRensou;
-@property NSDate *lastRequestDate;
+@property (strong, nonatomic) ResultViewController *resultViewController;
+@property (strong, nonatomic) Rensou *themeRensou;
+@property (strong, nonatomic) NSDate *lastRequestDate;
+
+// 広告
+@property (strong, nonatomic) GADBannerView *bannerView;
 
 @end
 
@@ -64,6 +70,13 @@
     UIImage *buttonImage = [UIImage imageNamed:@"button_submit"];
     [self.postingButton setImage:buttonImage forState:UIControlStateNormal];
     [self.postingButton setImage:buttonImage forState:UIControlStateHighlighted];
+    
+    // 広告
+    self.bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+    self.bannerView.adUnitID = [[[NSBundle mainBundle] infoDictionary] objectForKey:kGadPublisherId];
+    self.bannerView.rootViewController = self;
+    [self.adView addSubview:self.bannerView];
+    [self.bannerView loadRequest:[GADRequest request]];
 }
 
 -(void)viewWillAppear:(BOOL)animated
