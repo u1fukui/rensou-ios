@@ -8,6 +8,7 @@
 
 #import "TopViewController.h"
 #import "ResultViewController.h"
+#import "AppInfoViewController.h"
 #import "RensouNetworkEngine.h"
 #import "Rensou.h"
 #import "UIColor+Hex.h"
@@ -27,6 +28,9 @@
 
 // 広告
 @property (strong, nonatomic) GADBannerView *bannerView;
+
+
+@property (strong, nonatomic) UIButton *infoButton;
 
 @end
 
@@ -51,6 +55,18 @@
     // ナビゲーションバー
     [self showNavigationBar];
 
+    // アプリ情報
+    self.infoButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.infoButton.frame = CGRectMake(0.0f, 0.0f, 33.0f, 33.0f);
+    [self.infoButton setBackgroundImage:[UIImage imageNamed:@"navigation_info"]
+                               forState:UIControlStateNormal];
+    [self.infoButton addTarget:self
+                        action:@selector(onClickButton:)
+              forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *infoButton = [[UIBarButtonItem alloc] initWithCustomView:self.infoButton];
+    self.navigationItem.rightBarButtonItem = infoButton;
+    
     // 背景
     self.view.backgroundColor = [UIColor colorWithHex:@"#A6E39D"];
     
@@ -339,6 +355,17 @@
     if ([[NSDate date] timeIntervalSinceDate:self.lastRequestDate] > 60.0f) {
         NSLog(@"interval > 60");
         [self requestGetThemeRensou];
+    }
+}
+
+#pragma mark - イベント
+
+- (void)onClickButton:(UIButton *)button
+{
+    if (button == self.infoButton) {
+        AppInfoViewController *controller = [[AppInfoViewController alloc] initWithNibName:@"AppInfoViewController" bundle:nil];
+        [self.navigationController pushViewController:controller
+                                             animated:YES];
     }
 }
 

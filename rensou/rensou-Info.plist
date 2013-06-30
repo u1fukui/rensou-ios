@@ -49,5 +49,9 @@
 	</array>
 	<key>ServerHostName</key>
 	<string>localhost:4567</string>
+	<key>GadPublisherId</key>
+	<string>your-publish-id</string>
+	<key>SupportEmailAddress</key>
+	<string>your-address@example.com</string>
 </dict>
 </plist>

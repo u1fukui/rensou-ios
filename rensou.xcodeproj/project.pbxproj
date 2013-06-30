@@ -67,6 +67,21 @@
 		779B8282177E829A002DB143 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 779B8281177E829A002DB143 /* AudioToolbox.framework */; };
 		779B8284177E82A4002DB143 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 779B8283177E82A4002DB143 /* MessageUI.framework */; };
 		779B8286177E82C3002DB143 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 779B8285177E82C3002DB143 /* AdSupport.framework */; };
+		779B828A177F3D21002DB143 /* AppInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 779B8288177F3D20002DB143 /* AppInfoViewController.m */; };
+		779B828B177F3D21002DB143 /* AppInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 779B8289177F3D20002DB143 /* AppInfoViewController.xib */; };
+		779B829417802233002DB143 /* navigation_bg_info.png in Resources */ = {isa = PBXBuildFile; fileRef = 779B829017802233002DB143 /* navigation_bg_info.png */; };
+		779B829517802233002DB143 /* navigation_bg_info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 779B829117802233002DB143 /* navigation_bg_info@2x.png */; };
+		779B829617802233002DB143 /* navigation_info.png in Resources */ = {isa = PBXBuildFile; fileRef = 779B829217802233002DB143 /* navigation_info.png */; };
+		779B829717802233002DB143 /* navigation_info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 779B829317802233002DB143 /* navigation_info@2x.png */; };
+		779B829A178029B2002DB143 /* button_license.png in Resources */ = {isa = PBXBuildFile; fileRef = 779B8298178029B2002DB143 /* button_license.png */; };
+		779B829B178029B2002DB143 /* button_license@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 779B8299178029B2002DB143 /* button_license@2x.png */; };
+		779B829E17802DDF002DB143 /* button_mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 779B829C17802DDF002DB143 /* button_mail.png */; };
+		779B829F17802DDF002DB143 /* button_mail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 779B829D17802DDF002DB143 /* button_mail@2x.png */; };
+		779B82A2178036C2002DB143 /* howto.png in Resources */ = {isa = PBXBuildFile; fileRef = 779B82A0178036C2002DB143 /* howto.png */; };
+		779B82A3178036C2002DB143 /* howto@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 779B82A1178036C2002DB143 /* howto@2x.png */; };
+		779B82A7178043EB002DB143 /* LicenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 779B82A5178043EB002DB143 /* LicenseViewController.m */; };
+		779B82A8178043EB002DB143 /* LicenseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 779B82A6178043EB002DB143 /* LicenseViewController.xib */; };
+		779B82AD17804942002DB143 /* license.html in Resources */ = {isa = PBXBuildFile; fileRef = 779B82AC17804942002DB143 /* license.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,6 +187,23 @@
 		779B8281177E829A002DB143 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		779B8283177E82A4002DB143 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		779B8285177E82C3002DB143 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		779B8287177F3D20002DB143 /* AppInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppInfoViewController.h; sourceTree = "<group>"; };
+		779B8288177F3D20002DB143 /* AppInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppInfoViewController.m; sourceTree = "<group>"; };
+		779B8289177F3D20002DB143 /* AppInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppInfoViewController.xib; sourceTree = "<group>"; };
+		779B829017802233002DB143 /* navigation_bg_info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigation_bg_info.png; sourceTree = "<group>"; };
+		779B829117802233002DB143 /* navigation_bg_info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation_bg_info@2x.png"; sourceTree = "<group>"; };
+		779B829217802233002DB143 /* navigation_info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigation_info.png; sourceTree = "<group>"; };
+		779B829317802233002DB143 /* navigation_info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation_info@2x.png"; sourceTree = "<group>"; };
+		779B8298178029B2002DB143 /* button_license.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_license.png; sourceTree = "<group>"; };
+		779B8299178029B2002DB143 /* button_license@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_license@2x.png"; sourceTree = "<group>"; };
+		779B829C17802DDF002DB143 /* button_mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_mail.png; sourceTree = "<group>"; };
+		779B829D17802DDF002DB143 /* button_mail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_mail@2x.png"; sourceTree = "<group>"; };
+		779B82A0178036C2002DB143 /* howto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = howto.png; sourceTree = "<group>"; };
+		779B82A1178036C2002DB143 /* howto@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "howto@2x.png"; sourceTree = "<group>"; };
+		779B82A4178043EA002DB143 /* LicenseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LicenseViewController.h; sourceTree = "<group>"; };
+		779B82A5178043EB002DB143 /* LicenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LicenseViewController.m; sourceTree = "<group>"; };
+		779B82A6178043EB002DB143 /* LicenseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LicenseViewController.xib; sourceTree = "<group>"; };
+		779B82AC17804942002DB143 /* license.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = license.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +305,7 @@
 				776AE0CE175085060073351A /* network */,
 				7721570C1759FF9300953C2B /* view */,
 				77215711175A2C7000953C2B /* util */,
+				779B82A9178047CF002DB143 /* html */,
 				77952ADF16F979A10025F785 /* lib */,
 				777DF320176380F900AAF1C3 /* InfoPlistProperty.h */,
 				777DF321176380F900AAF1C3 /* InfoPlistProperty.m */,
@@ -286,6 +319,12 @@
 				7746575C16E3534F00ACD435 /* ResultViewController.h */,
 				7746575D16E3534F00ACD435 /* ResultViewController.m */,
 				7746575E16E3534F00ACD435 /* ResultViewController.xib */,
+				779B8287177F3D20002DB143 /* AppInfoViewController.h */,
+				779B8288177F3D20002DB143 /* AppInfoViewController.m */,
+				779B8289177F3D20002DB143 /* AppInfoViewController.xib */,
+				779B82A4178043EA002DB143 /* LicenseViewController.h */,
+				779B82A5178043EB002DB143 /* LicenseViewController.m */,
+				779B82A6178043EB002DB143 /* LicenseViewController.xib */,
 			);
 			path = rensou;
 			sourceTree = "<group>";
@@ -344,6 +383,16 @@
 		777DF326176409EB00AAF1C3 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				779B82A0178036C2002DB143 /* howto.png */,
+				779B82A1178036C2002DB143 /* howto@2x.png */,
+				779B829C17802DDF002DB143 /* button_mail.png */,
+				779B829D17802DDF002DB143 /* button_mail@2x.png */,
+				779B8298178029B2002DB143 /* button_license.png */,
+				779B8299178029B2002DB143 /* button_license@2x.png */,
+				779B829017802233002DB143 /* navigation_bg_info.png */,
+				779B829117802233002DB143 /* navigation_bg_info@2x.png */,
+				779B829217802233002DB143 /* navigation_info.png */,
+				779B829317802233002DB143 /* navigation_info@2x.png */,
 				77939203177C729F00C6067D /* top_bg.png */,
 				77939204177C729F00C6067D /* top_bg@2x.png */,
 				779391FF177B3A2F00C6067D /* rensou_cell_bg2.png */,
@@ -438,6 +487,14 @@
 				779B8249177E8259002DB143 /* libGoogleAdMobAds.a */,
 			);
 			path = "GoogleAdMobAdsSdkiOS-6.4.2";
+			sourceTree = "<group>";
+		};
+		779B82A9178047CF002DB143 /* html */ = {
+			isa = PBXGroup;
+			children = (
+				779B82AC17804942002DB143 /* license.html */,
+			);
+			path = html;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -535,6 +592,19 @@
 				77939202177B3A2F00C6067D /* rensou_cell_bg2@2x.png in Resources */,
 				77939205177C729F00C6067D /* top_bg.png in Resources */,
 				77939206177C729F00C6067D /* top_bg@2x.png in Resources */,
+				779B828B177F3D21002DB143 /* AppInfoViewController.xib in Resources */,
+				779B829417802233002DB143 /* navigation_bg_info.png in Resources */,
+				779B829517802233002DB143 /* navigation_bg_info@2x.png in Resources */,
+				779B829617802233002DB143 /* navigation_info.png in Resources */,
+				779B829717802233002DB143 /* navigation_info@2x.png in Resources */,
+				779B829A178029B2002DB143 /* button_license.png in Resources */,
+				779B829B178029B2002DB143 /* button_license@2x.png in Resources */,
+				779B829E17802DDF002DB143 /* button_mail.png in Resources */,
+				779B829F17802DDF002DB143 /* button_mail@2x.png in Resources */,
+				779B82A2178036C2002DB143 /* howto.png in Resources */,
+				779B82A3178036C2002DB143 /* howto@2x.png in Resources */,
+				779B82A8178043EB002DB143 /* LicenseViewController.xib in Resources */,
+				779B82AD17804942002DB143 /* license.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +659,8 @@
 				77215714175A2CAE00953C2B /* UIColor+Hex.m in Sources */,
 				777DF322176380F900AAF1C3 /* InfoPlistProperty.m in Sources */,
 				777DF3251763FC1D00AAF1C3 /* RSNotification.m in Sources */,
+				779B828A177F3D21002DB143 /* AppInfoViewController.m in Sources */,
+				779B82A7178043EB002DB143 /* LicenseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,17 +12,22 @@
 #import "UIColor+Hex.h"
 #import "GADBannerView.h"
 #import "InfoPlistProperty.h"
+#import "AppInfoViewController.h"
 
 @interface ResultViewController ()
 
 @property (weak, nonatomic) UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UITableView *resultTableView;
-@property (weak, nonatomic) IBOutlet UIView *adView;
 
 @property NSArray *rensouArray;
 
 // 広告
+@property (weak, nonatomic) IBOutlet UIView *adView;
 @property (strong, nonatomic) GADBannerView *bannerView;
+
+// アプリ情報ボタン
+@property (strong, nonatomic) UIButton *infoButton;
+
 
 @end
 
@@ -61,6 +66,19 @@
 
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:self.backButton];
     self.navigationItem.leftBarButtonItem = backButton;
+    
+    // アプリ情報
+    self.infoButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.infoButton.frame = CGRectMake(0.0f, 0.0f, 33.0f, 33.0f);
+    [self.infoButton setBackgroundImage:[UIImage imageNamed:@"navigation_info"]
+                               forState:UIControlStateNormal];
+    [self.infoButton addTarget:self
+                        action:@selector(onClickButton:)
+              forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *infoButton = [[UIBarButtonItem alloc] initWithCustomView:self.infoButton];
+    self.navigationItem.rightBarButtonItem = infoButton;
+    
     
     // 背景
     self.view.backgroundColor = [UIColor colorWithHex:@"#A6E39D"];
@@ -163,6 +181,10 @@
 {
     if (button == self.backButton) {
         [self.navigationController popViewControllerAnimated:YES];
+    } else if (button == self.infoButton) {
+        AppInfoViewController *controller = [[AppInfoViewController alloc] initWithNibName:@"AppInfoViewController" bundle:nil];
+        [self.navigationController pushViewController:controller
+                                             animated:YES];
     }
 }
 

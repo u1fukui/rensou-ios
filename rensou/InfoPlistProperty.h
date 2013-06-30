@@ -14,5 +14,7 @@
 
 extern NSString * const kServerHostName;
 extern NSString * const kGadPublisherId;
+extern NSString * const kBundleVersion;
+extern NSString * const kSupportEmailAddress;
 
 @end

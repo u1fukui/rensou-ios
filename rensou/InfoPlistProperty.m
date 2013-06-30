@@ -12,5 +12,7 @@
 
 NSString * const kServerHostName = @"ServerHostName";
 NSString * const kGadPublisherId = @"GadPublisherId";
+NSString * const kBundleVersion = @"CFBundleShortVersionString";
+NSString * const kSupportEmailAddress = @"SupportEmailAddress";
 
 @end
