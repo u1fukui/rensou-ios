@@ -288,7 +288,7 @@
         
         // エラーメッセージ表示
         UIAlertView *alert =
-        [[UIAlertView alloc] initWithTitle:@"エラー" message:@"サーバが落ちている疑いがあります。ゆーいちまでご連絡ください。"
+        [[UIAlertView alloc] initWithTitle:@"エラー" message:@"通信が失敗しました。電波の良い所でも失敗するようでしたら、アプリ情報画面からご連絡お願いします。"
                                   delegate:self cancelButtonTitle:@"確認" otherButtonTitles:nil];
         [alert show];
         
@@ -349,9 +349,12 @@
         //[AppDelegate showErrorMessage:[error localizedDescription]];
         
         UIAlertView *alert =
-        [[UIAlertView alloc] initWithTitle:@"エラー" message:@"投稿に失敗しました。"
+        [[UIAlertView alloc] initWithTitle:@"エラー" message:@"投稿に失敗しました。テーマが更新されている可能性があります。"
                                   delegate:self cancelButtonTitle:@"確認" otherButtonTitles:nil];
         [alert show];
+        
+        // 取得
+        [self requestGetThemeRensou];
         
         return;
     };
