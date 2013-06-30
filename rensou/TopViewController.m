@@ -15,6 +15,7 @@
 #import "RSNotification.h"
 #import "GADBannerView.h"
 #import "InfoPlistProperty.h"
+#import "SVProgressHUD.h"
 
 @interface TopViewController()
 
@@ -268,6 +269,9 @@
         NSLog(@"responseBlock");
         NSLog(@"response = %@", op.responseString);
         
+        // インジケータ終了
+        [SVProgressHUD dismiss];
+        
         self.lastRequestDate = [NSDate date];
         self.themeRensou = [[Rensou alloc] initWithDictionary:op.responseJSON];
         self.themeLabel.text = self.themeRensou.keyword;
@@ -279,6 +283,9 @@
         NSLog(@"%@\t%@\t%@\t%@", [error localizedDescription], [error localizedFailureReason],
              [error localizedRecoveryOptions], [error localizedRecoverySuggestion]);
         
+        // インジケータ終了
+        [SVProgressHUD dismiss];
+        
         // エラーメッセージ表示
         UIAlertView *alert =
         [[UIAlertView alloc] initWithTitle:@"エラー" message:@"サーバが落ちている疑いがあります。ゆーいちまでご連絡ください。"
@@ -288,6 +295,10 @@
         return;
     };
     
+    // インジケータ表示
+    [SVProgressHUD show];
+    
+    // 通信実行
     [[RensouNetworkEngine sharedEngine] getThemeRensou:20
                                      completionHandler:responseBlock
                                           errorHandler:errorBlock];
@@ -298,11 +309,8 @@
 {
     // レスポンスに対する処理
     ResponseBlock responseBlock = ^(MKNetworkOperation *op) {
-        if (!self.resultViewController) {
-            self.resultViewController = [[ResultViewController alloc] initWithNibName:@"ResultViewController" bundle:nil];
-            
-            NSLog(@"self.resultViewController == %d", self.resultViewController == nil);
-        }
+        // インジケータ終了
+        [SVProgressHUD dismiss];
         
         NSLog(@"%@", op.responseJSON);
         
@@ -313,7 +321,13 @@
             [rensouArray addObject:[[Rensou alloc] initWithDictionary:dict]];
         }
         
-        // 結果画面に遷移
+        // 連想結果画面に遷移
+        if (!self.resultViewController) {
+            self.resultViewController = [[ResultViewController alloc] initWithNibName:@"ResultViewController" bundle:nil];
+            
+            NSLog(@"self.resultViewController == %d", self.resultViewController == nil);
+        }
+        
         if (rensouArray.count > 0) {
             self.inputTextField.text = @"";
             [self.resultViewController setResultRensouArray:rensouArray];
@@ -328,6 +342,9 @@
         DLog(@"%@\t%@\t%@\t%@", [error localizedDescription], [error localizedFailureReason],
              [error localizedRecoveryOptions], [error localizedRecoverySuggestion]);
         
+        // インジケータ終了
+        [SVProgressHUD dismiss];
+        
         // エラーメッセージ表示
         //[AppDelegate showErrorMessage:[error localizedDescription]];
         
@@ -338,6 +355,10 @@
         
         return;
     };
+    
+    // インジケータ表示
+    [SVProgressHUD show];
+    
     
     // 通信実行
     [[RensouNetworkEngine sharedEngine] postRensou:self.inputTextField.text

@@ -82,6 +82,9 @@
 		779B82A7178043EB002DB143 /* LicenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 779B82A5178043EB002DB143 /* LicenseViewController.m */; };
 		779B82A8178043EB002DB143 /* LicenseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 779B82A6178043EB002DB143 /* LicenseViewController.xib */; };
 		779B82AD17804942002DB143 /* license.html in Resources */ = {isa = PBXBuildFile; fileRef = 779B82AC17804942002DB143 /* license.html */; };
+		779B82B21780502E002DB143 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 779B82AF1780502E002DB143 /* SVProgressHUD.bundle */; };
+		779B82B31780502E002DB143 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 779B82B11780502E002DB143 /* SVProgressHUD.m */; };
+		779B82B517805047002DB143 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 779B82B417805047002DB143 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -204,6 +207,10 @@
 		779B82A5178043EB002DB143 /* LicenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LicenseViewController.m; sourceTree = "<group>"; };
 		779B82A6178043EB002DB143 /* LicenseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LicenseViewController.xib; sourceTree = "<group>"; };
 		779B82AC17804942002DB143 /* license.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = license.html; sourceTree = "<group>"; };
+		779B82AF1780502E002DB143 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		779B82B01780502E002DB143 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		779B82B11780502E002DB143 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		779B82B417805047002DB143 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +218,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				779B82B517805047002DB143 /* QuartzCore.framework in Frameworks */,
 				779B8286177E82C3002DB143 /* AdSupport.framework in Frameworks */,
 				7746571916E34AF000ACD435 /* CoreGraphics.framework in Frameworks */,
 				77952B0416F979CD0025F785 /* SystemConfiguration.framework in Frameworks */,
@@ -280,6 +288,7 @@
 		7746571316E34AF000ACD435 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				779B82B417805047002DB143 /* QuartzCore.framework */,
 				779B8285177E82C3002DB143 /* AdSupport.framework */,
 				779B8283177E82A4002DB143 /* MessageUI.framework */,
 				779B8281177E829A002DB143 /* AudioToolbox.framework */,
@@ -416,6 +425,7 @@
 		77952ADF16F979A10025F785 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				779B82AE1780502E002DB143 /* SVProgressHUD */,
 				77952AE016F979A10025F785 /* MKNetworkKit */,
 			);
 			path = lib;
@@ -495,6 +505,16 @@
 				779B82AC17804942002DB143 /* license.html */,
 			);
 			path = html;
+			sourceTree = "<group>";
+		};
+		779B82AE1780502E002DB143 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				779B82AF1780502E002DB143 /* SVProgressHUD.bundle */,
+				779B82B01780502E002DB143 /* SVProgressHUD.h */,
+				779B82B11780502E002DB143 /* SVProgressHUD.m */,
+			);
+			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -605,6 +625,7 @@
 				779B82A3178036C2002DB143 /* howto@2x.png in Resources */,
 				779B82A8178043EB002DB143 /* LicenseViewController.xib in Resources */,
 				779B82AD17804942002DB143 /* license.html in Resources */,
+				779B82B21780502E002DB143 /* SVProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,6 +682,7 @@
 				777DF3251763FC1D00AAF1C3 /* RSNotification.m in Sources */,
 				779B828A177F3D21002DB143 /* AppInfoViewController.m in Sources */,
 				779B82A7178043EB002DB143 /* LicenseViewController.m in Sources */,
+				779B82B31780502E002DB143 /* SVProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
