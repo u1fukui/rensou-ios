@@ -85,6 +85,7 @@
 		779B82B21780502E002DB143 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 779B82AF1780502E002DB143 /* SVProgressHUD.bundle */; };
 		779B82B31780502E002DB143 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 779B82B11780502E002DB143 /* SVProgressHUD.m */; };
 		779B82B517805047002DB143 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 779B82B417805047002DB143 /* QuartzCore.framework */; };
+		779B82B81781C045002DB143 /* NSString+Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = 779B82B71781C045002DB143 /* NSString+Validation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -211,6 +212,8 @@
 		779B82B01780502E002DB143 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		779B82B11780502E002DB143 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		779B82B417805047002DB143 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		779B82B61781C045002DB143 /* NSString+Validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Validation.h"; sourceTree = "<group>"; };
+		779B82B71781C045002DB143 /* NSString+Validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Validation.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +263,8 @@
 			children = (
 				77215712175A2CAE00953C2B /* UIColor+Hex.h */,
 				77215713175A2CAE00953C2B /* UIColor+Hex.m */,
+				779B82B61781C045002DB143 /* NSString+Validation.h */,
+				779B82B71781C045002DB143 /* NSString+Validation.m */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -683,6 +688,7 @@
 				779B828A177F3D21002DB143 /* AppInfoViewController.m in Sources */,
 				779B82A7178043EB002DB143 /* LicenseViewController.m in Sources */,
 				779B82B31780502E002DB143 /* SVProgressHUD.m in Sources */,
+				779B82B81781C045002DB143 /* NSString+Validation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,11 +10,4 @@
 
 @interface TopViewController : UIViewController <UITextFieldDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *themeLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *themeImageView;
-@property (weak, nonatomic) IBOutlet UITextField *inputTextField;
-@property (weak, nonatomic) IBOutlet UIButton *postingButton;
-
-- (IBAction)tapPostingButton:(id)sender;
-
 @end

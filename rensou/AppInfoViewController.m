@@ -18,9 +18,6 @@
 // 戻るボタン
 @property (strong, nonatomic) UIButton *backButton;
 
-// バージョン
-@property (weak, nonatomic) IBOutlet UILabel *versionLabel;
-
 @property (weak, nonatomic) IBOutlet UIButton *licenseButton;
 @property (weak, nonatomic) IBOutlet UIButton *mailButton;
 
@@ -62,12 +59,6 @@
     
     // 背景
     self.view.backgroundColor = [UIColor colorWithHex:@"#A6E39D"];
-    
-    // バージョン番号
-    NSString *version = [[[NSBundle mainBundle] infoDictionary]
-                         objectForKey:kBundleVersion];
-    self.versionLabel.text = [NSString stringWithFormat:@"ver. %@", version];
-    self.versionLabel.textColor = [UIColor darkGrayColor];
     
     // ボタン
     [self.licenseButton addTarget:self

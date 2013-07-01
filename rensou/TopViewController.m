@@ -16,12 +16,16 @@
 #import "GADBannerView.h"
 #import "InfoPlistProperty.h"
 #import "SVProgressHUD.h"
+#import "NSString+Validation.h"
 
 @interface TopViewController()
 
 @property (weak, nonatomic) IBOutlet UIView *topBgView;
 @property (weak, nonatomic) IBOutlet UIImageView *subTextImageView;
 @property (weak, nonatomic) IBOutlet UIView *adView;
+@property (weak, nonatomic) IBOutlet UIButton *submitButton;
+@property (weak, nonatomic) IBOutlet UITextField *inputTextField;
+@property (weak, nonatomic) IBOutlet UILabel *themeLabel;
 
 @property (strong, nonatomic) ResultViewController *resultViewController;
 @property (strong, nonatomic) Rensou *themeRensou;
@@ -85,8 +89,11 @@
     
     // 送信ボタン
     UIImage *buttonImage = [UIImage imageNamed:@"button_submit"];
-    [self.postingButton setImage:buttonImage forState:UIControlStateNormal];
-    [self.postingButton setImage:buttonImage forState:UIControlStateHighlighted];
+    [self.submitButton setImage:buttonImage forState:UIControlStateNormal];
+    [self.submitButton setImage:buttonImage forState:UIControlStateHighlighted];
+    [self.submitButton addTarget:self
+                          action:@selector(onClickButton:)
+                forControlEvents:UIControlEventTouchUpInside];
     
     // 広告
     self.bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
@@ -150,9 +157,8 @@
 
 - (void)viewDidUnload {
     [self setThemeLabel:nil];
-    [self setThemeImageView:nil];
     [self setInputTextField:nil];
-    [self setPostingButton:nil];
+    [self setSubmitButton:nil];
     [super viewDidUnload];
 }
 
@@ -235,6 +241,11 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
+    // 絵文字は不可
+    if ([NSString isEmoji:string]) {
+        return NO;
+    }
+    
     // 最大文字数制限
     int maxLength = 13;
 	NSMutableString *text = [textField.text mutableCopy];
@@ -253,8 +264,7 @@
 
 - (IBAction)tapPostingButton:(id)sender
 {
-    [self.inputTextField resignFirstResponder];
-    [self requestPostRensou];
+    
 }
 
 
@@ -289,7 +299,7 @@
         // エラーメッセージ表示
         UIAlertView *alert =
         [[UIAlertView alloc] initWithTitle:@"エラー" message:@"通信が失敗しました。電波の良い所でも失敗するようでしたら、アプリ情報画面からご連絡お願いします。"
-                                  delegate:self cancelButtonTitle:@"確認" otherButtonTitles:nil];
+                                  delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
         
         return;
@@ -346,11 +356,9 @@
         [SVProgressHUD dismiss];
         
         // エラーメッセージ表示
-        //[AppDelegate showErrorMessage:[error localizedDescription]];
-        
         UIAlertView *alert =
         [[UIAlertView alloc] initWithTitle:@"エラー" message:@"投稿に失敗しました。テーマが更新されている可能性があります。"
-                                  delegate:self cancelButtonTitle:@"確認" otherButtonTitles:nil];
+                                  delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
         
         // 取得
@@ -386,10 +394,22 @@
 
 - (void)onClickButton:(UIButton *)button
 {
+    [self.inputTextField resignFirstResponder];
+    
     if (button == self.infoButton) {
         AppInfoViewController *controller = [[AppInfoViewController alloc] initWithNibName:@"AppInfoViewController" bundle:nil];
         [self.navigationController pushViewController:controller
                                              animated:YES];
+    } else if (self.submitButton) {
+        if ([NSString isBlank:self.inputTextField.text]) {
+            // エラーメッセージ
+            UIAlertView *alert =
+            [[UIAlertView alloc] initWithTitle:@"エラー" message:@"連想される言葉を入力して下さい。"
+                                      delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        } else {
+            [self requestPostRensou];
+        }
     }
 }
 
