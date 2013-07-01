@@ -9,14 +9,22 @@
 #import "TopViewController.h"
 #import "ResultViewController.h"
 #import "AppInfoViewController.h"
+
+// lib
+#import "GADBannerView.h"
+#import "SVProgressHUD.h"
+
+// net
 #import "RensouNetworkEngine.h"
 #import "Rensou.h"
+
+// util
 #import "UIColor+Hex.h"
-#import "RSNotification.h"
-#import "GADBannerView.h"
-#import "InfoPlistProperty.h"
-#import "SVProgressHUD.h"
 #import "NSString+Validation.h"
+
+// other
+#import "RSNotification.h"
+#import "InfoPlistProperty.h"
 
 @interface TopViewController()
 
@@ -27,14 +35,16 @@
 @property (weak, nonatomic) IBOutlet UITextField *inputTextField;
 @property (weak, nonatomic) IBOutlet UILabel *themeLabel;
 
+// 連想結果
 @property (strong, nonatomic) ResultViewController *resultViewController;
+
+// テーマとなる連想
 @property (strong, nonatomic) Rensou *themeRensou;
-@property (strong, nonatomic) NSDate *lastRequestDate;
 
 // 広告
 @property (strong, nonatomic) GADBannerView *bannerView;
 
-
+// アプリ情報アイコン
 @property (strong, nonatomic) UIButton *infoButton;
 
 @end
@@ -55,7 +65,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
     // ナビゲーションバー
     [self showNavigationBar];
@@ -282,7 +291,6 @@
         // インジケータ終了
         [SVProgressHUD dismiss];
         
-        self.lastRequestDate = [NSDate date];
         self.themeRensou = [[Rensou alloc] initWithDictionary:op.responseJSON];
         self.themeLabel.text = self.themeRensou.keyword;
     };
@@ -383,11 +391,8 @@
 
 - (void)handleWillEnterForegroundNotification:(NSNotification *)notification
 {
-    // 前回取得時から一定時間経っていたら、最新テーマを取得し直す
-    if ([[NSDate date] timeIntervalSinceDate:self.lastRequestDate] > 60.0f) {
-        NSLog(@"interval > 60");
-        [self requestGetThemeRensou];
-    }
+    // アプリ起動した時は、最新テーマを取得し直す
+    [self requestGetThemeRensou];
 }
 
 #pragma mark - イベント

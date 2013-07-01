@@ -6,12 +6,19 @@
 //  Copyright (c) 2013年 u1. All rights reserved.
 //
 
-#import "AppInfoViewController.h"
-#import "InfoPlistProperty.h"
-#import "UIColor+Hex.h"
-#import "GADBannerView.h"
 #import <QuartzCore/QuartzCore.h>
+#import "AppInfoViewController.h"
 #import "LicenseViewController.h"
+
+// lib
+#import "GADBannerView.h"
+
+// util
+#import "UIColor+Hex.h"
+
+// other
+#import "InfoPlistProperty.h"
+
 
 @interface AppInfoViewController ()
 
@@ -33,7 +40,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }

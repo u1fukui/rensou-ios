@@ -7,12 +7,23 @@
 //
 
 #import "ResultViewController.h"
-#import "Rensou.h"
-#import "RensouCell.h"
-#import "UIColor+Hex.h"
-#import "GADBannerView.h"
-#import "InfoPlistProperty.h"
 #import "AppInfoViewController.h"
+
+// api
+#import "Rensou.h"
+
+// view
+#import "RensouCell.h"
+
+// lib
+#import "GADBannerView.h"
+
+// util
+#import "UIColor+Hex.h"
+
+// other
+#import "InfoPlistProperty.h"
+
 
 @interface ResultViewController ()
 
@@ -40,7 +51,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
