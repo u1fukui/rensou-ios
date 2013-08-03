@@ -7,7 +7,7 @@
 //
 
 #import "ResultViewController.h"
-#import "AppInfoViewController.h"
+#import "RankingViewController.h"
 
 // api
 #import "Rensou.h"
@@ -36,8 +36,8 @@
 @property (weak, nonatomic) IBOutlet UIView *adView;
 @property (strong, nonatomic) GADBannerView *bannerView;
 
-// アプリ情報ボタン
-@property (strong, nonatomic) UIButton *infoButton;
+// ランキングボタン
+@property (strong, nonatomic) UIButton *rankingButton;
 
 
 @end
@@ -78,16 +78,16 @@
     self.navigationItem.leftBarButtonItem = backButton;
     
     // アプリ情報
-    self.infoButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.infoButton.frame = CGRectMake(0.0f, 0.0f, 33.0f, 33.0f);
-    [self.infoButton setBackgroundImage:[UIImage imageNamed:@"navigation_info"]
+    self.rankingButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.rankingButton.frame = CGRectMake(0.0f, 0.0f, 33.0f, 33.0f);
+    [self.rankingButton setBackgroundImage:[UIImage imageNamed:@"navigation_ranking"]
                                forState:UIControlStateNormal];
-    [self.infoButton addTarget:self
-                        action:@selector(onClickButton:)
-              forControlEvents:UIControlEventTouchUpInside];
+    [self.rankingButton addTarget:self
+                           action:@selector(onClickButton:)
+                 forControlEvents:UIControlEventTouchUpInside];
     
-    UIBarButtonItem *infoButton = [[UIBarButtonItem alloc] initWithCustomView:self.infoButton];
-    self.navigationItem.rightBarButtonItem = infoButton;
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithCustomView:self.rankingButton];
+    self.navigationItem.rightBarButtonItem = button;
     
     
     // 背景
@@ -148,9 +148,6 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"%s", __func__);
-    NSLog(@"indexPath.row = %d", indexPath.row);
-    
     static NSString *CellIdentifier = @"Cell";
     RensouCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
@@ -191,8 +188,10 @@
 {
     if (button == self.backButton) {
         [self.navigationController popViewControllerAnimated:YES];
-    } else if (button == self.infoButton) {
-        AppInfoViewController *controller = [[AppInfoViewController alloc] initWithNibName:@"AppInfoViewController" bundle:nil];
+    } else if (button == self.rankingButton) {
+        RankingViewController *controller = [[RankingViewController alloc] initWithNibName:@"RankingViewController" bundle:nil];
+        
+        [controller setRankingRensouArray:self.rensouArray];
         [self.navigationController pushViewController:controller
                                              animated:YES];
     }
