@@ -41,6 +41,8 @@
 // ランキングボタン
 @property (strong, nonatomic) UIButton *rankingButton;
 
+// 通信中か
+@property (assign, nonatomic) BOOL isConnecting;
 
 @end
 
@@ -53,6 +55,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        self.isConnecting = NO;
     }
     return self;
 }
@@ -220,6 +223,11 @@
 
 - (void)onClickLikeButton:(UIButton *)button
 {
+    // 通信中なら何もしない
+    if (self.isConnecting) {
+        return;
+    }
+    
     RensouCell *cell = (RensouCell *)[button superview];
     int row = [self.resultTableView indexPathForCell:cell].row;
     Rensou *rensou = [self.rensouArray objectAtIndex:row];
@@ -250,14 +258,17 @@
     // 成功時
     ResponseBlock responseBlock = ^(MKNetworkOperation *op) {
         [[LikeManager sharedManager] likeRensou:rensouId];
+        self.isConnecting = NO;
     };
     
     // エラー処理
     MKNKErrorBlock errorBlock =  ^(NSError *error) {
         [cell unlikeRensou];
+        self.isConnecting = NO;
     };
     
     [cell likeRensou];
+    self.isConnecting = YES;
     [[RensouNetworkEngine sharedEngine] likeRensou:rensouId
                                     completionHandler:responseBlock
                                         errorHandler:errorBlock];
@@ -269,14 +280,17 @@
     // 成功時
     ResponseBlock responseBlock = ^(MKNetworkOperation *op) {
         [[LikeManager sharedManager] unlikeRensou:rensouId];
+        self.isConnecting = NO;
     };
     
     // エラー処理
     MKNKErrorBlock errorBlock =  ^(NSError *error) {
         [cell likeRensou];
+        self.isConnecting = NO;
     };
     
     [cell unlikeRensou];
+    self.isConnecting = YES;
     [[RensouNetworkEngine sharedEngine] unlikeRensou:rensouId
                                    completionHandler:responseBlock
                                         errorHandler:errorBlock];
