@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "RSNotification.h"
+#import "LikeManager.h"
 
 @implementation AppDelegate
 
@@ -21,6 +22,9 @@
     self.rootController = [[UINavigationController alloc]initWithRootViewController:self.viewController];
     self.window.rootViewController = self.rootController;
     [self.window makeKeyAndVisible];
+    
+    // いいね管理を読み込み
+    [[LikeManager sharedManager] load];
     
     return YES;
 }

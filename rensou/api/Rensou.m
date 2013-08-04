@@ -15,10 +15,24 @@
     self = [super init];
     if (self) {
         self.rensouId = [dict[@"id"] intValue];
+        self.likeCount = [dict[@"favorite"] intValue];
         self.keyword = dict[@"keyword"];
-        self.createdAt = dict[@"created_at"];
+        self.oldKeyword = dict[@"old_keyword"];
+        
+        self.createdAt = [self formatDateString:dict[@"created_at"]];
     }
     return self;
 }
+
+// 日付の書式変換
+- (NSString *)formatDateString:(NSString *)string
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ssZZZZ";
+    NSDate *date = [dateFormatter dateFromString:string];
+    dateFormatter.dateFormat = @"yyyy/MM/dd HH:mm";
+    return [dateFormatter stringFromDate:date];
+}
+
 
 @end

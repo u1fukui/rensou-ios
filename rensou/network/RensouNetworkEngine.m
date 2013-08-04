@@ -89,4 +89,78 @@ static RensouNetworkEngine *_sharedInstance = nil;
     return op;
 }
 
+// 連想に対していいね！
+-(MKNetworkOperation*) likeRensou:(int) rensouId
+                completionHandler:(ResponseBlock) completionBlock
+                     errorHandler:(MKNKErrorBlock) errorBlock
+{
+    // リクエスト
+    MKNetworkOperation *op = [self operationWithPath:[NSString stringWithFormat:@"like/%d", rensouId]
+                                              params:nil
+                                          httpMethod:@"POST"];
+    
+    [op addCompletionHandler:^(MKNetworkOperation *completedOperation)
+     {
+         completionBlock(completedOperation);
+         
+     } errorHandler:^(MKNetworkOperation *errorOp, NSError* error) {
+         
+         errorBlock(error);
+         
+     }];
+    
+    [self enqueueOperation:op];
+    
+    return op;
+}
+
+// 連想に対していいね！を取り消す
+-(MKNetworkOperation*) unlikeRensou:(int) rensouId
+                  completionHandler:(ResponseBlock) completionBlock
+                       errorHandler:(MKNKErrorBlock) errorBlock
+{
+    // リクエスト
+    MKNetworkOperation *op = [self operationWithPath:[NSString stringWithFormat:@"like/%d", rensouId]
+                                              params:nil
+                                          httpMethod:@"DELETE"];
+    
+    [op addCompletionHandler:^(MKNetworkOperation *completedOperation)
+     {
+         completionBlock(completedOperation);
+         
+     } errorHandler:^(MKNetworkOperation *errorOp, NSError* error) {
+         
+         errorBlock(error);
+         
+     }];
+    
+    [self enqueueOperation:op];
+    
+    return op;
+}
+
+// ランキングを取得
+-(MKNetworkOperation*) getRankingRensou:(ResponseBlock) completionBlock
+                           errorHandler:(MKNKErrorBlock) errorBlock
+{
+    // リクエスト
+    MKNetworkOperation *op = [self operationWithPath:@"rensous/ranking"
+                                              params:nil
+                                          httpMethod:@"GET"];
+    
+    [op addCompletionHandler:^(MKNetworkOperation *completedOperation)
+     {
+         completionBlock(completedOperation);
+
+     } errorHandler:^(MKNetworkOperation *errorOp, NSError* error) {
+         
+         errorBlock(error);
+         
+     }];
+    
+    [self enqueueOperation:op];
+    
+    return op;
+}
+
 @end

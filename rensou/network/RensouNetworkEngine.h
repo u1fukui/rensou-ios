@@ -27,4 +27,18 @@ typedef void (^ResponseBlock)(MKNetworkOperation *op);
                 completionHandler:(ResponseBlock) completionBlock
                      errorHandler:(MKNKErrorBlock) errorBlock;
 
+// 連想に対していいね！
+-(MKNetworkOperation*) likeRensou:(int) rensouId
+                completionHandler:(ResponseBlock) completionBlock
+                     errorHandler:(MKNKErrorBlock) errorBlock;
+
+// 連想に対していいね！を取り消す
+-(MKNetworkOperation*) unlikeRensou:(int) rensouId
+                  completionHandler:(ResponseBlock) completionBlock
+                       errorHandler:(MKNKErrorBlock) errorBlock;
+
+// 連想リストの取得
+-(MKNetworkOperation*) getRankingRensou:(ResponseBlock) completionBlock
+                           errorHandler:(MKNKErrorBlock) errorBlock;
+
 @end

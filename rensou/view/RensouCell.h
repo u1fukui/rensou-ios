@@ -12,8 +12,13 @@
 
 @interface RensouCell : UITableViewCell
 
-+ (CGFloat)cellHeight;
+@property (assign, nonatomic) BOOL isLiked;
+@property (strong, nonatomic) UIButton *likeButton;
 
-- (void)setRensou:(Rensou *)rensou oldRensou:(Rensou *)oldRensou index:(int)index;
++ (CGFloat)cellHeight;
+- (void)setRensou:(Rensou *)rensou index:(int)index;
+
+- (void)likeRensou;
+- (void)unlikeRensou;
 
 @end

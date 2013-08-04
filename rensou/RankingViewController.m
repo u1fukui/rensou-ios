@@ -36,7 +36,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
     // ナビゲーションバー
     [self showNavigationBar];
@@ -60,7 +59,6 @@
     self.rankingTableView.dataSource = self;
     self.rankingTableView.delegate = self;
     self.rankingTableView.backgroundColor = [UIColor clearColor];
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -87,7 +85,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.rensouArray.count - 1;
+    return self.rensouArray.count;
 }
 
 
@@ -102,8 +100,7 @@
     }
     
     Rensou *rensou = [self.rensouArray objectAtIndex:indexPath.row];
-    Rensou *oldRensou = [self.rensouArray objectAtIndex:indexPath.row + 1];
-    [cell setRensou:rensou oldRensou:oldRensou index:indexPath.row];
+    [cell setRensou:rensou index:indexPath.row];
     
     return cell;
 }

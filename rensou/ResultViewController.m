@@ -10,6 +10,7 @@
 #import "RankingViewController.h"
 
 // api
+#import "RensouNetworkEngine.h"
 #import "Rensou.h"
 
 // view
@@ -17,13 +18,14 @@
 
 // lib
 #import "GADBannerView.h"
+#import "SVProgressHUD.h"
 
 // util
 #import "UIColor+Hex.h"
 
 // other
 #import "InfoPlistProperty.h"
-
+#import "LikeManager.h"
 
 @interface ResultViewController ()
 
@@ -89,7 +91,6 @@
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithCustomView:self.rankingButton];
     self.navigationItem.rightBarButtonItem = button;
     
-    
     // 背景
     self.view.backgroundColor = [UIColor colorWithHex:@"#A6E39D"];
     
@@ -142,7 +143,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.rensouArray.count - 1;
+    return self.rensouArray.count;
 }
 
 
@@ -154,11 +155,14 @@
         cell = [[RensouCell alloc]
                  initWithStyle:UITableViewCellStyleDefault
                  reuseIdentifier:CellIdentifier];
+        
+        [cell.likeButton addTarget:self
+                            action:@selector(onClickLikeButton:)
+                  forControlEvents:UIControlEventTouchUpInside];
     }
     
     Rensou *rensou = [self.rensouArray objectAtIndex:indexPath.row];
-    Rensou *oldRensou = [self.rensouArray objectAtIndex:indexPath.row + 1];
-    [cell setRensou:rensou oldRensou:oldRensou index:indexPath.row];
+    [cell setRensou:rensou index:indexPath.row];
     
     return cell;
 }
@@ -189,14 +193,64 @@
     if (button == self.backButton) {
         [self.navigationController popViewControllerAnimated:YES];
     } else if (button == self.rankingButton) {
-        RankingViewController *controller = [[RankingViewController alloc] initWithNibName:@"RankingViewController" bundle:nil];
-        
-        [controller setRankingRensouArray:self.rensouArray];
-        [self.navigationController pushViewController:controller
-                                             animated:YES];
+        [self requestGetRankingRensou];
     }
 }
 
+- (void)onClickLikeButton:(UIButton *)button
+{
+    RensouCell *cell = (RensouCell *)[button superview];
+    int row = [self.resultTableView indexPathForCell:cell].row;
+    Rensou *rensou = [self.rensouArray objectAtIndex:row];
+    
+    // いいね！済みかどうかで処理が変わる
+    BOOL isLiked = [[LikeManager sharedManager] isLiked:rensou.rensouId];
+    if (isLiked) {
+        [self unlikeRensou:cell rensouId:rensou.rensouId];
+    } else {
+        [self likeRensou:cell rensouId:rensou.rensouId];
+    }
+}
+
+// いいね！する
+- (void)likeRensou:(RensouCell *)cell rensouId:(int)rensouId
+{
+    // 成功時
+    ResponseBlock responseBlock = ^(MKNetworkOperation *op) {
+        NSLog(@"response = %@", op.responseString);
+        [[LikeManager sharedManager] likeRensou:rensouId];
+    };
+    
+    // エラー処理
+    MKNKErrorBlock errorBlock =  ^(NSError *error) {
+        [cell unlikeRensou];
+    };
+    
+    [cell likeRensou];
+    [[RensouNetworkEngine sharedEngine] likeRensou:rensouId
+                                    completionHandler:responseBlock
+                                        errorHandler:errorBlock];
+}
+
+// いいね！を解除する
+- (void)unlikeRensou:(RensouCell *)cell rensouId:(int)rensouId
+{
+    // 成功時
+    ResponseBlock responseBlock = ^(MKNetworkOperation *op) {
+        NSLog(@"response = %@", op.responseString);
+        [[LikeManager sharedManager] unlikeRensou:rensouId];
+    };
+    
+    // エラー処理
+    MKNKErrorBlock errorBlock =  ^(NSError *error) {
+        [cell likeRensou];
+    };
+    
+    [cell unlikeRensou];
+    [[RensouNetworkEngine sharedEngine] unlikeRensou:rensouId
+                                   completionHandler:responseBlock
+                                        errorHandler:errorBlock];
+}
 
 #pragma mark - Public Method
 
@@ -205,5 +259,58 @@
     self.rensouArray = rensouArray;
     [self.resultTableView reloadData];
 }
+
+
+#pragma mark - 
+
+- (void)requestGetRankingRensou
+{
+    // レスポンスに対する処理
+    ResponseBlock responseBlock = ^(MKNetworkOperation *op) {
+        NSLog(@"response = %@", op.responseString);
+        
+        // インジケータ終了
+        [SVProgressHUD dismiss];
+        
+        // レスポンス解析
+        NSMutableArray *rensouArray = [NSMutableArray array];
+        NSArray *responseArray = op.responseJSON;
+        for (NSDictionary *dict in responseArray) {
+            [rensouArray addObject:[[Rensou alloc] initWithDictionary:dict]];
+        }
+        
+        // 画面遷移
+        RankingViewController *controller = [[RankingViewController alloc] initWithNibName:@"RankingViewController" bundle:nil];
+        [controller setRankingRensouArray:rensouArray];
+        [self.navigationController pushViewController:controller
+                                             animated:YES];
+    };
+    
+    // エラー処理
+    MKNKErrorBlock errorBlock =  ^(NSError *error) {
+        
+        NSLog(@"%@\t%@\t%@\t%@", [error localizedDescription], [error localizedFailureReason],
+              [error localizedRecoveryOptions], [error localizedRecoverySuggestion]);
+        
+        // インジケータ終了
+        [SVProgressHUD dismiss];
+        
+        // エラーメッセージ表示
+        UIAlertView *alert =
+        [[UIAlertView alloc] initWithTitle:@"エラー" message:@"通信に失敗しました。"
+                                  delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        
+        return;
+    };
+    
+    // インジケータ表示
+    [SVProgressHUD show];
+    
+    // 通信実行
+    [[RensouNetworkEngine sharedEngine] getRankingRensou:responseBlock
+                                            errorHandler:errorBlock];
+}
+
 
 @end

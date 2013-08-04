@@ -12,7 +12,7 @@
 
 @interface RankingCell : UITableViewCell
 
-- (void)setRensou:(Rensou *)rensou oldRensou:(Rensou *)oldRensou index:(int)index;
+- (void)setRensou:(Rensou *)rensou index:(int)index;
 + (CGFloat)cellHeight;
 
 @end

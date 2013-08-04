@@ -11,7 +11,9 @@
 @interface Rensou : NSObject
 
 @property int rensouId;
+@property int likeCount;
 @property NSString *keyword;
+@property NSString *oldKeyword;
 @property NSString *createdAt;
 
 - (id)initWithDictionary:(NSDictionary *) dict;

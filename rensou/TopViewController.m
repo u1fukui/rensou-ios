@@ -285,9 +285,6 @@
     
     // レスポンスに対する処理
     ResponseBlock responseBlock = ^(MKNetworkOperation *op) {
-        NSLog(@"responseBlock");
-        NSLog(@"response = %@", op.responseString);
-        
         // インジケータ終了
         [SVProgressHUD dismiss];
         
@@ -330,8 +327,6 @@
         // インジケータ終了
         [SVProgressHUD dismiss];
         
-        NSLog(@"%@", op.responseJSON);
-        
         // レスポンスの解析
         NSMutableArray *rensouArray = [NSMutableArray array];
         NSArray *responseArray = op.responseJSON;
@@ -342,8 +337,6 @@
         // 連想結果画面に遷移
         if (!self.resultViewController) {
             self.resultViewController = [[ResultViewController alloc] initWithNibName:@"ResultViewController" bundle:nil];
-            
-            NSLog(@"self.resultViewController == %d", self.resultViewController == nil);
         }
         
         if (rensouArray.count > 0) {
@@ -368,6 +361,9 @@
         [[UIAlertView alloc] initWithTitle:@"エラー" message:@"投稿に失敗しました。テーマが更新されている可能性があります。"
                                   delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
+        
+        // 更新されている可能性が高いので入力リセット
+        self.inputTextField.text = @"";
         
         // 取得
         [self requestGetThemeRensou];

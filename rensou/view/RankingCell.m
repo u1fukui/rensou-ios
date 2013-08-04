@@ -14,6 +14,7 @@
 @property UILabel *keywordLabel;
 @property UILabel *createdTimeLabel;
 @property UIImageView *rankingIconView;
+@property UILabel *likeCountLabel;
 
 @end
 
@@ -37,12 +38,12 @@
         [self addSubview:self.keywordLabel];
         
         // 投稿日時
-        self.createdTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(160.0f,
-                                                                          95.0f,
-                                                                          200.0f,
+        self.createdTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(30.0f,
+                                                                          87.0f,
+                                                                          150.0f,
                                                                           20.0f)];
         self.createdTimeLabel.backgroundColor = [UIColor clearColor];
-        self.createdTimeLabel.font = [UIFont systemFontOfSize:10.0f];
+        self.createdTimeLabel.font = [UIFont systemFontOfSize:12.0f];
         self.createdTimeLabel.textColor = [UIColor grayColor];
         [self addSubview:self.createdTimeLabel];
         
@@ -52,6 +53,16 @@
         frame.origin = CGPointMake(14.0f, 14.0f);
         self.rankingIconView.frame = frame;
         [self addSubview:self.rankingIconView];
+        
+        // いいね数
+        self.likeCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(220.0f,
+                                                                        87.0f,
+                                                                        100.0f,
+                                                                        20.0f)];
+        self.likeCountLabel.backgroundColor = [UIColor clearColor];
+        self.likeCountLabel.font = [UIFont systemFontOfSize:12.0f];
+        self.likeCountLabel.textColor = [UIColor blackColor];
+        [self addSubview:self.likeCountLabel];
         
         // ハイライト無効
         self.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -76,11 +87,13 @@
 
 #pragma mark - Public Method
 
-- (void)setRensou:(Rensou *)rensou oldRensou:(Rensou *)oldRensou index:(int)index
+- (void)setRensou:(Rensou *)rensou index:(int)index
 {
-    [self setRensouKeyword:rensou.keyword oldKeyword:oldRensou.keyword];
+    [self setRensouKeyword:rensou.keyword oldKeyword:rensou.oldKeyword];
     self.createdTimeLabel.text = rensou.createdAt;
+    self.likeCountLabel.text = [NSString stringWithFormat:@"いいね！ %d件", rensou.likeCount];
     
+    // アイコン
     NSString *imageName = [NSString stringWithFormat:@"rank%d_icon", index + 1];
     self.rankingIconView.image = [UIImage imageNamed:imageName];
 }

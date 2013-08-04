@@ -8,11 +8,14 @@
 
 #import "RensouCell.h"
 #import "Rensou.h"
+#import "LikeManager.h"
 
 @interface RensouCell()
 
 @property UILabel *keywordLabel;
 @property UILabel *createdTimeLabel;
+@property UILabel *likeCountLabel;
+@property Rensou *rensou;
 
 @end
 
@@ -37,14 +40,33 @@
         [self addSubview:self.keywordLabel];
         
         // 投稿日時
-        self.createdTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(160.0f,
-                                                                          55.0f,
-                                                                          200.0f,
+        self.createdTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(30.0f,
+                                                                          67.0f,
+                                                                          150.0f,
                                                                           20.0f)];
         self.createdTimeLabel.backgroundColor = [UIColor clearColor];
         self.createdTimeLabel.font = [UIFont systemFontOfSize:10.0f];
         self.createdTimeLabel.textColor = [UIColor grayColor];
         [self addSubview:self.createdTimeLabel];
+        
+        // いいね！ボタン
+        self.likeButton = [[UIButton alloc] initWithFrame:CGRectMake(200.0f,
+                                                                    60.0f,
+                                                                    50.0f,
+                                                                    30.0f)];
+        [self.likeButton setImage:[UIImage imageNamed:@"button_like_off"]
+                         forState:UIControlStateNormal];
+        [self addSubview:self.likeButton];
+        
+        // いいね数
+        self.likeCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(260.0f,
+                                                                        65.0f,
+                                                                        60.0f,
+                                                                        20.0f)];
+        self.likeCountLabel.backgroundColor = [UIColor clearColor];
+        self.likeCountLabel.font = [UIFont systemFontOfSize:12.0f];
+        self.likeCountLabel.textColor = [UIColor blackColor];
+        [self addSubview:self.likeCountLabel];
         
         // ハイライト無効
         self.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -64,16 +86,29 @@
 
 + (CGFloat)cellHeight
 {
-    return 88.0f;
+    return 100.0f;
 }
 
 #pragma mark - Public Method
 
-- (void)setRensou:(Rensou *)rensou oldRensou:(Rensou *)oldRensou index:(int)index
+- (void)setRensou:(Rensou *)rensou index:(int)index
 {
-    [self setRensouKeyword:rensou.keyword oldKeyword:oldRensou.keyword];
+    self.rensou = rensou;
+    [self setRensouKeyword:rensou.keyword oldKeyword:rensou.oldKeyword];
     self.createdTimeLabel.text = rensou.createdAt;
+    self.likeCountLabel.text = [NSString stringWithFormat:@"%d", self.rensou.likeCount];
     
+    // いいねボタン
+    BOOL isLiked = [[LikeManager sharedManager] isLiked:rensou.rensouId];
+    if (isLiked) {
+        [self.likeButton setImage:[UIImage imageNamed:@"button_like_on"]
+                         forState:UIControlStateNormal];
+    } else {
+        [self.likeButton setImage:[UIImage imageNamed:@"button_like_off"]
+                         forState:UIControlStateNormal];
+    }
+    
+    // 交互に枠の向きを変える
     if (index % 2 == 0) {
         self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rensou_cell_bg"]];
         
@@ -89,6 +124,9 @@
         frame.origin.x = 40.0f;
         self.keywordLabel.frame = frame;
         
+        frame = self.createdTimeLabel.frame;
+        frame.origin.x = 40.0f;
+        self.createdTimeLabel.frame = frame;
     }
 }
 
@@ -116,6 +154,26 @@
     [mainText appendAttributedString:and];
     [mainText appendAttributedString:new];
     self.keywordLabel.attributedText = mainText;
+}
+
+- (void)likeRensou
+{
+    self.isLiked = YES;
+    [self.likeButton setImage:[UIImage imageNamed:@"button_like_on"]
+                     forState:UIControlStateNormal];
+    
+    self.rensou.likeCount++;
+    self.likeCountLabel.text = [NSString stringWithFormat:@"%d", self.rensou.likeCount];
+}
+
+- (void)unlikeRensou
+{
+    self.isLiked = NO;
+    [self.likeButton setImage:[UIImage imageNamed:@"button_like_off"]
+                     forState:UIControlStateNormal];
+    
+    self.rensou.likeCount--;
+    self.likeCountLabel.text = [NSString stringWithFormat:@"%d", self.rensou.likeCount];
 }
 
 @end

@@ -35,6 +35,11 @@
 		777DF3251763FC1D00AAF1C3 /* RSNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 777DF3241763FC1D00AAF1C3 /* RSNotification.m */; };
 		777F593317ACE837005BE1D8 /* navigation_ranking.png in Resources */ = {isa = PBXBuildFile; fileRef = 777F593117ACE837005BE1D8 /* navigation_ranking.png */; };
 		777F593417ACE837005BE1D8 /* navigation_ranking@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 777F593217ACE837005BE1D8 /* navigation_ranking@2x.png */; };
+		777F593B17AD5E46005BE1D8 /* LikeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 777F593A17AD5E46005BE1D8 /* LikeManager.m */; };
+		777F594017AE27F7005BE1D8 /* button_like_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 777F593C17AE27F7005BE1D8 /* button_like_off.png */; };
+		777F594117AE27F7005BE1D8 /* button_like_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 777F593D17AE27F7005BE1D8 /* button_like_off@2x.png */; };
+		777F594217AE27F7005BE1D8 /* button_like_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 777F593E17AE27F7005BE1D8 /* button_like_on.png */; };
+		777F594317AE27F7005BE1D8 /* button_like_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 777F593F17AE27F7005BE1D8 /* button_like_on@2x.png */; };
 		7791F58217ACB5EB00401C76 /* RankingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7791F58017ACB5EB00401C76 /* RankingViewController.m */; };
 		7791F58317ACB5EB00401C76 /* RankingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7791F58117ACB5EB00401C76 /* RankingViewController.xib */; };
 		7791F58A17ACBB2500401C76 /* RankingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7791F58917ACBB2500401C76 /* RankingCell.m */; };
@@ -169,6 +174,12 @@
 		777DF3241763FC1D00AAF1C3 /* RSNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSNotification.m; sourceTree = "<group>"; };
 		777F593117ACE837005BE1D8 /* navigation_ranking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigation_ranking.png; sourceTree = "<group>"; };
 		777F593217ACE837005BE1D8 /* navigation_ranking@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation_ranking@2x.png"; sourceTree = "<group>"; };
+		777F593917AD5E46005BE1D8 /* LikeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikeManager.h; sourceTree = "<group>"; };
+		777F593A17AD5E46005BE1D8 /* LikeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeManager.m; sourceTree = "<group>"; };
+		777F593C17AE27F7005BE1D8 /* button_like_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_like_off.png; sourceTree = "<group>"; };
+		777F593D17AE27F7005BE1D8 /* button_like_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_like_off@2x.png"; sourceTree = "<group>"; };
+		777F593E17AE27F7005BE1D8 /* button_like_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_like_on.png; sourceTree = "<group>"; };
+		777F593F17AE27F7005BE1D8 /* button_like_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_like_on@2x.png"; sourceTree = "<group>"; };
 		7791F57F17ACB5EB00401C76 /* RankingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingViewController.h; sourceTree = "<group>"; };
 		7791F58017ACB5EB00401C76 /* RankingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingViewController.m; sourceTree = "<group>"; };
 		7791F58117ACB5EB00401C76 /* RankingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingViewController.xib; sourceTree = "<group>"; };
@@ -387,6 +398,8 @@
 				777DF321176380F900AAF1C3 /* InfoPlistProperty.m */,
 				777DF3231763FC1D00AAF1C3 /* RSNotification.h */,
 				777DF3241763FC1D00AAF1C3 /* RSNotification.m */,
+				777F593917AD5E46005BE1D8 /* LikeManager.h */,
+				777F593A17AD5E46005BE1D8 /* LikeManager.m */,
 				7746572316E34AF000ACD435 /* AppDelegate.h */,
 				7746572416E34AF000ACD435 /* AppDelegate.m */,
 				7746575716E3533200ACD435 /* TopViewController.h */,
@@ -525,6 +538,10 @@
 		7791F5CA17ACDB3F00401C76 /* result */ = {
 			isa = PBXGroup;
 			children = (
+				777F593C17AE27F7005BE1D8 /* button_like_off.png */,
+				777F593D17AE27F7005BE1D8 /* button_like_off@2x.png */,
+				777F593E17AE27F7005BE1D8 /* button_like_on.png */,
+				777F593F17AE27F7005BE1D8 /* button_like_on@2x.png */,
 				7791F5CB17ACDB3F00401C76 /* navigation_bg_result.png */,
 				7791F5CC17ACDB3F00401C76 /* navigation_bg_result@2x.png */,
 				7791F5CD17ACDB3F00401C76 /* rensou_cell_bg.png */,
@@ -781,6 +798,10 @@
 				7791F60B17ACDB3F00401C76 /* top_bg@2x.png in Resources */,
 				777F593317ACE837005BE1D8 /* navigation_ranking.png in Resources */,
 				777F593417ACE837005BE1D8 /* navigation_ranking@2x.png in Resources */,
+				777F594017AE27F7005BE1D8 /* button_like_off.png in Resources */,
+				777F594117AE27F7005BE1D8 /* button_like_off@2x.png in Resources */,
+				777F594217AE27F7005BE1D8 /* button_like_on.png in Resources */,
+				777F594317AE27F7005BE1D8 /* button_like_on@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -841,6 +862,7 @@
 				779B82B81781C045002DB143 /* NSString+Validation.m in Sources */,
 				7791F58217ACB5EB00401C76 /* RankingViewController.m in Sources */,
 				7791F58A17ACBB2500401C76 /* RankingCell.m in Sources */,
+				777F593B17AD5E46005BE1D8 /* LikeManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
