@@ -8,6 +8,7 @@
 
 #import "ResultViewController.h"
 #import "RankingViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 // api
 #import "RensouNetworkEngine.h"
@@ -210,6 +211,17 @@
     } else {
         [self likeRensou:cell rensouId:rensou.rensouId];
     }
+    
+    // アニメーション
+    CABasicAnimation* animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    animation.duration = 0.2;
+    animation.repeatCount = 1;
+    animation.autoreverses = YES;
+    animation.fromValue = [NSNumber numberWithFloat:1.0];
+    animation.toValue = [NSNumber numberWithFloat:2.0];
+    
+    // アニメーションを追加
+    [cell.likeButton.layer addAnimation:animation forKey:@"scale-layer"];
 }
 
 // いいね！する
