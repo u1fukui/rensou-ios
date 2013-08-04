@@ -21,7 +21,6 @@ static RensouNetworkEngine *_sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         NSString *host = [[[NSBundle mainBundle] infoDictionary] objectForKey:kServerHostName];
-        NSLog(@"%s create engine: %@", __func__, host);
         _sharedInstance = [[RensouNetworkEngine alloc] initWithHostName:host];
     });
     return _sharedInstance;

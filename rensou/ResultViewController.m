@@ -217,7 +217,6 @@
 {
     // 成功時
     ResponseBlock responseBlock = ^(MKNetworkOperation *op) {
-        NSLog(@"response = %@", op.responseString);
         [[LikeManager sharedManager] likeRensou:rensouId];
     };
     
@@ -237,7 +236,6 @@
 {
     // 成功時
     ResponseBlock responseBlock = ^(MKNetworkOperation *op) {
-        NSLog(@"response = %@", op.responseString);
         [[LikeManager sharedManager] unlikeRensou:rensouId];
     };
     
@@ -252,23 +250,10 @@
                                         errorHandler:errorBlock];
 }
 
-#pragma mark - Public Method
-
-- (void)setResultRensouArray:(NSArray *)rensouArray
-{
-    self.rensouArray = rensouArray;
-    [self.resultTableView reloadData];
-}
-
-
-#pragma mark - 
-
 - (void)requestGetRankingRensou
 {
     // レスポンスに対する処理
     ResponseBlock responseBlock = ^(MKNetworkOperation *op) {
-        NSLog(@"response = %@", op.responseString);
-        
         // インジケータ終了
         [SVProgressHUD dismiss];
         
@@ -310,6 +295,15 @@
     // 通信実行
     [[RensouNetworkEngine sharedEngine] getRankingRensou:responseBlock
                                             errorHandler:errorBlock];
+}
+
+
+#pragma mark - Public Method
+
+- (void)setResultRensouArray:(NSArray *)rensouArray
+{
+    self.rensouArray = rensouArray;
+    [self.resultTableView reloadData];
 }
 
 
