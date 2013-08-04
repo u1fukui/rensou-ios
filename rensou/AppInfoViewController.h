@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NADView.h"
 
-@interface AppInfoViewController : UIViewController
+@interface AppInfoViewController : UIViewController<NADViewDelegate>
 
 @end

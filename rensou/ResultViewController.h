@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NADView.h"
 
-@interface ResultViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface ResultViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, NADViewDelegate>
 
 - (void)setResultRensouArray:(NSArray *)rensouArray;
 

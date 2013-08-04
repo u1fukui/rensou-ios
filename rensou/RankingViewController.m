@@ -7,18 +7,25 @@
 //
 
 #import "RankingViewController.h"
+#import "InfoPlistProperty.h"
 
+// view
 #import "RankingCell.h"
 
 // util
 #import "UIColor+Hex.h"
 
+
 @interface RankingViewController ()
 
 @property (weak, nonatomic) UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UITableView *rankingTableView;
+@property (weak, nonatomic) IBOutlet UIView *adView;
 
 @property NSArray *rensouArray;
+
+// 広告
+@property (strong, nonatomic) NADView *nadView;
 
 @end
 
@@ -59,12 +66,46 @@
     self.rankingTableView.dataSource = self;
     self.rankingTableView.delegate = self;
     self.rankingTableView.backgroundColor = [UIColor clearColor];
+    
+    // 広告
+    self.nadView = [[NADView alloc] initWithFrame:CGRectMake(0,0,
+                                                             NAD_ADVIEW_SIZE_320x50.width, NAD_ADVIEW_SIZE_320x50.height )];
+    [self.nadView setIsOutputLog:NO];
+    [self.nadView setNendID:[[[NSBundle mainBundle] infoDictionary] objectForKey:kNendId]
+                     spotID:[[[NSBundle mainBundle] infoDictionary] objectForKey:kNendSpotId]];
+    [self.nadView setDelegate:self];
+    [self.nadView load];
+    [self.adView addSubview:self.nadView];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    NSLog(@"%s", __func__);
+    [super viewWillAppear:animated];
+    
+    // 広告
+    [self.nadView resume];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+    // 広告
+    [self.nadView pause];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc
+{
+    // 広告
+    [self.nadView setDelegate:nil];
+    self.nadView = nil;
 }
 
 
@@ -80,6 +121,7 @@
     UIImage *shadowImage = [[UIImage alloc] init];
     [self.navigationController.navigationBar setShadowImage:shadowImage];
 }
+
 
 #pragma mark - UITableViewDataSource
 

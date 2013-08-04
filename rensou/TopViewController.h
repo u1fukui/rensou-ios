@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NADView.h"
 
-@interface TopViewController : UIViewController <UITextFieldDelegate>
+@interface TopViewController : UIViewController <UITextFieldDelegate, NADViewDelegate>
 
 @end

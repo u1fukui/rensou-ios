@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NADView.h"
 
-@interface RankingViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface RankingViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, NADViewDelegate>
 
 - (void)setRankingRensouArray:(NSArray *)rensouArray;
 

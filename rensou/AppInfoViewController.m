@@ -10,9 +10,6 @@
 #import "AppInfoViewController.h"
 #import "LicenseViewController.h"
 
-// lib
-#import "GADBannerView.h"
-
 // util
 #import "UIColor+Hex.h"
 
@@ -30,7 +27,7 @@
 
 // 広告
 @property (weak, nonatomic) IBOutlet UIView *adView;
-@property (strong, nonatomic) GADBannerView *bannerView;
+@property (strong, nonatomic) NADView *nadView;
 
 @end
 
@@ -75,17 +72,43 @@
               forControlEvents:UIControlEventTouchUpInside];
     
     // 広告
-    self.bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
-    self.bannerView.adUnitID = [[[NSBundle mainBundle] infoDictionary] objectForKey:kGadPublisherId];
-    self.bannerView.rootViewController = self;
-    [self.adView addSubview:self.bannerView];
-    [self.bannerView loadRequest:[GADRequest request]];
+    self.nadView = [[NADView alloc] initWithFrame:CGRectMake(0,0,
+                                                             NAD_ADVIEW_SIZE_320x50.width, NAD_ADVIEW_SIZE_320x50.height )];
+    [self.nadView setIsOutputLog:NO];
+    [self.nadView setNendID:[[[NSBundle mainBundle] infoDictionary] objectForKey:kNendId]
+                     spotID:[[[NSBundle mainBundle] infoDictionary] objectForKey:kNendSpotId]];
+    [self.nadView setDelegate:self];
+    [self.nadView load];
+    [self.adView addSubview:self.nadView];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    // 広告
+    [self.nadView resume];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+    // 広告
+    [self.nadView pause];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc
+{
+    // 広告
+    [self.nadView setDelegate:nil];
+    self.nadView = nil;
 }
 
 

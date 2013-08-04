@@ -11,7 +11,6 @@
 #import "AppInfoViewController.h"
 
 // lib
-#import "GADBannerView.h"
 #import "SVProgressHUD.h"
 
 // net
@@ -42,7 +41,7 @@
 @property (strong, nonatomic) Rensou *themeRensou;
 
 // 広告
-@property (strong, nonatomic) GADBannerView *bannerView;
+@property (strong, nonatomic) NADView *nadView;
 
 // アプリ情報アイコン
 @property (strong, nonatomic) UIButton *infoButton;
@@ -105,11 +104,14 @@
                 forControlEvents:UIControlEventTouchUpInside];
     
     // 広告
-    self.bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
-    self.bannerView.adUnitID = [[[NSBundle mainBundle] infoDictionary] objectForKey:kGadPublisherId];
-    self.bannerView.rootViewController = self;
-    [self.adView addSubview:self.bannerView];
-    [self.bannerView loadRequest:[GADRequest request]];
+    self.nadView = [[NADView alloc] initWithFrame:CGRectMake(0,0,
+                                                             NAD_ADVIEW_SIZE_320x50.width, NAD_ADVIEW_SIZE_320x50.height )];
+    [self.nadView setIsOutputLog:NO];
+    [self.nadView setNendID:[[[NSBundle mainBundle] infoDictionary] objectForKey:kNendId]
+                     spotID:[[[NSBundle mainBundle] infoDictionary] objectForKey:kNendSpotId]];
+    [self.nadView setDelegate:self];
+    [self.nadView load];
+    [self.adView addSubview:self.nadView];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -119,6 +121,9 @@
     [super viewWillAppear:animated];
     [self showNavigationBar];
     [self requestGetThemeRensou];
+    
+    // 広告
+    [self.nadView resume];
     
     // キーボードイベント
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -153,8 +158,13 @@
 
 - (void)viewDidDisappear:(BOOL)animated
 {
+    [super viewDidDisappear:animated];
+    
     // NotificationCenterの削除
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    // 広告
+    [self.nadView pause];
 }
 
 
@@ -171,6 +181,12 @@
     [super viewDidUnload];
 }
 
+- (void)dealloc
+{
+    // 広告
+    [self.nadView setDelegate:nil];
+    self.nadView = nil;
+}
 
 #pragma mark - 
 

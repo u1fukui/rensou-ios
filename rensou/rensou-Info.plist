@@ -30,11 +30,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.1</string>
+	<string>0.2.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>0.1</string>
+	<string>0.2.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIPrerenderedIcon</key>
@@ -48,10 +48,12 @@
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>ServerHostName</key>
-	<string>localhost:4567</string>
-	<key>GadPublisherId</key>
-	<string>your-publish-id</string>
+	<string></string>
 	<key>SupportEmailAddress</key>
-	<string>your-address@example.com</string>
+	<string></string>
+	<key>NendID</key>
+	<string></string>
+	<key>NendSpotID</key>
+	<string></string>
 </dict>
 </plist>

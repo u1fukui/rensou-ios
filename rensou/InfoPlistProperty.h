@@ -13,8 +13,9 @@
 // rensou-Info.plist のプロパティ設定項目名
 
 extern NSString * const kServerHostName;
-extern NSString * const kGadPublisherId;
 extern NSString * const kBundleVersion;
 extern NSString * const kSupportEmailAddress;
+extern NSString * const kNendId;
+extern NSString * const kNendSpotId;
 
 @end
