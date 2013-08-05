@@ -34,9 +34,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *inputTextField;
 @property (weak, nonatomic) IBOutlet UILabel *themeLabel;
 
-// 連想結果
-@property (strong, nonatomic) ResultViewController *resultViewController;
-
 // テーマとなる連想
 @property (strong, nonatomic) Rensou *themeRensou;
 
@@ -351,14 +348,12 @@
         }
         
         // 連想結果画面に遷移
-        if (!self.resultViewController) {
-            self.resultViewController = [[ResultViewController alloc] initWithNibName:@"ResultViewController" bundle:nil];
-        }
-        
         if (rensouArray.count > 0) {
             self.inputTextField.text = @"";
-            [self.resultViewController setResultRensouArray:rensouArray];
-            [self.navigationController pushViewController:self.resultViewController animated:YES];
+            
+            ResultViewController *controller = [[ResultViewController alloc] initWithNibName:@"ResultViewController" bundle:nil];
+            [controller setResultRensouArray:rensouArray];
+            [self.navigationController pushViewController:controller animated:YES];
         } else {
         }
     };
