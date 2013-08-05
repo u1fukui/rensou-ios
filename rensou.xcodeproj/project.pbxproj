@@ -939,8 +939,8 @@
 		7746574A16E34AF000ACD435 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: YUICHI KOBAYASHI (3XD53HY7MU)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: YUICHI KOBAYASHI (3XD53HY7MU)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: YUICHI KOBAYASHI";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: YUICHI KOBAYASHI";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "rensou/rensou-Prefix.pch";
 				INFOPLIST_FILE = "rensou/rensou-Info.plist";
@@ -951,8 +951,8 @@
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "B50CDEF3-8D2E-4F0A-8BC9-631E2F02EECE";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B50CDEF3-8D2E-4F0A-8BC9-631E2F02EECE";
+				PROVISIONING_PROFILE = "BC5C478E-F908-4E72-AC24-2A8A93A63CCB";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BC5C478E-F908-4E72-AC24-2A8A93A63CCB";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -960,8 +960,8 @@
 		7746574B16E34AF000ACD435 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: YUICHI KOBAYASHI (3XD53HY7MU)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: YUICHI KOBAYASHI (3XD53HY7MU)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: YUICHI KOBAYASHI";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: YUICHI KOBAYASHI";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "rensou/rensou-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
@@ -973,8 +973,8 @@
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "B50CDEF3-8D2E-4F0A-8BC9-631E2F02EECE";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B50CDEF3-8D2E-4F0A-8BC9-631E2F02EECE";
+				PROVISIONING_PROFILE = "BC5C478E-F908-4E72-AC24-2A8A93A63CCB";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BC5C478E-F908-4E72-AC24-2A8A93A63CCB";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -983,6 +983,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/rensou.app/rensou";
+				CODE_SIGN_IDENTITY = "iPhone Developer: YUICHI KOBAYASHI (3XD53HY7MU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
@@ -991,6 +993,7 @@
 				GCC_PREFIX_HEADER = "rensou/rensou-Prefix.pch";
 				INFOPLIST_FILE = "rensouTests/rensouTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "3DE11634-C784-46B6-83F1-472C4E5B1D5D";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -1000,6 +1003,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/rensou.app/rensou";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
