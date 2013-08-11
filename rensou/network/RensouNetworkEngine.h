@@ -13,8 +13,12 @@
 
 typedef void (^ResponseBlock)(MKNetworkOperation *op);
 
-// シングルトンインスタンス取得
+//シングルトンインスタンス取得
 + (RensouNetworkEngine *)sharedEngine;
+
+// ユーザIDの登録
+-(MKNetworkOperation*) registerUserId:(ResponseBlock) completionBlock
+                         errorHandler:(MKNKErrorBlock) errorBlock;
 
 // 連想リストの取得
 -(MKNetworkOperation*) getThemeRensou:(int) count
@@ -22,8 +26,9 @@ typedef void (^ResponseBlock)(MKNetworkOperation *op);
                          errorHandler:(MKNKErrorBlock) errorBlock;
 
 // 連想ワードの投稿
--(MKNetworkOperation*) postRensou:(NSString*) rensouWord
+-(MKNetworkOperation*) postRensou:(NSString *) rensouWord
                           themeId:(int) themeId
+                           userId:(NSString *) userId
                 completionHandler:(ResponseBlock) completionBlock
                      errorHandler:(MKNKErrorBlock) errorBlock;
 
@@ -36,6 +41,11 @@ typedef void (^ResponseBlock)(MKNetworkOperation *op);
 -(MKNetworkOperation*) unlikeRensou:(int) rensouId
                   completionHandler:(ResponseBlock) completionBlock
                        errorHandler:(MKNKErrorBlock) errorBlock;
+
+// 連想に対して通報
+-(MKNetworkOperation*) spamRensou:(int) rensouId
+                completionHandler:(ResponseBlock) completionBlock
+                     errorHandler:(MKNKErrorBlock) errorBlock;
 
 // 連想リストの取得
 -(MKNetworkOperation*) getRankingRensou:(ResponseBlock) completionBlock

@@ -45,6 +45,9 @@
 		777F594917AEA25B005BE1D8 /* libAdapterNend.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 777F594517AEA25B005BE1D8 /* libAdapterNend.a */; };
 		777F594A17AEA25B005BE1D8 /* libNendAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 777F594617AEA25B005BE1D8 /* libNendAd.a */; };
 		777F594C17AEA79C005BE1D8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7746571816E34AF000ACD435 /* CoreGraphics.framework */; };
+		778FA7CA17B7963C0013A87A /* button_spam_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 778FA7C617B7963C0013A87A /* button_spam_off.png */; };
+		778FA7CB17B7963C0013A87A /* button_spam_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 778FA7C717B7963C0013A87A /* button_spam_off@2x.png */; };
+		778FA7D017B798BF0013A87A /* SpamManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 778FA7CF17B798BF0013A87A /* SpamManager.m */; };
 		7791F58217ACB5EB00401C76 /* RankingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7791F58017ACB5EB00401C76 /* RankingViewController.m */; };
 		7791F58317ACB5EB00401C76 /* RankingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7791F58117ACB5EB00401C76 /* RankingViewController.xib */; };
 		7791F58A17ACBB2500401C76 /* RankingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7791F58917ACBB2500401C76 /* RankingCell.m */; };
@@ -181,6 +184,10 @@
 		777F594517AEA25B005BE1D8 /* libAdapterNend.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdapterNend.a; sourceTree = "<group>"; };
 		777F594617AEA25B005BE1D8 /* libNendAd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNendAd.a; sourceTree = "<group>"; };
 		777F594717AEA25B005BE1D8 /* NADView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADView.h; sourceTree = "<group>"; };
+		778FA7C617B7963C0013A87A /* button_spam_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_spam_off.png; sourceTree = "<group>"; };
+		778FA7C717B7963C0013A87A /* button_spam_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_spam_off@2x.png"; sourceTree = "<group>"; };
+		778FA7CE17B798BF0013A87A /* SpamManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpamManager.h; sourceTree = "<group>"; };
+		778FA7CF17B798BF0013A87A /* SpamManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpamManager.m; sourceTree = "<group>"; };
 		7791F57F17ACB5EB00401C76 /* RankingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingViewController.h; sourceTree = "<group>"; };
 		7791F58017ACB5EB00401C76 /* RankingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingViewController.m; sourceTree = "<group>"; };
 		7791F58117ACB5EB00401C76 /* RankingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingViewController.xib; sourceTree = "<group>"; };
@@ -389,6 +396,8 @@
 				777DF3241763FC1D00AAF1C3 /* RSNotification.m */,
 				777F593917AD5E46005BE1D8 /* LikeManager.h */,
 				777F593A17AD5E46005BE1D8 /* LikeManager.m */,
+				778FA7CE17B798BF0013A87A /* SpamManager.h */,
+				778FA7CF17B798BF0013A87A /* SpamManager.m */,
 				7746572316E34AF000ACD435 /* AppDelegate.h */,
 				7746572416E34AF000ACD435 /* AppDelegate.m */,
 				7746575716E3533200ACD435 /* TopViewController.h */,
@@ -537,6 +546,8 @@
 		7791F5CA17ACDB3F00401C76 /* result */ = {
 			isa = PBXGroup;
 			children = (
+				778FA7C617B7963C0013A87A /* button_spam_off.png */,
+				778FA7C717B7963C0013A87A /* button_spam_off@2x.png */,
 				777F593C17AE27F7005BE1D8 /* button_like_off.png */,
 				777F593D17AE27F7005BE1D8 /* button_like_off@2x.png */,
 				777F593E17AE27F7005BE1D8 /* button_like_on.png */,
@@ -784,6 +795,8 @@
 				777F594117AE27F7005BE1D8 /* button_like_off@2x.png in Resources */,
 				777F594217AE27F7005BE1D8 /* button_like_on.png in Resources */,
 				777F594317AE27F7005BE1D8 /* button_like_on@2x.png in Resources */,
+				778FA7CA17B7963C0013A87A /* button_spam_off.png in Resources */,
+				778FA7CB17B7963C0013A87A /* button_spam_off@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -845,6 +858,7 @@
 				7791F58217ACB5EB00401C76 /* RankingViewController.m in Sources */,
 				7791F58A17ACBB2500401C76 /* RankingCell.m in Sources */,
 				777F593B17AD5E46005BE1D8 /* LikeManager.m in Sources */,
+				778FA7D017B798BF0013A87A /* SpamManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,7 +13,9 @@
 @interface RensouCell : UITableViewCell
 
 @property (assign, nonatomic) BOOL isLiked;
+@property (assign, nonatomic) BOOL isSpamed;
 @property (strong, nonatomic) UIButton *likeButton;
+@property (strong, nonatomic) UIButton *spamButton;
 
 + (CGFloat)cellHeight;
 - (void)setRensou:(Rensou *)rensou index:(int)index;

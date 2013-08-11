@@ -9,6 +9,7 @@
 #import "RensouCell.h"
 #import "Rensou.h"
 #import "LikeManager.h"
+#import "SpamManager.h"
 
 @interface RensouCell()
 
@@ -48,6 +49,15 @@
         self.createdTimeLabel.font = [UIFont systemFontOfSize:10.0f];
         self.createdTimeLabel.textColor = [UIColor grayColor];
         [self addSubview:self.createdTimeLabel];
+        
+        // スパムボタン
+        self.spamButton = [[UIButton alloc] initWithFrame:CGRectMake(165.0f,
+                                                                     60.0f,
+                                                                     25.0f,
+                                                                     30.0f)];
+        [self.spamButton setImage:[UIImage imageNamed:@"button_spam_off"]
+                         forState:UIControlStateNormal];
+        [self addSubview:self.spamButton];
         
         // いいね！ボタン
         self.likeButton = [[UIButton alloc] initWithFrame:CGRectMake(200.0f,
@@ -94,18 +104,36 @@
 - (void)setRensou:(Rensou *)rensou index:(int)index
 {
     self.rensou = rensou;
-    [self setRensouKeyword:rensou.keyword oldKeyword:rensou.oldKeyword];
     self.createdTimeLabel.text = rensou.createdAt;
     self.likeCountLabel.text = [NSString stringWithFormat:@"%d", self.rensou.likeCount];
     
-    // いいねボタン
-    BOOL isLiked = [[LikeManager sharedManager] isLiked:rensou.rensouId];
-    if (isLiked) {
-        [self.likeButton setImage:[UIImage imageNamed:@"button_like_on"]
-                         forState:UIControlStateNormal];
+    //
+    BOOL isSpamed = [[SpamManager sharedManager] isSpamed:rensou.rensouId];
+    if (isSpamed) {
+        self.keywordLabel.text = @"この投稿は通報済みです。";
+        
+        // 非表示
+        self.likeButton.hidden = YES;
+        self.likeCountLabel.hidden = YES;
+        self.spamButton.hidden = YES;
     } else {
-        [self.likeButton setImage:[UIImage imageNamed:@"button_like_off"]
-                         forState:UIControlStateNormal];
+        // 表示
+        self.likeButton.hidden = NO;
+        self.likeCountLabel.hidden = NO;
+        self.spamButton.hidden = NO;
+        
+        // キーワード
+        [self setRensouKeyword:rensou.keyword oldKeyword:rensou.oldKeyword];
+        
+        // いいねボタン
+        BOOL isLiked = [[LikeManager sharedManager] isLiked:rensou.rensouId];
+        if (isLiked) {
+            [self.likeButton setImage:[UIImage imageNamed:@"button_like_on"]
+                             forState:UIControlStateNormal];
+        } else {
+            [self.likeButton setImage:[UIImage imageNamed:@"button_like_off"]
+                             forState:UIControlStateNormal];
+        }
     }
     
     // 交互に枠の向きを変える

@@ -22,6 +22,7 @@
 #import "NSString+Validation.h"
 
 // other
+#import "AppDelegate.h"
 #import "RSNotification.h"
 #import "InfoPlistProperty.h"
 
@@ -387,8 +388,10 @@
     
     
     // 通信実行
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     [[RensouNetworkEngine sharedEngine] postRensou:self.inputTextField.text
                                            themeId:self.themeRensou.rensouId
+                                            userId:appDelegate.userId
                                  completionHandler:responseBlock
                                       errorHandler:errorBlock];
 }

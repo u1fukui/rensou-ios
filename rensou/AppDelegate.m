@@ -9,6 +9,10 @@
 #import "AppDelegate.h"
 #import "RSNotification.h"
 #import "LikeManager.h"
+#import "RensouNetworkEngine.h"
+#import "SVProgressHUD.h"
+
+const int kTagAlertError = 1;
 
 @implementation AppDelegate
 
@@ -22,6 +26,12 @@
     self.rootController = [[UINavigationController alloc]initWithRootViewController:self.viewController];
     self.window.rootViewController = self.rootController;
     [self.window makeKeyAndVisible];
+    
+    // ユーザ管理
+    [self load];
+    if (self.userId == nil) {
+        [self requestRegisterUser];
+    }
     
     // いいね管理を読み込み
     [[LikeManager sharedManager] load];
@@ -64,5 +74,87 @@ void uncaughtExceptionHandler(NSException *exception)
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
+#pragma mark - ユーザ登録
+
+- (void)requestRegisterUser
+{
+    ResponseBlock responseBlock = ^(MKNetworkOperation *op) {
+        // ダイアログ非表示
+        [SVProgressHUD dismiss];
+        
+        NSLog(@"response = %@", op.responseJSON);
+
+        NSDictionary *dict = op.responseJSON;
+        
+        // ユーザ情報設定
+        self.userId = dict[@"user_id"];
+        [self save];
+        
+        // PUSH通知登録
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeBadge)];
+    };
+    
+    // エラー処理
+    MKNKErrorBlock errorBlock =  ^(NSError *error) {
+        // ダイアログ非表示
+        [SVProgressHUD dismiss];
+        
+        // ユーザIDが設定されるまで繰り返す
+        if (self.userId == nil) {
+            // エラーメッセージ
+            UIAlertView *alert =
+            [[UIAlertView alloc] initWithTitle:@"エラー" message:@"通信に失敗しました。電波の良いところで再度試してみて下さい。"
+                                      delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            alert.tag = kTagAlertError;
+            [alert show];
+        }
+    };
+    
+    // ダイアログ非表示
+    [SVProgressHUD show];
+    
+    // 通信
+    [[RensouNetworkEngine sharedEngine] registerUserId:responseBlock
+                                          errorHandler:errorBlock];
+}
+
+
+#pragma mark - データ永続化
+
+- (void)save
+{
+    NSString *path = [AppDelegate getFilePath];
+    [NSKeyedArchiver archiveRootObject:self.userId toFile:path];
+}
+
+- (void)load
+{
+    NSString *path = [AppDelegate getFilePath];
+    self.userId = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+}
+
++ (NSString *)getFilePath
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(
+                                                         NSDocumentDirectory,
+                                                         NSUserDomainMask, YES);
+    return [paths[0] stringByAppendingPathComponent:@"UserId.dat"];
+}
+
+
+#pragma mark - UIAlerViewDelegate
+
+-(void)alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSLog(@"%s", __func__);
+    
+    switch (alertView.tag) {
+        case kTagAlertError:
+            [self requestRegisterUser];
+            break;
+    }
+}
+
 
 @end

@@ -11,7 +11,7 @@
 
 @interface ResultViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, NADViewDelegate>
 
-- (void)setResultRensouArray:(NSArray *)rensouArray;
+- (void)setResultRensouArray:(NSMutableArray *)rensouArray;
 
 
 @end

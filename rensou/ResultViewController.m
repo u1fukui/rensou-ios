@@ -26,13 +26,18 @@
 // other
 #import "InfoPlistProperty.h"
 #import "LikeManager.h"
+#import "SpamManager.h"
+
+const int kTagAlertSpam = 1;
 
 @interface ResultViewController ()
 
 @property (weak, nonatomic) UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UITableView *resultTableView;
 
-@property NSArray *rensouArray;
+@property (strong, nonatomic) NSMutableArray *rensouArray;
+
+@property (strong, nonatomic) RensouCell *clickedCell;
 
 // 広告
 @property (weak, nonatomic) IBOutlet UIView *adView;
@@ -180,8 +185,14 @@
                  initWithStyle:UITableViewCellStyleDefault
                  reuseIdentifier:CellIdentifier];
         
+        // いいね
         [cell.likeButton addTarget:self
                             action:@selector(onClickLikeButton:)
+                  forControlEvents:UIControlEventTouchUpInside];
+        
+        // 通報
+        [cell.spamButton addTarget:self
+                            action:@selector(onClickSpamButton:)
                   forControlEvents:UIControlEventTouchUpInside];
     }
     
@@ -296,6 +307,50 @@
                                         errorHandler:errorBlock];
 }
 
+
+- (void)onClickSpamButton:(UIButton *)button
+{
+    NSLog(@"%s", __func__);
+    
+    // 通信中なら何もしない
+    if (self.isConnecting) {
+        return;
+    }
+    
+    //
+    self.clickedCell = (RensouCell *)[button superview];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"確認" message:@"この投稿を通報します。よろしいですか？"
+                              delegate:self cancelButtonTitle:@"キャンセル" otherButtonTitles:@"OK", nil];
+    alert.tag = kTagAlertSpam;
+    [alert show];
+}
+
+// 通報する
+- (void)spamRensou:(RensouCell *)cell rensouId:(int)rensouId
+{
+    // 成功時
+    ResponseBlock responseBlock = ^(MKNetworkOperation *op) {
+        NSLog(@"success");
+        [[SpamManager sharedManager] spamRensou:rensouId];
+        self.isConnecting = NO;
+    };
+    
+    // エラー処理
+    MKNKErrorBlock errorBlock =  ^(NSError *error) {
+        NSLog(@"failed");
+        self.isConnecting = NO;
+    };
+    
+    self.isConnecting = YES;
+    [[RensouNetworkEngine sharedEngine] spamRensou:rensouId
+                                 completionHandler:responseBlock
+                                      errorHandler:errorBlock];
+}
+
+
+#pragma mark -
+
 - (void)requestGetRankingRensou
 {
     // レスポンスに対する処理
@@ -344,9 +399,35 @@
 }
 
 
+#pragma mark - UIAlerViewDelegate
+
+-(void)alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSLog(@"%s", __func__);
+  
+    // 通報
+    if (alertView.tag == kTagAlertSpam) {
+        
+        // OK
+        if (buttonIndex == 1) {
+            NSIndexPath *indexPath = [self.resultTableView indexPathForCell:self.clickedCell];
+            Rensou *rensou = [self.rensouArray objectAtIndex:indexPath.row];
+            [self spamRensou:self.clickedCell rensouId:rensou.rensouId];
+            
+            NSLog(@"indexPath = %@", indexPath);
+            
+            // テーブルから削除
+            [self.rensouArray removeObjectAtIndex:indexPath.row];
+            [self.resultTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                                        withRowAnimation:YES];
+            [self.resultTableView reloadData];
+        }
+    }
+}
+
+
 #pragma mark - Public Method
 
-- (void)setResultRensouArray:(NSArray *)rensouArray
+- (void)setResultRensouArray:(NSMutableArray *)rensouArray
 {
     self.rensouArray = rensouArray;
     [self.resultTableView reloadData];

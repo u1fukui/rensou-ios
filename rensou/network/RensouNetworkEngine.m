@@ -29,6 +29,36 @@ static RensouNetworkEngine *_sharedInstance = nil;
 
 #pragma mark - APIの実行
 
+-(MKNetworkOperation*) registerUserId:(ResponseBlock) completionBlock
+                         errorHandler:(MKNKErrorBlock) errorBlock
+{
+    // Body
+    NSDictionary *params = @{
+                             @"device_type": @"0",
+                             };
+    
+    // リクエスト
+    MKNetworkOperation *op = [self operationWithPath:@"user"
+                                              params:params
+                                          httpMethod:@"POST"];
+    [op setPostDataEncoding:MKNKPostDataEncodingTypeJSON];
+    
+    [op addCompletionHandler:^(MKNetworkOperation *completedOperation)
+     {
+         completionBlock(completedOperation);
+         
+     } errorHandler:^(MKNetworkOperation *errorOp, NSError* error) {
+         
+         errorBlock(error);
+         
+     }];
+    
+    [self enqueueOperation:op];
+    
+    return op;
+}
+
+
 // 連想リストの取得
 -(MKNetworkOperation*) getThemeRensou:(int) count
                     completionHandler:(ResponseBlock) completionBlock
@@ -58,13 +88,15 @@ static RensouNetworkEngine *_sharedInstance = nil;
 // 連想の登録
 -(MKNetworkOperation*) postRensou:(NSString *) rensouWord
                           themeId:(int) themeId
+                           userId:(NSString *) userId
                 completionHandler:(ResponseBlock) completionBlock
                      errorHandler:(MKNKErrorBlock) errorBlock
 {    
     // Body
     NSDictionary *params = @{
                              @"keyword": rensouWord,
-                             @"theme_id": [NSNumber numberWithInteger:themeId]
+                             @"theme_id": [NSNumber numberWithInteger:themeId],
+                             @"user_id": userId
                             };
     
     // リクエスト
@@ -94,7 +126,7 @@ static RensouNetworkEngine *_sharedInstance = nil;
                      errorHandler:(MKNKErrorBlock) errorBlock
 {
     // リクエスト
-    MKNetworkOperation *op = [self operationWithPath:[NSString stringWithFormat:@"like/%d", rensouId]
+    MKNetworkOperation *op = [self operationWithPath:[NSString stringWithFormat:@"rensous/%d/like", rensouId]
                                               params:nil
                                           httpMethod:@"POST"];
     
@@ -119,9 +151,34 @@ static RensouNetworkEngine *_sharedInstance = nil;
                        errorHandler:(MKNKErrorBlock) errorBlock
 {
     // リクエスト
-    MKNetworkOperation *op = [self operationWithPath:[NSString stringWithFormat:@"like/%d", rensouId]
+    MKNetworkOperation *op = [self operationWithPath:[NSString stringWithFormat:@"rensous/%d/like", rensouId]
                                               params:nil
                                           httpMethod:@"DELETE"];
+    
+    [op addCompletionHandler:^(MKNetworkOperation *completedOperation)
+     {
+         completionBlock(completedOperation);
+         
+     } errorHandler:^(MKNetworkOperation *errorOp, NSError* error) {
+         
+         errorBlock(error);
+         
+     }];
+    
+    [self enqueueOperation:op];
+    
+    return op;
+}
+
+// 連想に対して通報
+-(MKNetworkOperation*) spamRensou:(int) rensouId
+                completionHandler:(ResponseBlock) completionBlock
+                     errorHandler:(MKNKErrorBlock) errorBlock
+{
+    // リクエスト
+    MKNetworkOperation *op = [self operationWithPath:[NSString stringWithFormat:@"rensous/%d/spam", rensouId]
+                                              params:nil
+                                          httpMethod:@"POST"];
     
     [op addCompletionHandler:^(MKNetworkOperation *completedOperation)
      {
