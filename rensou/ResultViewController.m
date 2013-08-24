@@ -19,6 +19,7 @@
 
 // lib
 #import "SVProgressHUD.h"
+#import "Flurry.h"
 
 // util
 #import "UIColor+Hex.h"
@@ -27,6 +28,7 @@
 #import "InfoPlistProperty.h"
 #import "LikeManager.h"
 #import "SpamManager.h"
+#import "FlurryEventName.h"
 
 const int kTagAlertSpam = 1;
 
@@ -239,6 +241,10 @@ const int kTagAlertSpam = 1;
         return;
     }
     
+    // Flurry
+    [Flurry logEvent:kEventLike];
+    
+    // タップした連想を取得
     RensouCell *cell = (RensouCell *)[button superview];
     int row = [self.resultTableView indexPathForCell:cell].row;
     Rensou *rensou = [self.rensouArray objectAtIndex:row];
@@ -334,6 +340,9 @@ const int kTagAlertSpam = 1;
         NSLog(@"success");
         [[SpamManager sharedManager] spamRensou:rensouId];
         self.isConnecting = NO;
+        
+        // Flurry
+        [Flurry logEvent:kEventSpam];
     };
     
     // エラー処理
@@ -357,6 +366,9 @@ const int kTagAlertSpam = 1;
     ResponseBlock responseBlock = ^(MKNetworkOperation *op) {
         // インジケータ終了
         [SVProgressHUD dismiss];
+        
+        // Flurry
+        [Flurry logEvent:kEventRanking];
         
         // レスポンス解析
         NSMutableArray *rensouArray = [NSMutableArray array];

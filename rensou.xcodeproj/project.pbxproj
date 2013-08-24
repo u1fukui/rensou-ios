@@ -29,6 +29,11 @@
 		7746575B16E3533200ACD435 /* TopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7746575916E3533200ACD435 /* TopViewController.xib */; };
 		7746575F16E3534F00ACD435 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7746575D16E3534F00ACD435 /* ResultViewController.m */; };
 		7746576016E3534F00ACD435 /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7746575E16E3534F00ACD435 /* ResultViewController.xib */; };
+		7769487A17C6499E004982E2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7769487917C6499E004982E2 /* Crashlytics.framework */; };
+		7769488117C64E0F004982E2 /* libFlurry_4.2.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7769488017C64E0F004982E2 /* libFlurry_4.2.3.a */; };
+		7769488B17C653D1004982E2 /* LikeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7769488817C653D1004982E2 /* LikeManager.m */; };
+		7769488C17C653D1004982E2 /* SpamManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7769488A17C653D1004982E2 /* SpamManager.m */; };
+		7769488F17C65B89004982E2 /* FlurryEventName.m in Sources */ = {isa = PBXBuildFile; fileRef = 7769488E17C65B89004982E2 /* FlurryEventName.m */; };
 		776AE0D21753ABA20073351A /* Rensou.m in Sources */ = {isa = PBXBuildFile; fileRef = 776AE0D11753ABA20073351A /* Rensou.m */; };
 		776AE0D617599E500073351A /* RensouNetworkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 776AE0D517599E500073351A /* RensouNetworkEngine.m */; };
 		777DF31B176313A000AAF1C3 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 777DF31A176313A000AAF1C3 /* icon.png */; };
@@ -37,7 +42,6 @@
 		777DF3251763FC1D00AAF1C3 /* RSNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 777DF3241763FC1D00AAF1C3 /* RSNotification.m */; };
 		777F593317ACE837005BE1D8 /* navigation_ranking.png in Resources */ = {isa = PBXBuildFile; fileRef = 777F593117ACE837005BE1D8 /* navigation_ranking.png */; };
 		777F593417ACE837005BE1D8 /* navigation_ranking@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 777F593217ACE837005BE1D8 /* navigation_ranking@2x.png */; };
-		777F593B17AD5E46005BE1D8 /* LikeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 777F593A17AD5E46005BE1D8 /* LikeManager.m */; };
 		777F594017AE27F7005BE1D8 /* button_like_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 777F593C17AE27F7005BE1D8 /* button_like_off.png */; };
 		777F594117AE27F7005BE1D8 /* button_like_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 777F593D17AE27F7005BE1D8 /* button_like_off@2x.png */; };
 		777F594217AE27F7005BE1D8 /* button_like_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 777F593E17AE27F7005BE1D8 /* button_like_on.png */; };
@@ -47,7 +51,6 @@
 		777F594C17AEA79C005BE1D8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7746571816E34AF000ACD435 /* CoreGraphics.framework */; };
 		778FA7CA17B7963C0013A87A /* button_spam_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 778FA7C617B7963C0013A87A /* button_spam_off.png */; };
 		778FA7CB17B7963C0013A87A /* button_spam_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 778FA7C717B7963C0013A87A /* button_spam_off@2x.png */; };
-		778FA7D017B798BF0013A87A /* SpamManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 778FA7CF17B798BF0013A87A /* SpamManager.m */; };
 		7791F58217ACB5EB00401C76 /* RankingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7791F58017ACB5EB00401C76 /* RankingViewController.m */; };
 		7791F58317ACB5EB00401C76 /* RankingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7791F58117ACB5EB00401C76 /* RankingViewController.xib */; };
 		7791F58A17ACBB2500401C76 /* RankingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7791F58917ACBB2500401C76 /* RankingCell.m */; };
@@ -163,6 +166,15 @@
 		7746575C16E3534F00ACD435 /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
 		7746575D16E3534F00ACD435 /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
 		7746575E16E3534F00ACD435 /* ResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultViewController.xib; sourceTree = "<group>"; };
+		7769487917C6499E004982E2 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		7769487F17C64E0F004982E2 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		7769488017C64E0F004982E2 /* libFlurry_4.2.3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_4.2.3.a; sourceTree = "<group>"; };
+		7769488717C653D1004982E2 /* LikeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikeManager.h; sourceTree = "<group>"; };
+		7769488817C653D1004982E2 /* LikeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeManager.m; sourceTree = "<group>"; };
+		7769488917C653D1004982E2 /* SpamManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpamManager.h; sourceTree = "<group>"; };
+		7769488A17C653D1004982E2 /* SpamManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpamManager.m; sourceTree = "<group>"; };
+		7769488D17C65B89004982E2 /* FlurryEventName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryEventName.h; sourceTree = "<group>"; };
+		7769488E17C65B89004982E2 /* FlurryEventName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlurryEventName.m; sourceTree = "<group>"; };
 		776AE0D01753ABA20073351A /* Rensou.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Rensou.h; path = api/Rensou.h; sourceTree = "<group>"; };
 		776AE0D11753ABA20073351A /* Rensou.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Rensou.m; path = api/Rensou.m; sourceTree = "<group>"; };
 		776AE0D417599E500073351A /* RensouNetworkEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RensouNetworkEngine.h; path = network/RensouNetworkEngine.h; sourceTree = "<group>"; };
@@ -175,8 +187,6 @@
 		777DF3241763FC1D00AAF1C3 /* RSNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSNotification.m; sourceTree = "<group>"; };
 		777F593117ACE837005BE1D8 /* navigation_ranking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigation_ranking.png; sourceTree = "<group>"; };
 		777F593217ACE837005BE1D8 /* navigation_ranking@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation_ranking@2x.png"; sourceTree = "<group>"; };
-		777F593917AD5E46005BE1D8 /* LikeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikeManager.h; sourceTree = "<group>"; };
-		777F593A17AD5E46005BE1D8 /* LikeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeManager.m; sourceTree = "<group>"; };
 		777F593C17AE27F7005BE1D8 /* button_like_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_like_off.png; sourceTree = "<group>"; };
 		777F593D17AE27F7005BE1D8 /* button_like_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_like_off@2x.png"; sourceTree = "<group>"; };
 		777F593E17AE27F7005BE1D8 /* button_like_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_like_on.png; sourceTree = "<group>"; };
@@ -186,8 +196,6 @@
 		777F594717AEA25B005BE1D8 /* NADView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADView.h; sourceTree = "<group>"; };
 		778FA7C617B7963C0013A87A /* button_spam_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_spam_off.png; sourceTree = "<group>"; };
 		778FA7C717B7963C0013A87A /* button_spam_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_spam_off@2x.png"; sourceTree = "<group>"; };
-		778FA7CE17B798BF0013A87A /* SpamManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpamManager.h; sourceTree = "<group>"; };
-		778FA7CF17B798BF0013A87A /* SpamManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpamManager.m; sourceTree = "<group>"; };
 		7791F57F17ACB5EB00401C76 /* RankingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingViewController.h; sourceTree = "<group>"; };
 		7791F58017ACB5EB00401C76 /* RankingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingViewController.m; sourceTree = "<group>"; };
 		7791F58117ACB5EB00401C76 /* RankingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingViewController.xib; sourceTree = "<group>"; };
@@ -300,6 +308,8 @@
 				7746571716E34AF000ACD435 /* Foundation.framework in Frameworks */,
 				777F594917AEA25B005BE1D8 /* libAdapterNend.a in Frameworks */,
 				777F594A17AEA25B005BE1D8 /* libNendAd.a in Frameworks */,
+				7769487A17C6499E004982E2 /* Crashlytics.framework in Frameworks */,
+				7769488117C64E0F004982E2 /* libFlurry_4.2.3.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +372,7 @@
 		7746571316E34AF000ACD435 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7769487917C6499E004982E2 /* Crashlytics.framework */,
 				779B82B417805047002DB143 /* QuartzCore.framework */,
 				779B8285177E82C3002DB143 /* AdSupport.framework */,
 				779B8283177E82A4002DB143 /* MessageUI.framework */,
@@ -381,6 +392,7 @@
 		7746571A16E34AF000ACD435 /* rensou */ = {
 			isa = PBXGroup;
 			children = (
+				7769488617C65379004982E2 /* manager */,
 				7791F5A317ACDB3F00401C76 /* image */,
 				779B81E3177E8259002DB143 /* ad */,
 				7746571B16E34AF000ACD435 /* Supporting Files */,
@@ -390,14 +402,12 @@
 				77215711175A2C7000953C2B /* util */,
 				779B82A9178047CF002DB143 /* html */,
 				77952ADF16F979A10025F785 /* lib */,
+				7769488D17C65B89004982E2 /* FlurryEventName.h */,
+				7769488E17C65B89004982E2 /* FlurryEventName.m */,
 				777DF320176380F900AAF1C3 /* InfoPlistProperty.h */,
 				777DF321176380F900AAF1C3 /* InfoPlistProperty.m */,
 				777DF3231763FC1D00AAF1C3 /* RSNotification.h */,
 				777DF3241763FC1D00AAF1C3 /* RSNotification.m */,
-				777F593917AD5E46005BE1D8 /* LikeManager.h */,
-				777F593A17AD5E46005BE1D8 /* LikeManager.m */,
-				778FA7CE17B798BF0013A87A /* SpamManager.h */,
-				778FA7CF17B798BF0013A87A /* SpamManager.m */,
 				7746572316E34AF000ACD435 /* AppDelegate.h */,
 				7746572416E34AF000ACD435 /* AppDelegate.m */,
 				7746575716E3533200ACD435 /* TopViewController.h */,
@@ -450,6 +460,26 @@
 				7746574116E34AF000ACD435 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7769487E17C64E0F004982E2 /* Flurry */ = {
+			isa = PBXGroup;
+			children = (
+				7769487F17C64E0F004982E2 /* Flurry.h */,
+				7769488017C64E0F004982E2 /* libFlurry_4.2.3.a */,
+			);
+			path = Flurry;
+			sourceTree = "<group>";
+		};
+		7769488617C65379004982E2 /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				7769488717C653D1004982E2 /* LikeManager.h */,
+				7769488817C653D1004982E2 /* LikeManager.m */,
+				7769488917C653D1004982E2 /* SpamManager.h */,
+				7769488A17C653D1004982E2 /* SpamManager.m */,
+			);
+			path = manager;
 			sourceTree = "<group>";
 		};
 		776AE0CE175085060073351A /* network */ = {
@@ -580,6 +610,7 @@
 		77952ADF16F979A10025F785 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				7769487E17C64E0F004982E2 /* Flurry */,
 				779B82AE1780502E002DB143 /* SVProgressHUD */,
 				77952AE016F979A10025F785 /* MKNetworkKit */,
 			);
@@ -665,6 +696,7 @@
 				7746570C16E34AF000ACD435 /* Sources */,
 				7746570D16E34AF000ACD435 /* Frameworks */,
 				7746570E16E34AF000ACD435 /* Resources */,
+				7769487817C64884004982E2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -824,6 +856,19 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
+		7769487817C64884004982E2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run 9f1ab731db68aa1dc0b3c71b144ecdbcc18a3c0a";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -857,8 +902,9 @@
 				779B82B81781C045002DB143 /* NSString+Validation.m in Sources */,
 				7791F58217ACB5EB00401C76 /* RankingViewController.m in Sources */,
 				7791F58A17ACBB2500401C76 /* RankingCell.m in Sources */,
-				777F593B17AD5E46005BE1D8 /* LikeManager.m in Sources */,
-				778FA7D017B798BF0013A87A /* SpamManager.m in Sources */,
+				7769488B17C653D1004982E2 /* LikeManager.m in Sources */,
+				7769488C17C653D1004982E2 /* SpamManager.m in Sources */,
+				7769488F17C65B89004982E2 /* FlurryEventName.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -953,8 +999,12 @@
 		7746574A16E34AF000ACD435 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: YUICHI KOBAYASHI";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: YUICHI KOBAYASHI";
+				CODE_SIGN_IDENTITY = "iPhone Developer: YUICHI KOBAYASHI (3XD53HY7MU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: YUICHI KOBAYASHI (3XD53HY7MU)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "rensou/rensou-Prefix.pch";
 				INFOPLIST_FILE = "rensou/rensou-Info.plist";
@@ -962,11 +1012,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/rensou/ad/NendAd\"",
+					"\"$(SRCROOT)/rensou/lib/Flurry\"",
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "BC5C478E-F908-4E72-AC24-2A8A93A63CCB";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BC5C478E-F908-4E72-AC24-2A8A93A63CCB";
+				PROVISIONING_PROFILE = "B50CDEF3-8D2E-4F0A-8BC9-631E2F02EECE";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B50CDEF3-8D2E-4F0A-8BC9-631E2F02EECE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -976,6 +1027,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution: YUICHI KOBAYASHI";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: YUICHI KOBAYASHI";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "rensou/rensou-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
@@ -984,6 +1039,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/rensou/ad/NendAd\"",
+					"\"$(SRCROOT)/rensou/lib/Flurry\"",
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";

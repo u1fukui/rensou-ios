@@ -15,5 +15,7 @@ NSString * const kBundleVersion = @"CFBundleShortVersionString";
 NSString * const kSupportEmailAddress = @"SupportEmailAddress";
 NSString * const kNendId = @"NendID";
 NSString * const kNendSpotId = @"NendSpotID";
+NSString * const kFlurryApiKey = @"FlurryAPIKey";
+NSString * const kCrashlyticsApiKey = @"CrashlyticsAPIKey";
 
 @end

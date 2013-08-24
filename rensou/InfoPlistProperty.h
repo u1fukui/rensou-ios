@@ -17,5 +17,7 @@ extern NSString * const kBundleVersion;
 extern NSString * const kSupportEmailAddress;
 extern NSString * const kNendId;
 extern NSString * const kNendSpotId;
+extern NSString * const kFlurryApiKey;
+extern NSString * const kCrashlyticsApiKey;
 
 @end

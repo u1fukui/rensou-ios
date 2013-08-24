@@ -12,6 +12,7 @@
 
 // lib
 #import "SVProgressHUD.h"
+#import "Flurry.h"
 
 // net
 #import "RensouNetworkEngine.h"
@@ -25,6 +26,7 @@
 #import "AppDelegate.h"
 #import "RSNotification.h"
 #import "InfoPlistProperty.h"
+#import "FlurryEventName.h"
 
 @interface TopViewController()
 
@@ -283,14 +285,6 @@
 }
 
 
-#pragma mark - イベント
-
-- (IBAction)tapPostingButton:(id)sender
-{
-    
-}
-
-
 #pragma mark - 通信
 
 - (void)requestGetThemeRensou
@@ -341,6 +335,9 @@
         // インジケータ終了
         [SVProgressHUD dismiss];
         
+        // Flurry
+        [Flurry logEvent:kEventPost];
+        
         // レスポンスの解析
         NSMutableArray *rensouArray = [NSMutableArray array];
         NSArray *responseArray = op.responseJSON;
@@ -355,7 +352,6 @@
             ResultViewController *controller = [[ResultViewController alloc] initWithNibName:@"ResultViewController" bundle:nil];
             [controller setResultRensouArray:rensouArray];
             [self.navigationController pushViewController:controller animated:YES];
-        } else {
         }
     };
     
@@ -412,6 +408,9 @@
     [self.inputTextField resignFirstResponder];
     
     if (button == self.infoButton) {
+        // Flurry
+        [Flurry logEvent:kEventInfo];
+        
         AppInfoViewController *controller = [[AppInfoViewController alloc] initWithNibName:@"AppInfoViewController" bundle:nil];
         [self.navigationController pushViewController:controller
                                              animated:YES];

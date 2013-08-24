@@ -9,10 +9,18 @@
 #import "AppDelegate.h"
 #import "RSNotification.h"
 #import "LikeManager.h"
+#import "SpamManager.h"
 #import "RensouNetworkEngine.h"
+#import "InfoPlistProperty.h"
+
+// lib
+#import <Crashlytics/Crashlytics.h>
+#import "Flurry.h"
+#import "FlurryEventName.h"
 #import "SVProgressHUD.h"
 
 const int kTagAlertError = 1;
+const int kTagAlertEula = 2;
 
 @implementation AppDelegate
 
@@ -27,14 +35,29 @@ const int kTagAlertError = 1;
     self.window.rootViewController = self.rootController;
     [self.window makeKeyAndVisible];
     
+    // Flurry
+    [Flurry setSecureTransportEnabled:YES];
+    [Flurry startSession:[[[NSBundle mainBundle] infoDictionary] objectForKey:kFlurryApiKey]];
+    [Flurry logEvent:kEventLaunchApp];
+    
+    // Crashlytics
+    [Crashlytics startWithAPIKey:[[[NSBundle mainBundle] infoDictionary] objectForKey:kCrashlyticsApiKey]];
+    
     // ユーザ管理
     [self load];
     if (self.userId == nil) {
-        [self requestRegisterUser];
+        NSString *message = @"サービスを利用するには以下の内容に同意下さい。\n\n1. 禁止事項\n・個人情報や他の方が不快と感じるような内容は投稿しないで下さい\n\n2. 表示内容について\n・不快と感じる投稿が表示される可能性があります\n・不快な投稿があった場合は通報ボタンを押して下さい";
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"確認" message:message
+                                                       delegate:self cancelButtonTitle:@"同意する" otherButtonTitles:nil];
+        alert.tag = kTagAlertEula;
+        ((UILabel *)[[alert subviews] objectAtIndex:1]).textAlignment = NSTextAlignmentLeft;
+        [alert show];
+    } else {
+        // いいね管理を読み込み
+        [[LikeManager sharedManager] load];
+        [[SpamManager sharedManager] load];
     }
-    
-    // いいね管理を読み込み
-    [[LikeManager sharedManager] load];
     
     return YES;
 }
@@ -44,6 +67,10 @@ void uncaughtExceptionHandler(NSException *exception)
     NSLog(@"%@", exception.name);
     NSLog(@"%@", exception.reason);
     NSLog(@"%@", exception.callStackSymbols);
+    
+    // Flurry
+    NSString *message = [NSString stringWithFormat:@"%@", [exception callStackSymbols]];
+    [Flurry logError:@"Uncaught" message:message exception:exception];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -68,6 +95,9 @@ void uncaughtExceptionHandler(NSException *exception)
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    // Flurry
+    [Flurry logEvent:kEventActiveApp];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -83,8 +113,6 @@ void uncaughtExceptionHandler(NSException *exception)
     ResponseBlock responseBlock = ^(MKNetworkOperation *op) {
         // ダイアログ非表示
         [SVProgressHUD dismiss];
-        
-        NSLog(@"response = %@", op.responseJSON);
 
         NSDictionary *dict = op.responseJSON;
         
@@ -151,6 +179,9 @@ void uncaughtExceptionHandler(NSException *exception)
     
     switch (alertView.tag) {
         case kTagAlertError:
+            [self requestRegisterUser];
+            break;
+        case kTagAlertEula:
             [self requestRegisterUser];
             break;
     }
