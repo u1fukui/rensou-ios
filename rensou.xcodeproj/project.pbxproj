@@ -19,6 +19,12 @@
 		770BF48A17DC3B7C00E9EB1D /* MKNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 770BF47E17DC3B7C00E9EB1D /* MKNetworkOperation.m */; };
 		770BF48B17DC3B7C00E9EB1D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 770BF48117DC3B7C00E9EB1D /* Reachability.m */; };
 		770BF48C17DC3C3A00E9EB1D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 779B82B417805047002DB143 /* QuartzCore.framework */; };
+		770BF49217DC40D200E9EB1D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7746571416E34AF000ACD435 /* UIKit.framework */; };
+		770BF49317DC40D200E9EB1D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7746571616E34AF000ACD435 /* Foundation.framework */; };
+		770BF49417DC40D200E9EB1D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7746571816E34AF000ACD435 /* CoreGraphics.framework */; };
+		770BF49C17DC40D200E9EB1D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 770BF49B17DC40D200E9EB1D /* main.m */; };
+		770BF4AA17DC444000E9EB1D /* Rensou.m in Sources */ = {isa = PBXBuildFile; fileRef = 776AE0D11753ABA20073351A /* Rensou.m */; };
+		770BF4B417DC459500E9EB1D /* RensouTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 770BF4B317DC459500E9EB1D /* RensouTest.m */; };
 		771A024517AEAE1E008CAEF9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77952B0316F979CD0025F785 /* SystemConfiguration.framework */; };
 		771A024617AEAEAE008CAEF9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77952B0516F979D80025F785 /* Security.framework */; };
 		771A024717AEAECA008CAEF9 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 779B8285177E82C3002DB143 /* AdSupport.framework */; };
@@ -32,11 +38,6 @@
 		7746572716E34AF000ACD435 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7746572616E34AF000ACD435 /* Default.png */; };
 		7746572916E34AF000ACD435 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7746572816E34AF000ACD435 /* Default@2x.png */; };
 		7746572B16E34AF000ACD435 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7746572A16E34AF000ACD435 /* Default-568h@2x.png */; };
-		7746573916E34AF000ACD435 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7746573816E34AF000ACD435 /* SenTestingKit.framework */; };
-		7746573A16E34AF000ACD435 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7746571416E34AF000ACD435 /* UIKit.framework */; };
-		7746573B16E34AF000ACD435 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7746571616E34AF000ACD435 /* Foundation.framework */; };
-		7746574316E34AF000ACD435 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7746574116E34AF000ACD435 /* InfoPlist.strings */; };
-		7746574616E34AF000ACD435 /* rensouTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7746574516E34AF000ACD435 /* rensouTests.m */; };
 		7746575A16E3533200ACD435 /* TopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7746575816E3533200ACD435 /* TopViewController.m */; };
 		7746575B16E3533200ACD435 /* TopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7746575916E3533200ACD435 /* TopViewController.xib */; };
 		7746575F16E3534F00ACD435 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7746575D16E3534F00ACD435 /* ResultViewController.m */; };
@@ -123,17 +124,8 @@
 		779B82A8178043EB002DB143 /* LicenseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 779B82A6178043EB002DB143 /* LicenseViewController.xib */; };
 		779B82AD17804942002DB143 /* license.html in Resources */ = {isa = PBXBuildFile; fileRef = 779B82AC17804942002DB143 /* license.html */; };
 		779B82B81781C045002DB143 /* NSString+Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = 779B82B71781C045002DB143 /* NSString+Validation.m */; };
+		E0C6AC219838474391C2136C /* libPods-GHUnit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB16338ED7BE4D11B3A062EA /* libPods-GHUnit.a */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		7746573C16E34AF000ACD435 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7746570716E34AF000ACD435 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7746570F16E34AF000ACD435;
-			remoteInfo = rensou;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		278F37C8E0A8418788AC5A04 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -157,6 +149,11 @@
 		770BF47E17DC3B7C00E9EB1D /* MKNetworkOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKNetworkOperation.m; sourceTree = "<group>"; };
 		770BF48017DC3B7C00E9EB1D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		770BF48117DC3B7C00E9EB1D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		770BF49117DC40D200E9EB1D /* GHUnit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHUnit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		770BF49717DC40D200E9EB1D /* GHUnit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GHUnit-Info.plist"; sourceTree = "<group>"; };
+		770BF49B17DC40D200E9EB1D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		770BF49D17DC40D200E9EB1D /* GHUnit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GHUnit-Prefix.pch"; sourceTree = "<group>"; };
+		770BF4B317DC459500E9EB1D /* RensouTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RensouTest.m; sourceTree = "<group>"; };
 		7721570D1759FFDD00953C2B /* RensouCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RensouCell.h; sourceTree = "<group>"; };
 		7721570E1759FFDD00953C2B /* RensouCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RensouCell.m; sourceTree = "<group>"; };
 		77215712175A2CAE00953C2B /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
@@ -174,12 +171,7 @@
 		7746572616E34AF000ACD435 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		7746572816E34AF000ACD435 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		7746572A16E34AF000ACD435 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		7746573716E34AF000ACD435 /* rensouTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rensouTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7746573816E34AF000ACD435 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		7746574016E34AF000ACD435 /* rensouTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "rensouTests-Info.plist"; sourceTree = "<group>"; };
-		7746574216E34AF000ACD435 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		7746574416E34AF000ACD435 /* rensouTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rensouTests.h; sourceTree = "<group>"; };
-		7746574516E34AF000ACD435 /* rensouTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rensouTests.m; sourceTree = "<group>"; };
 		7746575716E3533200ACD435 /* TopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopViewController.h; sourceTree = "<group>"; };
 		7746575816E3533200ACD435 /* TopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopViewController.m; sourceTree = "<group>"; };
 		7746575916E3533200ACD435 /* TopViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopViewController.xib; sourceTree = "<group>"; };
@@ -288,10 +280,23 @@
 		779B82B417805047002DB143 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		779B82B61781C045002DB143 /* NSString+Validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Validation.h"; sourceTree = "<group>"; };
 		779B82B71781C045002DB143 /* NSString+Validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Validation.m"; sourceTree = "<group>"; };
+		AB16338ED7BE4D11B3A062EA /* libPods-GHUnit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GHUnit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED1150723AC44846B22598D3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F462BC910E354AF58776090A /* Pods-GHUnit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GHUnit.xcconfig"; path = "Pods/Pods-GHUnit.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		770BF48E17DC40D200E9EB1D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				770BF49217DC40D200E9EB1D /* UIKit.framework in Frameworks */,
+				770BF49317DC40D200E9EB1D /* Foundation.framework in Frameworks */,
+				770BF49417DC40D200E9EB1D /* CoreGraphics.framework in Frameworks */,
+				E0C6AC219838474391C2136C /* libPods-GHUnit.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7746570D16E34AF000ACD435 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -309,16 +314,6 @@
 				7769487A17C6499E004982E2 /* Crashlytics.framework in Frameworks */,
 				7769488117C64E0F004982E2 /* libFlurry_4.2.3.a in Frameworks */,
 				1901DD7206B2466F83DFE070 /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7746573316E34AF000ACD435 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7746573916E34AF000ACD435 /* SenTestingKit.framework in Frameworks */,
-				7746573A16E34AF000ACD435 /* UIKit.framework in Frameworks */,
-				7746573B16E34AF000ACD435 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +363,33 @@
 			path = Reachability;
 			sourceTree = "<group>";
 		};
+		770BF49517DC40D200E9EB1D /* GHUnit */ = {
+			isa = PBXGroup;
+			children = (
+				770BF4B117DC459500E9EB1D /* api */,
+				770BF49617DC40D200E9EB1D /* Supporting Files */,
+			);
+			path = GHUnit;
+			sourceTree = "<group>";
+		};
+		770BF49617DC40D200E9EB1D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				770BF49717DC40D200E9EB1D /* GHUnit-Info.plist */,
+				770BF49B17DC40D200E9EB1D /* main.m */,
+				770BF49D17DC40D200E9EB1D /* GHUnit-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		770BF4B117DC459500E9EB1D /* api */ = {
+			isa = PBXGroup;
+			children = (
+				770BF4B317DC459500E9EB1D /* RensouTest.m */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
 		7721570C1759FF9300953C2B /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,10 +418,11 @@
 				777DF31C176313A300AAF1C3 /* icon@2x.png */,
 				777DF31A176313A000AAF1C3 /* icon.png */,
 				7746571A16E34AF000ACD435 /* rensou */,
-				7746573E16E34AF000ACD435 /* rensouTests */,
+				770BF49517DC40D200E9EB1D /* GHUnit */,
 				7746571316E34AF000ACD435 /* Frameworks */,
 				7746571116E34AF000ACD435 /* Products */,
 				278F37C8E0A8418788AC5A04 /* Pods.xcconfig */,
+				F462BC910E354AF58776090A /* Pods-GHUnit.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -407,7 +430,7 @@
 			isa = PBXGroup;
 			children = (
 				7746571016E34AF000ACD435 /* rensou.app */,
-				7746573716E34AF000ACD435 /* rensouTests.octest */,
+				770BF49117DC40D200E9EB1D /* GHUnit.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -429,6 +452,7 @@
 				7746571816E34AF000ACD435 /* CoreGraphics.framework */,
 				7746573816E34AF000ACD435 /* SenTestingKit.framework */,
 				ED1150723AC44846B22598D3 /* libPods.a */,
+				AB16338ED7BE4D11B3A062EA /* libPods-GHUnit.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -483,25 +507,6 @@
 				7746572616E34AF000ACD435 /* Default.png */,
 				7746572816E34AF000ACD435 /* Default@2x.png */,
 				7746572A16E34AF000ACD435 /* Default-568h@2x.png */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		7746573E16E34AF000ACD435 /* rensouTests */ = {
-			isa = PBXGroup;
-			children = (
-				7746574416E34AF000ACD435 /* rensouTests.h */,
-				7746574516E34AF000ACD435 /* rensouTests.m */,
-				7746573F16E34AF000ACD435 /* Supporting Files */,
-			);
-			path = rensouTests;
-			sourceTree = "<group>";
-		};
-		7746573F16E34AF000ACD435 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				7746574016E34AF000ACD435 /* rensouTests-Info.plist */,
-				7746574116E34AF000ACD435 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -679,6 +684,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		770BF49017DC40D200E9EB1D /* GHUnit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 770BF4A717DC40D200E9EB1D /* Build configuration list for PBXNativeTarget "GHUnit" */;
+			buildPhases = (
+				50EF869C7ED14096AB4D9B18 /* Check Pods Manifest.lock */,
+				770BF48D17DC40D200E9EB1D /* Sources */,
+				770BF48E17DC40D200E9EB1D /* Frameworks */,
+				770BF48F17DC40D200E9EB1D /* Resources */,
+				B30DA5AB2FD948E79E8C398A /* Copy Pods Resources */,
+				770BF4B517DC745F00E9EB1D /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GHUnit;
+			productName = GHUnit;
+			productReference = 770BF49117DC40D200E9EB1D /* GHUnit.app */;
+			productType = "com.apple.product-type.application";
+		};
 		7746570F16E34AF000ACD435 /* rensou */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7746574916E34AF000ACD435 /* Build configuration list for PBXNativeTarget "rensou" */;
@@ -698,25 +723,6 @@
 			productName = rensou;
 			productReference = 7746571016E34AF000ACD435 /* rensou.app */;
 			productType = "com.apple.product-type.application";
-		};
-		7746573616E34AF000ACD435 /* rensouTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7746574C16E34AF000ACD435 /* Build configuration list for PBXNativeTarget "rensouTests" */;
-			buildPhases = (
-				7746573216E34AF000ACD435 /* Sources */,
-				7746573316E34AF000ACD435 /* Frameworks */,
-				7746573416E34AF000ACD435 /* Resources */,
-				7746573516E34AF000ACD435 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7746573D16E34AF000ACD435 /* PBXTargetDependency */,
-			);
-			name = rensouTests;
-			productName = rensouTests;
-			productReference = 7746573716E34AF000ACD435 /* rensouTests.octest */;
-			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -740,12 +746,19 @@
 			projectRoot = "";
 			targets = (
 				7746570F16E34AF000ACD435 /* rensou */,
-				7746573616E34AF000ACD435 /* rensouTests */,
+				770BF49017DC40D200E9EB1D /* GHUnit */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		770BF48F17DC40D200E9EB1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7746570E16E34AF000ACD435 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -823,18 +836,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7746573416E34AF000ACD435 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7746574316E34AF000ACD435 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7746573516E34AF000ACD435 /* ShellScript */ = {
+		50EF869C7ED14096AB4D9B18 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		770BF4B517DC745F00E9EB1D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -845,7 +865,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+			shellScript = "sh RunTests.sh";
 		};
 		7769487817C64884004982E2 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -875,6 +895,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		B30DA5AB2FD948E79E8C398A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-GHUnit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D1903D4AF2904D299ABDA61D /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -893,6 +928,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		770BF48D17DC40D200E9EB1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				770BF49C17DC40D200E9EB1D /* main.m in Sources */,
+				770BF4AA17DC444000E9EB1D /* Rensou.m in Sources */,
+				770BF4B417DC459500E9EB1D /* RensouTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7746570C16E34AF000ACD435 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -928,23 +973,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7746573216E34AF000ACD435 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7746574616E34AF000ACD435 /* rensouTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		7746573D16E34AF000ACD435 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7746570F16E34AF000ACD435 /* rensou */;
-			targetProxy = 7746573C16E34AF000ACD435 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7746571D16E34AF000ACD435 /* InfoPlist.strings */ = {
@@ -955,17 +984,53 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		7746574116E34AF000ACD435 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7746574216E34AF000ACD435 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		770BF4A817DC40D200E9EB1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F462BC910E354AF58776090A /* Pods-GHUnit.xcconfig */;
+			buildSettings = {
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GHUnit/GHUnit-Prefix.pch";
+				INFOPLIST_FILE = "GHUnit/GHUnit-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"$(inherited)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		770BF4A917DC40D200E9EB1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F462BC910E354AF58776090A /* Pods-GHUnit.xcconfig */;
+			buildSettings = {
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GHUnit/GHUnit-Prefix.pch";
+				INFOPLIST_FILE = "GHUnit/GHUnit-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"$(inherited)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		7746574716E34AF000ACD435 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1071,48 +1136,18 @@
 			};
 			name = Release;
 		};
-		7746574D16E34AF000ACD435 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/rensou.app/rensou";
-				CODE_SIGN_IDENTITY = "iPhone Developer: YUICHI KOBAYASHI (3XD53HY7MU)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "rensou/rensou-Prefix.pch";
-				INFOPLIST_FILE = "rensouTests/rensouTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3DE11634-C784-46B6-83F1-472C4E5B1D5D";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		7746574E16E34AF000ACD435 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/rensou.app/rensou";
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "rensou/rensou-Prefix.pch";
-				INFOPLIST_FILE = "rensouTests/rensouTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		770BF4A717DC40D200E9EB1D /* Build configuration list for PBXNativeTarget "GHUnit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				770BF4A817DC40D200E9EB1D /* Debug */,
+				770BF4A917DC40D200E9EB1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7746570A16E34AF000ACD435 /* Build configuration list for PBXProject "rensou" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1127,15 +1162,6 @@
 			buildConfigurations = (
 				7746574A16E34AF000ACD435 /* Debug */,
 				7746574B16E34AF000ACD435 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7746574C16E34AF000ACD435 /* Build configuration list for PBXNativeTarget "rensouTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7746574D16E34AF000ACD435 /* Debug */,
-				7746574E16E34AF000ACD435 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
