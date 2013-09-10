@@ -24,22 +24,12 @@
 #import "ResultViewController.h"
 #import "RankingViewController.h"
 #import <QuartzCore/QuartzCore.h>
-
-// api
 #import "RensouNetworkEngine.h"
 #import "Rensou.h"
-
-// view
 #import "RensouCell.h"
-
-// lib
 #import "SVProgressHUD.h"
 #import "Flurry.h"
-
-// util
 #import "UIColor+Hex.h"
-
-// other
 #import "InfoPlistProperty.h"
 #import "LikeManager.h"
 #import "SpamManager.h"

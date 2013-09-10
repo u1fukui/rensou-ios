@@ -23,13 +23,8 @@
 
 #import "RankingViewController.h"
 #import "InfoPlistProperty.h"
-
-// view
 #import "RankingCell.h"
-
-// util
 #import "UIColor+Hex.h"
-
 
 @interface RankingViewController ()
 

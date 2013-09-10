@@ -24,20 +24,12 @@
 #import "TopViewController.h"
 #import "ResultViewController.h"
 #import "AppInfoViewController.h"
-
-// lib
 #import "SVProgressHUD.h"
 #import "Flurry.h"
-
-// net
 #import "RensouNetworkEngine.h"
 #import "Rensou.h"
-
-// util
 #import "UIColor+Hex.h"
 #import "NSString+Validation.h"
-
-// other
 #import "AppDelegate.h"
 #import "RSNotification.h"
 #import "InfoPlistProperty.h"

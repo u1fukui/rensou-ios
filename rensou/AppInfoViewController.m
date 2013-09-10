@@ -24,13 +24,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import "AppInfoViewController.h"
 #import "LicenseViewController.h"
-
-// util
 #import "UIColor+Hex.h"
-
-// other
 #import "InfoPlistProperty.h"
-
 
 @interface AppInfoViewController ()
 
