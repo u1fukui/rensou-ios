@@ -25,9 +25,25 @@
 
 @class Rensou;
 
+/**
+ * 連想ランキングを表示するCell
+ */
 @interface RankingCell : UITableViewCell
 
-- (void)setRensou:(Rensou *)rensou index:(int)index;
+/**
+ * Cellの高さを取得
+ *
+ * @return Cellの高さ
+ */
 + (CGFloat)cellHeight;
+
+
+/**
+ * Cellに連想をセット
+ *
+ * @param rensou 表示する連想
+ * @param index UITableに対するこのCellの順番
+ */
+- (void)setRensou:(Rensou *)rensou index:(int)index;
 
 @end

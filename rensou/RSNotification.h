@@ -23,8 +23,12 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ * アプリ内Notificationを管理する
+ */
 @interface RSNotification : NSObject
 
+/// アプリアクティブ時
 extern NSString * const RSWillEnterForegroundNotification;
 
 @end

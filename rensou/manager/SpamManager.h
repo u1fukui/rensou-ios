@@ -23,20 +23,39 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ * どの連想に対して通報したかを管理する
+ */
 @interface SpamManager : NSObject
 
+/**
+ * シングルトンインスタンスを取得
+ *
+ * @return シングルトンインスタンス
+ */
 + (SpamManager *)sharedManager;
 
-// 指定したidの連想を通報する
+
+/**
+ * 指定したidの連想を通報する
+ *
+ * @param rensouId 連想ID
+ */
 - (void)spamRensou:(int)rensouId;
 
-// 指定したidの連想への通報を解除する
-- (void)unspamRensou:(int)rensouId;
 
-// 指定したidの通知を通報した状態か？
+/**
+ * 指定したidの連想が通報済みかを取得
+ *
+ * @param rensouId 連想Id
+ * @return いいね！済みならYES
+ */
 - (BOOL)isSpamed:(int)rensouId;
 
-// 読み込み
+
+/**
+ *  ディスクに保存した通報管理情報を読み込む
+ */
 - (void)load;
 
 @end

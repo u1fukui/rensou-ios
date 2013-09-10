@@ -23,12 +23,26 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ * 文字列を検証する
+ */
 @interface NSString (Validation)
 
-// 引数が絵文字ならYES
+/**
+ * 文字列が絵文字かを判定
+ *
+ * @param string 検証する文字列
+ * @return 絵文字ならYES
+ */
 + (BOOL)isEmoji:(NSString *)string;
 
-// 引数が空白ならYES
+
+/**
+ * 文字列が空文字、もしくは空白かを判定
+ *
+ * @param string 検証する文字列
+ * @return から文字、もしくは空白ならYES
+ */
 + (BOOL)isBlank:(NSString *)string;
 
 @end

@@ -23,16 +23,30 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ * rensou-Info.plist のプロパティ設定項目名
+ */
 @interface InfoPlistProperty : NSObject
 
-// rensou-Info.plist のプロパティ設定項目名
-
+/// APIリクエストを送る先のホスト名
 extern NSString * const kServerHostName;
+
+/// アプリのバージョン番号
 extern NSString * const kBundleVersion;
+
+/// 問い合わせ先メールアドレス
 extern NSString * const kSupportEmailAddress;
+
+/// Nend ID
 extern NSString * const kNendId;
+
+/// Nend Spot ID
 extern NSString * const kNendSpotId;
+
+/// Flurry API Key
 extern NSString * const kFlurryApiKey;
+
+/// Crashlytics API Key
 extern NSString * const kCrashlyticsApiKey;
 
 @end

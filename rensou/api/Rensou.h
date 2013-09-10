@@ -23,14 +23,32 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ * サーバからのAPIレスポンスに含まれるRensouオブジェクト
+ */
 @interface Rensou : NSObject
 
+/// 一意に指定できるID
 @property int rensouId;
+
+/// 連想ワードに対していいね！された回数
 @property int likeCount;
-@property NSString *keyword;
+
+/// 連想のお題となるワード
 @property NSString *oldKeyword;
+
+/// お題に対して連想したワード
+@property NSString *keyword;
+
+/// 連想を投稿した日時
 @property NSString *createdAt;
 
+/**
+ * JSON形式のrensouから、rensouオブジェクトを生成する
+ *
+ * @param dict NSDictionary形式のrensou
+ * @return インスタンス
+ */
 - (id)initWithDictionary:(NSDictionary *) dict;
 
 @end

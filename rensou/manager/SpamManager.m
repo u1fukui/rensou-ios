@@ -66,15 +66,6 @@ static SpamManager *_sharedInstance = nil;
     [self save];
 }
 
-// 指定したidの連想への通報を解除する
-- (void)unspamRensou:(int)rensouId
-{
-    [self.spamRensouIdSet removeObject:[NSString stringWithFormat:@"%d", rensouId]];
-    
-    // 既読状態をディスクに保存
-    [self save];
-}
-
 // 指定したidが通報済みか
 - (BOOL)isSpamed:(int)rensouId
 {

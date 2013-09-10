@@ -29,9 +29,12 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
 @property (nonatomic,retain) UINavigationController* rootController;
+
 @property (strong, nonatomic) TopViewController *viewController;
 
+/// アプリを利用するユーザのID
 @property (strong, nonatomic) NSString *userId;
 
 @end

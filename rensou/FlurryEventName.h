@@ -23,14 +23,30 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ * FlurryAnalyticsで使用するイベント名
+ */
 @interface FlurryEventName : NSObject
 
+/// アプリ起動
 extern NSString * const kEventLaunchApp;
+
+/// アプリアクティブ
 extern NSString * const kEventActiveApp;
+
+/// 連想ワードの投稿
 extern NSString * const kEventPost;
+
+/// 連想の通報
 extern NSString * const kEventSpam;
+
+/// 連想のいいね！
 extern NSString * const kEventLike;
+
+/// 連想ランキング画面を表示
 extern NSString * const kEventRanking;
+
+/// アプリ情報画面を表示
 extern NSString * const kEventInfo;
 
 @end

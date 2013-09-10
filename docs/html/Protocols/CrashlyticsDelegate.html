@@ -1,0 +1,386 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>CrashlyticsDelegate Protocol Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">rensou </a></h1>
+				<a id="developerHome" href="../index.html">YuichiKobayashi</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">CrashlyticsDelegate Protocol Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/crashlytics:didDetectCrashDuringPreviousExecution:">&nbsp;&nbsp;&nbsp;&nbsp;- crashlytics:didDetectCrashDuringPreviousExecution:</option>
+	
+	<option value="//api/name/crashlyticsDidDetectCrashDuringPreviousExecution:">&nbsp;&nbsp;&nbsp;&nbsp;- crashlyticsDidDetectCrashDuringPreviousExecution:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/crashlytics:didDetectCrashDuringPreviousExecution:">crashlytics:didDetectCrashDuringPreviousExecution:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/crashlyticsDidDetectCrashDuringPreviousExecution:">crashlyticsDidDetectCrashDuringPreviousExecution:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="CrashlyticsDelegate Protocol Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">CrashlyticsDelegate Protocol Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">Crashlytics.h</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>The CrashlyticsDelegate protocol provides a mechanism for your application to take
+action on events that occur in the <a href="../Classes/Crashlytics.html">Crashlytics</a> crash reporting system.  You can make
+use of these calls by assigning an object to the Crashlytics' delegate property directly,
+or through the convenience startWithAPIKey:delegate:&hellip; methods.</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/crashlyticsDidDetectCrashDuringPreviousExecution:">&ndash;&nbsp;crashlyticsDidDetectCrashDuringPreviousExecution:</a></code>
+		<span class="tooltip"><p>Called once a <a href="../Classes/Crashlytics.html">Crashlytics</a> instance has determined that the last execution of the
+application ended in a crash.  This is called some time after the crash reporting
+process has begun.  If you have specified a delay in one of the
+startWithAPIKey:&hellip; calls, this will take at least that long to be invoked.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/crashlytics:didDetectCrashDuringPreviousExecution:">&ndash;&nbsp;crashlytics:didDetectCrashDuringPreviousExecution:</a></code>
+		<span class="tooltip"><p>Just like crashlyticsDidDetectCrashDuringPreviousExecution this delegate method is
+called once a <a href="../Classes/Crashlytics.html">Crashlytics</a> instance has determined that the last execution of the
+application ended in a crash. A <a href="../Protocols/CLSCrashReport.html">CLSCrashReport</a> is passed back that contains data about
+the last crash report that was generated. See the <a href="../Protocols/CLSCrashReport.html">CLSCrashReport</a> protocol for method details.
+This method is called after crashlyticsDidDetectCrashDuringPreviousExecution.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/crashlytics:didDetectCrashDuringPreviousExecution:" title="crashlytics:didDetectCrashDuringPreviousExecution:"></a>
+	<h3 class="subsubtitle method-title">crashlytics:didDetectCrashDuringPreviousExecution:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Just like crashlyticsDidDetectCrashDuringPreviousExecution this delegate method is
+called once a <a href="../Classes/Crashlytics.html">Crashlytics</a> instance has determined that the last execution of the
+application ended in a crash. A <a href="../Protocols/CLSCrashReport.html">CLSCrashReport</a> is passed back that contains data about
+the last crash report that was generated. See the <a href="../Protocols/CLSCrashReport.html">CLSCrashReport</a> protocol for method details.
+This method is called after crashlyticsDidDetectCrashDuringPreviousExecution.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)crashlytics:(Crashlytics *)<em>crashlytics</em> didDetectCrashDuringPreviousExecution:(id&lt;CLSCrashReport&gt;)<em>crash</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Just like crashlyticsDidDetectCrashDuringPreviousExecution this delegate method is
+called once a <a href="../Classes/Crashlytics.html">Crashlytics</a> instance has determined that the last execution of the
+application ended in a crash. A <a href="../Protocols/CLSCrashReport.html">CLSCrashReport</a> is passed back that contains data about
+the last crash report that was generated. See the <a href="../Protocols/CLSCrashReport.html">CLSCrashReport</a> protocol for method details.
+This method is called after crashlyticsDidDetectCrashDuringPreviousExecution.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Crashlytics.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/crashlyticsDidDetectCrashDuringPreviousExecution:" title="crashlyticsDidDetectCrashDuringPreviousExecution:"></a>
+	<h3 class="subsubtitle method-title">crashlyticsDidDetectCrashDuringPreviousExecution:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called once a <a href="../Classes/Crashlytics.html">Crashlytics</a> instance has determined that the last execution of the
+application ended in a crash.  This is called some time after the crash reporting
+process has begun.  If you have specified a delay in one of the
+startWithAPIKey:&hellip; calls, this will take at least that long to be invoked.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)crashlyticsDidDetectCrashDuringPreviousExecution:(Crashlytics *)<em>crashlytics</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Called once a <a href="../Classes/Crashlytics.html">Crashlytics</a> instance has determined that the last execution of the
+application ended in a crash.  This is called some time after the crash reporting
+process has begun.  If you have specified a delay in one of the
+startWithAPIKey:&hellip; calls, this will take at least that long to be invoked.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Crashlytics.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 YuichiKobayashi. All rights reserved. (Last updated: 2013-09-11)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

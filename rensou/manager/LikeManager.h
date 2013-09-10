@@ -23,20 +23,47 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ * どの連想に対していいね！したかを管理する
+ */
 @interface LikeManager : NSObject
 
+/**
+ * シングルトンインスタンスを取得
+ *
+ * @return シングルトンインスタンス
+ */
 + (LikeManager *)sharedManager;
 
-// 指定したidの連想をいいね！する
+
+/**
+ * 指定したidの連想をいいね！する
+ *
+ * @param rensouId 連想ID
+ */
 - (void)likeRensou:(int)rensouId;
 
-// 指定したidの連想へのいいね！を解除する
+
+/**
+ * 指定したidの連想へのいいね！を解除する
+ *
+ * @param rensouId 連想ID
+ */
 - (void)unlikeRensou:(int)rensouId;
 
-// 指定したidの通知が既読状態か？
+
+/**
+ * 指定したidの連想がいいね！済みかを取得
+ *
+ * @param rensouId 連想Id
+ * @return いいね！済みならYES
+ */
 - (BOOL)isLiked:(int)rensouId;
 
-// 読み込み
+
+/**
+ *  ディスクに保存したいいね！管理情報を読み込む
+ */
 - (void)load;
 
 @end

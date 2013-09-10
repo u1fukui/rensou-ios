@@ -24,9 +24,16 @@
 #import <UIKit/UIKit.h>
 #import "NADView.h"
 
+/**
+ * 今までの連想履歴を表示する画面
+ */
 @interface ResultViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, NADViewDelegate>
 
+/**
+ * 表示する連想リストをセットする
+ *
+ * @param rensouArray 表示する連想の配列
+ */
 - (void)setResultRensouArray:(NSMutableArray *)rensouArray;
-
 
 @end

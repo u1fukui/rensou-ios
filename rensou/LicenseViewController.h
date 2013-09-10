@@ -23,6 +23,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ * ライセンス情報画面
+ */
 @interface LicenseViewController : UIViewController
 
 @end

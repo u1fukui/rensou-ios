@@ -24,6 +24,9 @@
 #import <UIKit/UIKit.h>
 #import "NADView.h"
 
+/**
+ * アプリ情報画面
+ */
 @interface AppInfoViewController : UIViewController<NADViewDelegate>
 
 @end

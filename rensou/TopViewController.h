@@ -24,6 +24,9 @@
 #import <UIKit/UIKit.h>
 #import "NADView.h"
 
+/**
+ * お題となる連想ワードを表示する画面
+ */
 @interface TopViewController : UIViewController <UITextFieldDelegate, NADViewDelegate>
 
 @end

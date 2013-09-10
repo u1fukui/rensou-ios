@@ -1,0 +1,614 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>Crashlytics Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">rensou </a></h1>
+				<a id="developerHome" href="../index.html">YuichiKobayashi</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">Crashlytics Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/sharedInstance">&nbsp;&nbsp;&nbsp;&nbsp;+ sharedInstance</option>
+	
+	<option value="//api/name/startWithAPIKey:">&nbsp;&nbsp;&nbsp;&nbsp;+ startWithAPIKey:</option>
+	
+	<option value="//api/name/startWithAPIKey:delegate:">&nbsp;&nbsp;&nbsp;&nbsp;+ startWithAPIKey:delegate:</option>
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/crash">&nbsp;&nbsp;&nbsp;&nbsp;- crash</option>
+	
+	<option value="//api/name/setObjectValue:forKey:">&nbsp;&nbsp;&nbsp;&nbsp;- setObjectValue:forKey:</option>
+	
+	<option value="//api/name/setUserIdentifier:">&nbsp;&nbsp;&nbsp;&nbsp;- setUserIdentifier:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sharedInstance">sharedInstance</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/startWithAPIKey:">startWithAPIKey:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/startWithAPIKey:delegate:">startWithAPIKey:delegate:</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/crash">crash</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setObjectValue:forKey:">setObjectValue:forKey:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setUserIdentifier:">setUserIdentifier:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="Crashlytics Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">Crashlytics Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">Crashlytics.h</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>Add logging that will be sent with your <a href="#//api/name/crash">crash</a> data. This logging will show up in the system.log
+and your Crashlytics dashboard. It is not recommended for Release builds.</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/startWithAPIKey:">+&nbsp;startWithAPIKey:</a></code>
+		<span class="tooltip"><p>The recommended way to install Crashlytics into your application is to place a call
+to +startWithAPIKey: in your -application:didFinishLaunchingWithOptions: method.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/startWithAPIKey:delegate:">+&nbsp;startWithAPIKey:delegate:</a></code>
+		<span class="tooltip"><p>If you need the functionality provided by the <a href="../Protocols/CrashlyticsDelegate.html">CrashlyticsDelegate</a> protocol, you can use
+these convenience methods to activate the framework and set the delegate in one call.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sharedInstance">+&nbsp;sharedInstance</a></code>
+		<span class="tooltip"><p>Access the singleton Crashlytics instance.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/crash">&ndash;&nbsp;crash</a></code>
+		<span class="tooltip"><p>The easiest way to cause a crash &ndash; great for testing!</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setUserIdentifier:">&ndash;&nbsp;setUserIdentifier:</a></code>
+		<span class="tooltip"><p>Many of our customers have requested the ability to tie crashes to specific end-users of their
+application in order to facilitate responses to support requests or permit the ability to reach
+out for more information. We allow you to specify up to three separate values for display within
+the Crashlytics UI &ndash; but please be mindful of your end-user&rsquo;s privacy.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setObjectValue:forKey:">&ndash;&nbsp;setObjectValue:forKey:</a></code>
+		<span class="tooltip"><p>Set a value for a key to be associated with your <a href="#//api/name/crash">crash</a> data.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/sharedInstance" title="sharedInstance"></a>
+	<h3 class="subsubtitle method-title">sharedInstance</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Access the singleton Crashlytics instance.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (Crashlytics *)sharedInstance</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Access the singleton Crashlytics instance.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Crashlytics.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/startWithAPIKey:" title="startWithAPIKey:"></a>
+	<h3 class="subsubtitle method-title">startWithAPIKey:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The recommended way to install Crashlytics into your application is to place a call
+to +startWithAPIKey: in your -application:didFinishLaunchingWithOptions: method.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (Crashlytics *)startWithAPIKey:(NSString *)<em>apiKey</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The recommended way to install Crashlytics into your application is to place a call
+to +startWithAPIKey: in your -application:didFinishLaunchingWithOptions: method.</p>
+
+<p>This delay defaults to 1 second in order to generally give the application time to
+fully finish launching.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Crashlytics.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/startWithAPIKey:delegate:" title="startWithAPIKey:delegate:"></a>
+	<h3 class="subsubtitle method-title">startWithAPIKey:delegate:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>If you need the functionality provided by the <a href="../Protocols/CrashlyticsDelegate.html">CrashlyticsDelegate</a> protocol, you can use
+these convenience methods to activate the framework and set the delegate in one call.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (Crashlytics *)startWithAPIKey:(NSString *)<em>apiKey</em> delegate:(NSObject&lt;CrashlyticsDelegate&gt; *)<em>delegate</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>If you need the functionality provided by the <a href="../Protocols/CrashlyticsDelegate.html">CrashlyticsDelegate</a> protocol, you can use
+these convenience methods to activate the framework and set the delegate in one call.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Crashlytics.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/crash" title="crash"></a>
+	<h3 class="subsubtitle method-title">crash</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The easiest way to cause a crash &ndash; great for testing!</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)crash</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The easiest way to cause a crash &ndash; great for testing!</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Crashlytics.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setObjectValue:forKey:" title="setObjectValue:forKey:"></a>
+	<h3 class="subsubtitle method-title">setObjectValue:forKey:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Set a value for a key to be associated with your <a href="#//api/name/crash">crash</a> data.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)setObjectValue:(id)<em>value</em> forKey:(NSString *)<em>key</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Set a value for a key to be associated with your <a href="#//api/name/crash">crash</a> data.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Crashlytics.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setUserIdentifier:" title="setUserIdentifier:"></a>
+	<h3 class="subsubtitle method-title">setUserIdentifier:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Many of our customers have requested the ability to tie crashes to specific end-users of their
+application in order to facilitate responses to support requests or permit the ability to reach
+out for more information. We allow you to specify up to three separate values for display within
+the Crashlytics UI &ndash; but please be mindful of your end-user&rsquo;s privacy.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)setUserIdentifier:(NSString *)<em>identifier</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Many of our customers have requested the ability to tie crashes to specific end-users of their
+application in order to facilitate responses to support requests or permit the ability to reach
+out for more information. We allow you to specify up to three separate values for display within
+the Crashlytics UI &ndash; but please be mindful of your end-user&rsquo;s privacy.</p>
+
+<p>We recommend specifying a user identifier &ndash; an arbitrary string that ties an end-user to a record
+in your system. This could be a database id, hash, or other value that is meaningless to a
+third-party observer but can be indexed and queried by you.</p>
+
+<p>Optionally, you may also specify the end-user&rsquo;s name or username, as well as email address if you
+do not have a system that works well with obscured identifiers.</p>
+
+<p>Pursuant to our EULA, this data is transferred securely throughout our system and we will not
+disseminate end-user data unless required to by law. That said, if you choose to provide end-user
+contact information, we strongly recommend that you disclose this in your application&rsquo;s privacy
+policy. Data privacy is of our utmost concern.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">Crashlytics.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 YuichiKobayashi. All rights reserved. (Last updated: 2013-09-11)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

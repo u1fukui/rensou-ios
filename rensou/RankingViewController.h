@@ -24,6 +24,9 @@
 #import <UIKit/UIKit.h>
 #import "NADView.h"
 
+/**
+ * 連想ランキング画面
+ */
 @interface RankingViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, NADViewDelegate>
 
 - (void)setRankingRensouArray:(NSArray *)rensouArray;
