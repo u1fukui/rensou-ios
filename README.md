@@ -8,7 +8,7 @@ iOSアプリ「連想げーむ」のアプリ側コードです。
 
 実行方法
 ----------
-1. [サーバ側](https://github.com/u1fukui/rensou-ios) のセットアップをして、Sinatraアプリを起動して下さい。
+1. [サーバ側](https://github.com/u1fukui/rensou-server) のセットアップをして、Sinatraアプリを起動して下さい。
 2.  CocoaPods を使用しているので、CocoaPodsの導入と pod install の実行をして下さい。
 （参考：[https://github.com/mixi-inc/iOSTraining/wiki/10.2-CocoaPods](https://github.com/mixi-inc/iOSTraining/wiki/10.2-CocoaPods)）
 3. rensou-Info.plist の "ServerHostName" に 起動したSinatraへのURLを、"SupportEmailAddress" に適当な文字列を入力して下さい。
