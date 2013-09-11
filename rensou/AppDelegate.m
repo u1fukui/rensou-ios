@@ -52,11 +52,18 @@ const int kTagAlertEula = 2;
     
     // Flurry
     [Flurry setSecureTransportEnabled:YES];
-    [Flurry startSession:[[[NSBundle mainBundle] infoDictionary] objectForKey:kFlurryApiKey]];
+    
+    NSString *flurryKey = [[[NSBundle mainBundle] infoDictionary] objectForKey:kFlurryApiKey];
+    if (flurryKey.length > 0) {
+        [Flurry startSession:flurryKey];
+    }
     [Flurry logEvent:kEventLaunchApp];
     
     // Crashlytics
-    [Crashlytics startWithAPIKey:[[[NSBundle mainBundle] infoDictionary] objectForKey:kCrashlyticsApiKey]];
+    NSString *crashlyticsKey = [[[NSBundle mainBundle] infoDictionary] objectForKey:kCrashlyticsApiKey];
+    if (crashlyticsKey.length > 0) {
+        [Crashlytics startWithAPIKey:crashlyticsKey];
+    }
     
     // ユーザ管理
     [self load];
