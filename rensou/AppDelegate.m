@@ -73,7 +73,14 @@ const int kTagAlertEula = 2;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"確認" message:message
                                                        delegate:self cancelButtonTitle:@"同意する" otherButtonTitles:nil];
         alert.tag = kTagAlertEula;
-        ((UILabel *)[[alert subviews] objectAtIndex:1]).textAlignment = NSTextAlignmentLeft;
+        
+        // ios7では効かない…。
+        for( NSObject *obj in [alert subviews] ) {
+            if( [obj isKindOfClass:[UILabel class]] ) {
+                ((UILabel *)obj).textAlignment = NSTextAlignmentLeft;
+            }
+        }
+        
         [alert show];
     } else {
         // いいね管理を読み込み
