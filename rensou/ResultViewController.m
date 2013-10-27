@@ -194,12 +194,12 @@ const int kTagAlertSpam = 1;
         
         // いいね
         [cell.likeButton addTarget:self
-                            action:@selector(onClickLikeButton:)
+                            action:@selector(onClickLikeButton:event:)
                   forControlEvents:UIControlEventTouchUpInside];
         
         // 通報
         [cell.spamButton addTarget:self
-                            action:@selector(onClickSpamButton:)
+                            action:@selector(onClickSpamButton:event:)
                   forControlEvents:UIControlEventTouchUpInside];
     }
     
@@ -239,7 +239,15 @@ const int kTagAlertSpam = 1;
     }
 }
 
-- (void)onClickLikeButton:(UIButton *)button
+// UIControlEventからタッチ位置のindexPathを取得する
+- (NSIndexPath *)indexPathForControlEvent:(UIEvent *)event {
+    UITouch *touch = [[event allTouches] anyObject];
+    CGPoint p = [touch locationInView:self.resultTableView];
+    return [self.resultTableView indexPathForRowAtPoint:p];
+}
+
+// いいねボタンをタップ
+- (void)onClickLikeButton:(UIButton *)button event:(UIEvent *)event
 {
     // 通信中なら何もしない
     if (self.isConnecting) {
@@ -250,9 +258,9 @@ const int kTagAlertSpam = 1;
     [Flurry logEvent:kEventLike];
     
     // タップした連想を取得
-    RensouCell *cell = (RensouCell *)[button superview];
-    int row = [self.resultTableView indexPathForCell:cell].row;
-    Rensou *rensou = [self.rensouArray objectAtIndex:row];
+    NSIndexPath *indexPath = [self indexPathForControlEvent:event];
+    Rensou *rensou = [self.rensouArray objectAtIndex:indexPath.row];
+    RensouCell *cell = (RensouCell *)[self.resultTableView cellForRowAtIndexPath:indexPath];
     
     // いいね！済みかどうかで処理が変わる
     BOOL isLiked = [[LikeManager sharedManager] isLiked:rensou.rensouId];
@@ -318,8 +326,8 @@ const int kTagAlertSpam = 1;
                                         errorHandler:errorBlock];
 }
 
-
-- (void)onClickSpamButton:(UIButton *)button
+// 通報ボタンをタップ
+- (void)onClickSpamButton:(UIButton *)button event:(UIEvent *)event
 {
     NSLog(@"%s", __func__);
     
@@ -328,8 +336,9 @@ const int kTagAlertSpam = 1;
         return;
     }
     
-    //
-    self.clickedCell = (RensouCell *)[button superview];
+    // タップした連想を取得
+    NSIndexPath *indexPath = [self indexPathForControlEvent:event];
+    self.clickedCell = (RensouCell *)[self.resultTableView cellForRowAtIndexPath:indexPath];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"確認" message:@"この投稿を通報します。よろしいですか？"
                               delegate:self cancelButtonTitle:@"キャンセル" otherButtonTitles:@"OK", nil];
@@ -345,6 +354,7 @@ const int kTagAlertSpam = 1;
         NSLog(@"success");
         [[SpamManager sharedManager] spamRensou:rensouId];
         self.isConnecting = NO;
+        [self.resultTableView reloadData];
         
         // Flurry
         [Flurry logEvent:kEventSpam];
@@ -429,14 +439,6 @@ const int kTagAlertSpam = 1;
             NSIndexPath *indexPath = [self.resultTableView indexPathForCell:self.clickedCell];
             Rensou *rensou = [self.rensouArray objectAtIndex:indexPath.row];
             [self spamRensou:self.clickedCell rensouId:rensou.rensouId];
-            
-            NSLog(@"indexPath = %@", indexPath);
-            
-            // テーブルから削除
-            [self.rensouArray removeObjectAtIndex:indexPath.row];
-            [self.resultTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                                        withRowAnimation:YES];
-            [self.resultTableView reloadData];
         }
     }
 }
